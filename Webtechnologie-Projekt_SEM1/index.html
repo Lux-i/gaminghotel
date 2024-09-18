@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Göppel & Göppel Hotels</title>
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/impressum.css">
+</head>
+<body id="impressum">
+    <header class="ghostwhite" id="header">
+        <section id="logo">
+            <h1 id="title">Göppel & Göppel Hotels</h1>
+            <p id="jahrgang"> seit 2024 </p>
+        </section>
+    </header>
+    <nav class="ghostwhite">
+        <a class="navlink" href="index.html">Impressum</a>
+        <a class="navlink" href="HTML/hilfe.html">Hilfe</a>
+    </nav>
+    <!--
+    TO BE DELETED BEFORE BUILD OR ANY PUBLICATION
+    INTERNAL ONLY COMMENT
+    --------------------------------
+    Following changes have been made so far:
+    Deleted <br>'s (breaklines) that were used to split data-groups.
+    Changed <br>'s to "data-splitter"-class sections for better consistency.
+    In need of specific distances between the impress-data-groups, specific classes would probably be in our favor;
+
+    Added a special Section to avoid possible legal troubles.
+    In specific to distance this project from any commercial activity by "Lucjan Lubomski" and his business.
+    And to classify it as a school project, to mitigate any possible issues;
+
+    Added more information in the third data-group.
+    Affected fields: <ID: "fn"> | <ID: "fng">;
+
+    Added <br>'s in the <ID: "addr"> field to match international standards in displaying addresses for such cases;
+
+    Certain changes to the css of <nav> and <.navlink> to give a more clean look.
+    And to display the background-change oh hover correctly.
+    To display correctly, the padding of the <nav> element on the y-axis has been removed.
+    This was done to give the <.navlink> element it's space, as it is now the element with padding.
+    Why? The padded area still counts as the area of the object, where the background-color is then also applied.
+    Whereas for example margin does not count to the object, it simply blocks other content.
+    Together with this change, margin was removed from the <.navlink> elements.
+    This was done so they are connected, as seen when hovering between them.
+    To get back the effects an extended padding has been set for the left side of the <nav> element;
+
+    The background when hovering over any <.navlink> element does not feel perfect yet.
+    Maybe perform same small adjustments on the color-mix().
+    As decreasing or increasing the amount of black's percent, or a color change;
+
+    !!VERY IMPORTANT!! FOLLOWING CHANGES TO BE MADE AFTER DESIGNING AND PRODUCTION AND BEFORE RELEASE 
+    Change the attribute "background-color" from <main.css >> body> to ghostwhite.
+    Add the class "ghostwhite" to the body element.
+    Remove the class ghostwhite from other elements, they will be obsolete;
+    -->
+    <main class="ghostwhite" id="main">
+        <article id="impress-data-field">
+            <h2 id="page-title">Impressum</h2>
+            <section class="data-splitter">
+                <p class="impress-data" id="hotelname">Göppel & Göppel Wien</p>
+                <p class="impress-data" id="name">Göppel & Göppel Hotels GmbH</p>
+                <p class="impress-data" id="addr">326 W Chestnut St<br> Tampa, Florida 33607<br> USA</p>
+            </section>
+            <section class="data-splitter">
+                <p class="impress-data" id="mail">E-Mail: if24b041@technikum-wien.at</p>
+                <p class="impress-data" id="telefon">Hölle er gibt meine nummer an Tel. +43 6763470022</p>
+            </section>
+            <section class="data-splitter">
+                <p class="impress-data" id="mitgliedschaften">Wirtschaftskammer Wien</p>
+                <p class="impress-data" id="uid">UID-Nr: ATU69205734</p>
+                <p class="impress-data" id="fn">Firmenbuchnummer: FN 123456a</p>
+                <p class="impress-data" id="fng">Handelsgericht Florida</p>
+                <p class="impress-data" id="gegenstand">Hotelbetreibung</p>
+            </section>
+            <section class="data-splitter">
+                <p class="impress-data" id="recht">Berufsrecht:<br>Gewerbeordnung: www.ris.bka.gv.at</p>
+                <p class="impress-data" id="behörte">Wiener Magistratsamt</p>
+            </section>
+            <section class="data-splitter">
+                <h3 id="mb_title">Unsere Mitarbeiter</h3>
+                <section class="mitarbeitende">
+                    <section class="mitarbeiter">
+                        <img class="impress-data mb_picture" src="Public/Images/Luxor_ESVÖ.jpg">
+                        <p class="impress-data mb_name">Lucjan Lubomski</p>
+                    </section>
+                    <section class="mitarbeiter">
+                        <img class="impress-data mb_picture" src="Public/Images/IMG-20230514-WA0019.jpg">
+                        <p class="impress-data mb_name">Kacper Titowski</p>
+                    </section>
+                </section>
+            </section>
+            <section class="data-splitter">
+                <section class="impress-data disclaimer" id="disclaimer_legal">
+                    <p>WICHTIGER DISCLAIMER:<br><br>
+                    Diese Seite ist ein Schulprojekt und ist in jedem Szenario als solches zu sehen.<br>
+                    <br>
+                    Diese Seite steht nicht in Verbindung mit dem Gewerbe von "Lucjan Lubomski",<br>
+                    sowie ist diese Seite kein Erzeugnis und/oder Produkt dieses Gewerbes.<br>
+                    Diese Seite ist unter keinem Umstand als gewerbliche Tätigkeit des Gewerbes zuzuordnen.<br>
+                    <br>
+                    Der komplette Inhalt dieser Seite ist fiktiv.
+                    <br><br>
+                    <p>Daten des Gewerbes:<br>
+                    Lucjan Przemysław Lubomski<br>
+                    Forsthausgasse 26B/2/2<br>
+                    1200 Wien</p>
+                    <p>GISA-Zahl: 36751129</p>
+                    <p>Behörde: Magistrat der Stadt Wien</p>
+                    <p>Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik</p>
+                </p>
+            </section>
+        </article>
+    </main>
+    <footer id="footer">
+        
+    </footer>
+</body>
+</html>
