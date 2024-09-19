@@ -1,41 +1,39 @@
-#hotelname {
-    font-weight: bold
-}
-
 #page-title {
-    text-align: center;
-    font-size: 180%;
-    margin-top: 0;
+  text-align: center;
+  font-size: 180%;
+  margin-top: 0;
+  padding: 1vh 0 1vh 0;
 }
 
 .impress-data {
-    font-size: 110%;
-    font-weight: 200;
-    margin: 0.1vh 0 0.1vh 0;
+  font-size: 110%;
+  font-weight: 200;
+  margin: 0.1vh 0 0.1vh 0;
 }
 
 #mb_title {
-    text-align: center;
-    font-size: 160%;
-    margin-top: 0;
+  text-align: center;
+  font-size: 160%;
+  margin-top: 0;
+  padding: 1vh 0 1vh 0;
 }
 
-.mitarbeitende{
-    display: flex;
-    justify-content: space-around;
+.mitarbeitende {
+  display: flex;
+  justify-content: space-around;
 }
 .mitarbeiter {
-    padding: 2vh 2vw 2vh 2vw;
+  padding: 2vh 2vw 2vh 2vw;
 }
 
 .mb_picture {
-    width: 15vw;
-    height: 15vw;
-    border-radius: 0.5vw;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 0.5vw;
 }
 
 .mb_name {
-    margin: 0;
-    text-align: center;
-    font-size: 140%;
+  margin: 0;
+  text-align: center;
+  font-size: 140%;
 }
