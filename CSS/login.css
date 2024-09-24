@@ -2,22 +2,26 @@ main{
     display: flex;
     justify-content: center;
 }
-.login_fenster{
+
+#login_fenster{
     background-color: aqua;
     height: 80vh;
-    width: 30vw;
+    width: 35vw;
 }
 
 h2{
     text-align: center;
 }
 
-.login_inhalt{
+#login_inhalt{
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: 2.5vh;
+}
 
+#login_inhalt p {
+    text-align: center;
 }
 
 form{
@@ -25,6 +29,19 @@ form{
     flex-direction: column;
     justify-content: center;
     padding: 0 1.5vw 0 1.5vw;
+}
+
+label {
+    width: 50%;
+}
+
+.inputfield {
+    width: 50%;
+}
+
+.input_group {
+    display: flex;
+    margin-bottom: 0.5vh;
 }
 
 .submit_button{
