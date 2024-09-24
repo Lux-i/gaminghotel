@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Impressum | Göppel & Göppel Hotels</title>
     <link rel="stylesheet" href="/CSS/main.css" />
-    <link rel="stylesheet" href="CSS/impressum.css" />
+    <link rel="stylesheet" href="/CSS/register.css" />
   </head>
   <body class="ghostwhite" id="impressum">
     <header id="header">
@@ -21,10 +21,35 @@
       
     </header>
     <nav>
-      <a class="navlink" href="/index.html">Hilfe</a>
+      <a class="navlink" href="/index.html">Hauptseite</a>
       <a class="navlink" href="/HTML/hilfe.html">Hilfe</a>
     </nav>
 
     <main>
-        <h1 class="meldung">Site under construction</h1>
+        <section class="login_fenster">
+            <h2>Registrieren</h2>
+            <section class="login_inhalt">
+                <form>
+                    <label for="anrede">Anrede:</label>
+                    <select name="anrede" id="anrede">
+                      <option value="herr">Herr</option>
+                      <option value="frau">Frau</option>
+                      <option value="divers">Divers</option>
+                    </select> 
+                    <label for="vorname">Vorname:</label>
+                    <input type="text" id="vorname" name="vorname">
+                    <label for="nachname">Nachname:</label>
+                    <input type="text" id="nachname" name="nachname">
+                    <label for="email">E-Mail Adresse:</label>
+                    <input type="email" id="email" name="email">
+                    <label for="username">Nutzername:</label>
+                    <input type="text" id="username" name="username">
+                    <label for="pwd">Password:</label>
+                    <input type="password" id="pwd" name="pwd">
+                    <label for="pwd">Password wiederholen:</label>
+                    <input type="password" id="pwd" name="pwd">
+                    <input class="submit_button" type="submit" value="Registrieren">
+                </form>
+            </section>
+        </section>
     </main>
