@@ -7,6 +7,25 @@ body {
 #header {
   padding: 2vh 1.5vw 2vh 1.5vw;
   display: flex;
+  justify-content: space-between;
+}
+
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login a {
+  text-align: center;
+  height: min-content;
+
+}
+
+.login_icon{
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 50%;
 }
 
 #logo {
@@ -26,7 +45,7 @@ h1 {
 }
 
 nav {
-  display: flex;
+  display: flex; 
   justify-content: flex-start;
   padding: 0 3vw 0 3vw;
   border-top: 0.3vh solid rgb(19, 19, 19);
@@ -44,8 +63,14 @@ nav {
   background-color: color-mix(in srgb, ghostwhite 90%, black 10%);
 }
 
+
+
 main {
   padding: 2vh 5vw 2vh 5vw;
+}
+
+.meldung{
+  text-align: center;
 }
 
 .data-splitter {

@@ -1,0 +1,33 @@
+main{
+    display: flex;
+    justify-content: center;
+}
+.login_fenster{
+    background-color: aqua;
+    height: 80vh;
+    width: 30vw;
+}
+
+h2{
+    text-align: center;
+}
+
+.login_inhalt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2.5vh;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5vw 0 1.5vw;
+}
+
+.submit_button{
+    margin: 2vh 10vw 0 10vw;
+}
+
