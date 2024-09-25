@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Impressum | Göppel & Göppel Hotels</title>
+    <title>Register | Göppel & Göppel Hotels</title>
     <link rel="stylesheet" href="/CSS/main.css" />
     <link rel="stylesheet" href="/CSS/register.css" />
   </head>
@@ -33,24 +33,53 @@
         <h2>Registrieren</h2>
         <section id="login_inhalt">
           <form>
-            <label for="anrede">Anrede:</label>
-            <select name="anrede" id="anrede">
-              <option value="herr">Herr</option>
-              <option value="frau">Frau</option>
-              <option value="divers">Divers</option>
-            </select>
-            <label for="vorname">Vorname:</label>
-            <input type="text" id="vorname" name="vorname" />
-            <label for="nachname">Nachname:</label>
-            <input type="text" id="nachname" name="nachname" />
-            <label for="email">E-Mail Adresse:</label>
-            <input type="email" id="email" name="email" />
-            <label for="username">Nutzername:</label>
-            <input type="text" id="username" name="username" />
-            <label for="pwd">Password:</label>
-            <input type="password" id="pwd" name="pwd" />
-            <label for="pwd">Password wiederholen:</label>
-            <input type="password" id="pwd" name="pwd" />
+            <section class="input_group">
+              <label for="anrede">Anrede:</label>
+              <select class="inputfield" name="anrede" id="anrede">
+                <option value="herr">Herr</option>
+                <option value="frau">Frau</option>
+                <option value="divers">Divers</option>
+              </select>
+            </section>
+            <section class="input_group">
+              <label for="vorname">Vorname:</label>
+              <input
+                class="inputfield"
+                type="text"
+                id="vorname"
+                name="vorname"
+              />
+            </section>
+            <section class="input_group">
+              <label for="nachname">Nachname:</label>
+              <input
+                class="inputfield"
+                type="text"
+                id="nachname"
+                name="nachname"
+              />
+            </section>
+            <section class="input_group">
+              <label for="email">E-Mail Adresse:</label>
+              <input class="inputfield" type="email" id="email" name="email" />
+            </section>
+            <section class="input_group">
+              <label for="username">Nutzername:</label>
+              <input
+                class="inputfield"
+                type="text"
+                id="username"
+                name="username"
+              />
+            </section>
+            <section class="input_group">
+              <label for="pwd">Password:</label>
+              <input class="inputfield" type="password" id="pwd" name="pwd" />
+            </section>
+            <section class="input_group">
+              <label for="pwd">Password wiederholen:</label>
+              <input class="inputfield" type="password" id="pwd" name="pwd" />
+            </section>
             <input class="submit_button" type="submit" value="Registrieren" />
           </form>
           <p>
@@ -60,5 +89,36 @@
         </section>
       </section>
     </main>
+    <footer class="border-top-black">
+      <section class="footer-group flex-start">
+        <section class="footer-column">
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+        </section>
+        <section class="footer-column">
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+        </section>
+        <section class="footer-column">
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+        </section>
+      </section>
+      <section class="footer-group flex-end">
+        <section class="footer-column">
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+        </section>
+        <section class="footer-column">
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+          <a href="index.html" class="footer-link">Impressum</a>
+        </section>
+      </section>
+    </footer>
   </body>
 </html>
