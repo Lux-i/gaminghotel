@@ -67,6 +67,9 @@ nav {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 3vh 5vw 3vh 5vw;
 }
 
