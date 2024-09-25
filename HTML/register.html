@@ -48,7 +48,9 @@
                 type="text"
                 id="vorname"
                 name="vorname"
-              />
+                required
+                placeholder="Max"
+               />
             </section>
             <section class="input_group">
               <label for="nachname">Nachname:</label>
@@ -57,11 +59,13 @@
                 type="text"
                 id="nachname"
                 name="nachname"
+                required
+                placeholder="Mustermann"
               />
             </section>
             <section class="input_group">
               <label for="email">E-Mail Adresse:</label>
-              <input class="inputfield" type="email" id="email" name="email" />
+              <input class="inputfield" type="email" id="email" name="email" placeholder="max.mustermann@example.com" required/>
             </section>
             <section class="input_group">
               <label for="username">Nutzername:</label>
@@ -70,17 +74,19 @@
                 type="text"
                 id="username"
                 name="username"
+                required
+                placeholder="maxi93"
               />
             </section>
             <section class="input_group">
               <label for="pwd">Password:</label>
-              <input class="inputfield" type="password" id="pwd" name="pwd" />
+              <input class="inputfield" type="password" id="pwd" name="pwd" required/>
             </section>
             <section class="input_group">
               <label for="pwd">Password wiederholen:</label>
-              <input class="inputfield" type="password" id="pwd" name="pwd" />
+              <input class="inputfield" type="password" id="pwd" name="pwd" required/>
             </section>
-            <input class="submit_button" type="submit" value="Registrieren" />
+            <input class="submit_button" type="submit" value="Registrieren" required/>
           </form>
           <p>
             Sie haben schon ein Konto?

@@ -39,6 +39,18 @@ label {
 
 .inputfield {
   width: 50%;
+  border-radius: 5px;
+  border: 0;
+  background-color: color-mix(in srgb, ghostwhite 91%, black 9%);
+  padding-left: 0.5vh;
+  box-shadow: 0 0 1px 0.1px rgb(59, 59, 59) inset;
+  transition-duration: 0.5s;
+}
+
+.inputfield:focus {
+  border: 3px solid #f9e4bc;
+  outline: none;
+  box-shadow: none;
 }
 
 .input_group {
@@ -48,4 +60,20 @@ label {
 
 .submit_button {
   margin: 2vh 10vw 0 10vw;
+  height: 3vh;
+  background-color: #f9e4bc;
+  transition-duration: 0.5s;
+  border-radius: 5px;
+  border: 0;
+
+}
+
+.submit_button:hover {
+  background-color: #d1c0a1;
+}
+
+.submit_button:focus {
+ box-shadow: 0 0 5px 2px color-mix(in srgb, ghostwhite 70%, black 30%) inset; 
+ background-color: #f9e4bc;
+ transition-duration: 0.1s;
 }
