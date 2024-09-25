@@ -1,8 +1,8 @@
 main {
   display: flex;
   justify-content: center;
-  padding-top: 2vh;
 }
+
 #login_fenster {
   border: 0.34vw solid #f9e4bc;
   box-shadow: 0 0 12px 2px color-mix(in srgb, ghostwhite 100%, black 40%);
