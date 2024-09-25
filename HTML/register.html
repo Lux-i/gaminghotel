@@ -18,7 +18,8 @@
         <img
           class="login_icon"
           src="/Public/Images/user-128.svg"
-          alt="Login Icon" />
+          alt="Login Icon"
+        />
         <a class="navlink" href="/HTML/login.html">Log In</a>
       </section>
     </header>
@@ -28,9 +29,9 @@
     </nav>
 
     <main>
-      <section class="login_fenster">
+      <section id="login_fenster">
         <h2>Registrieren</h2>
-        <section class="login_inhalt">
+        <section id="login_inhalt">
           <form>
             <label for="anrede">Anrede:</label>
             <select name="anrede" id="anrede">
@@ -52,6 +53,10 @@
             <input type="password" id="pwd" name="pwd" />
             <input class="submit_button" type="submit" value="Registrieren" />
           </form>
+          <p>
+            Sie haben schon ein Konto?
+            <a href="/HTML/login.html">Hier anmelden</a>
+          </p>
         </section>
       </section>
     </main>

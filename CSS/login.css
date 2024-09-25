@@ -1,51 +1,49 @@
-main{
-    display: flex;
-    justify-content: center;
+main {
+  display: flex;
+  justify-content: center;
 }
-#login_fenster{
-    background-color: ghostwhite!important;
-    border: 0.34vw solid #f9e4bc;
-    box-shadow: 0 0 10px 2px rgb(100, 100, 100);
-    height: 80vh;
-    width: 35vw;
-}
-
-h2{
-    text-align: center;
+#login_fenster {
+  background-color: ghostwhite !important;
+  border: 0.34vw solid #f9e4bc;
+  box-shadow: 0 0 10px 2px rgb(100, 100, 100);
+  width: 35vw;
 }
 
-#login_inhalt{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 2.5vh;
+h2 {
+  text-align: center;
+}
+
+#login_inhalt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2.5vh;
 }
 
 #login_inhalt p {
-    text-align: center;
+  text-align: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 1.5vw 0 1.5vw;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5vw 0 1.5vw;
 }
 
 label {
-    width: 50%;
+  width: 50%;
 }
 
 .inputfield {
-    width: 50%;
+  width: 50%;
 }
 
 .input_group {
-    display: flex;
-    margin-bottom: 0.5vh;
+  display: flex;
+  margin-bottom: 0.5vh;
 }
 
-.submit_button{
-    margin: 2vh 10vw 0 10vw;
+.submit_button {
+  margin: 2vh 10vw 0 10vw;
 }
-

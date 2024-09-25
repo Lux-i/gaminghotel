@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
 }
 
-.login{
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,9 @@ body {
 .login a {
   text-align: center;
   height: min-content;
-
 }
 
-.login_icon{
+.login_icon {
   width: 1.5vw;
   height: 1.5vw;
   border-radius: 50%;
@@ -45,7 +44,7 @@ h1 {
 }
 
 nav {
-  display: flex; 
+  display: flex;
   justify-content: flex-start;
   padding: 0 3vw 0 3vw;
   border-top: 0.3vh solid rgb(19, 19, 19);
@@ -59,17 +58,19 @@ nav {
   text-decoration: none;
 }
 
-.navlink:hover {
+.navlink.active {
   background-color: color-mix(in srgb, ghostwhite 90%, black 10%);
 }
 
-
+.navlink:hover {
+  background-color: color-mix(in srgb, ghostwhite 90%, black 10%);
+}
 
 main {
   padding: 2vh 5vw 2vh 5vw;
 }
 
-.meldung{
+.meldung {
   text-align: center;
 }
 
