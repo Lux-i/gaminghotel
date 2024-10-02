@@ -76,20 +76,11 @@ main {
 }
 
 footer {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   padding: 5vh 6vw 5vh 6vw;
 }
 
-.footer-group {
-  display: flex;
-  flex-direction: row;
-}
-
 .footer-column {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -142,36 +133,24 @@ footer {
   flex-direction: column-reverse;
 }
 
-.flex-start {
+.jstfy-flex-start {
   justify-content: flex-start;
 }
 
-.flex-end {
+.jstfy-flex-end {
   justify-content: flex-end;
 }
 
-.width100p {
-  width: 100%;
+.jstfy-center {
+  justify-content: center;
 }
 
-.height100p {
-  height: 100%;
+.jstfy-space-around {
+  justify-content: space-around;
 }
 
-.width100vw {
-  width: 100vw;
-}
-
-.height100vw {
-  height: 100vw;
-}
-
-.width100vh {
-  width: 100vh;
-}
-
-.height100vh {
-  height: 100vh;
+.jstfy-space-between {
+  justify-content: space-between;
 }
 
 .ghostwhite {
