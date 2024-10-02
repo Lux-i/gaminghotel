@@ -1,0 +1,77 @@
+main {
+  flex-direction: row !important;
+}
+
+#login_fenster {
+  border: 0.34vw solid #f9e4bc;
+  box-shadow: 0 0 12px 2px color-mix(in srgb, ghostwhite 100%, black 40%);
+  width: 35vw;
+  padding: 1vh 0 1vh 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+#login_inhalt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2.5vh;
+}
+
+#login_inhalt p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5vw 0 1.5vw;
+}
+
+label {
+  width: 50%;
+}
+
+.inputfield {
+  width: 50%;
+  border-radius: 5px;
+  border: 0;
+  background-color: color-mix(in srgb, ghostwhite 100%, black 2%);
+  padding-left: 0.7vh;
+  box-shadow: 0 0 2px 0.1px rgb(59, 59, 59) inset;
+  transition-duration: 0.5s;
+}
+
+.inputfield:focus {
+  border: 3px solid color-mix(in srgb, #f9e4bc 100%, black 20%);
+  outline: none;
+  box-shadow: none;
+}
+
+.input_group {
+  display: flex;
+  margin-bottom: 0.5vh;
+}
+
+.submit_button {
+  margin: 2vh 10vw 0 10vw;
+  height: 3vh;
+  background-color: #f9e4bc;
+  transition-duration: 0.5s;
+  border-radius: 5px;
+  border: 0;
+
+}
+
+.submit_button:hover {
+  background-color: #d1c0a1;
+}
+
+.submit_button:focus {
+ box-shadow: 0 0 5px 2px color-mix(in srgb, ghostwhite 70%, black 30%) inset; 
+ background-color: #f9e4bc;
+ transition-duration: 0.1s;
+}
