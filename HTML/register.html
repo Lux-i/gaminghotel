@@ -18,8 +18,7 @@
         <img
           class="login_icon"
           src="/Public/Images/user-128.svg"
-          alt="Login Icon"
-        />
+          alt="Login Icon" />
         <a class="navlink" href="login.html">Log In</a>
       </section>
     </header>
@@ -28,11 +27,11 @@
       <a class="navlink" href="hilfe.html">Hilfe</a>
     </nav>
 
-    <main>
+    <main class="flex-row">
       <section id="login_fenster">
         <h2>Registrieren</h2>
-        <section id="login_inhalt">
-          <form>
+        <section class="flex-column" id="login_inhalt">
+          <form class="flex-column">
             <section class="input_group">
               <label for="anrede">Anrede:</label>
               <select class="inputfield" name="anrede" id="anrede">
@@ -49,8 +48,7 @@
                 id="vorname"
                 name="vorname"
                 required
-                placeholder="Max"
-              />
+                placeholder="Max" />
             </section>
             <section class="input_group">
               <label for="nachname">Nachname:</label>
@@ -60,8 +58,7 @@
                 id="nachname"
                 name="nachname"
                 required
-                placeholder="Mustermann"
-              />
+                placeholder="Mustermann" />
             </section>
             <section class="input_group">
               <label for="email">E-Mail Adresse:</label>
@@ -71,8 +68,7 @@
                 id="email"
                 name="email"
                 placeholder="max.mustermann@example.com"
-                required
-              />
+                required />
             </section>
             <section class="input_group">
               <label for="username">Nutzername:</label>
@@ -82,8 +78,7 @@
                 id="username"
                 name="username"
                 required
-                placeholder="maxi93"
-              />
+                placeholder="maxi93" />
             </section>
             <section class="input_group">
               <label for="pwd">Password:</label>
@@ -92,8 +87,7 @@
                 type="password"
                 id="pwd"
                 name="pwd"
-                required
-              />
+                required />
             </section>
             <section class="input_group">
               <label for="pwd">Password wiederholen:</label>
@@ -102,15 +96,13 @@
                 type="password"
                 id="pwd"
                 name="pwd"
-                required
-              />
+                required />
             </section>
             <input
               class="submit_button"
               type="submit"
               value="Registrieren"
-              required
-            />
+              required />
           </form>
           <p>
             Sie haben schon ein Konto?

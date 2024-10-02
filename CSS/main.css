@@ -67,8 +67,6 @@ nav {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   padding: 3vh 5vw 3vh 5vw;
 }
@@ -122,6 +120,26 @@ footer {
 
 .border-bottom-cream {
   border-bottom: 0.4vh solid #f9e4bc;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-rev {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column-rev {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .flex-start {

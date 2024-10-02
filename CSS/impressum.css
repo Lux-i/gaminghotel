@@ -19,7 +19,6 @@
 }
 
 .mitarbeitende {
-  display: flex;
   justify-content: space-around;
 }
 .mitarbeiter {
