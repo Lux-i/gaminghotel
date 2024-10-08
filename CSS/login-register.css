@@ -67,3 +67,9 @@ label {
  background-color: #f9e4bc;
  transition-duration: 0.1s;
 }
+
+@media (max-width: 600px) {
+  #login_fenster{
+    width: 80vw;
+  }
+}
