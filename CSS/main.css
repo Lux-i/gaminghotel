@@ -123,6 +123,10 @@ footer {
   text-align: center;
 }
 
+.center-items {
+  align-items: center;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

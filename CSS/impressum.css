@@ -18,9 +18,6 @@
   padding: 1vh 0 1vh 0;
 }
 
-.mitarbeitende {
-  justify-content: space-around;
-}
 .mitarbeiter {
   padding: 2vh 2vw 2vh 2vw;
 }
@@ -35,4 +32,15 @@
   margin: 0;
   text-align: center;
   font-size: 140%;
+}
+
+@media (max-width: 600px) {
+  .mitarbeitende.flex-row {
+    flex-direction: column;
+  }
+
+  .mb_picture {
+    width: 25vw;
+    height: 25vw;
+  }
 }
