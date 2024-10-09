@@ -73,6 +73,10 @@ main {
   padding: 3vh 5vw 3vh 5vw;
 }
 
+.shadow_purple{
+  box-shadow: 10px 8px 5px rgba(140, 54, 206, 0.6);
+}
+
 .data-splitter {
   margin-bottom: 6vh;
 }
@@ -163,12 +167,43 @@ footer {
   background-color: ghostwhite !important;
 }
 
+.width65{
+  width: 65%;
+}
+.width75{
+  width: 75%;
+}
+.width100{
+  width: 100%;
+}
+
 @media(max-width: 600px){
+  body{
+    margin: 0;
+  }
+  .navlink{
+    font-size: 90%;
+  }
   h1{
+    font-size: 1.1em;
+  }
+  h2{
     font-size: 1em;
+  }
+  h3{
+    margin-bottom: 0;
   }
   .login_icon{
     width: 5vw;
     height: 5vw;
+  }
+  .data-splitter {
+    margin-bottom: 1vh;
+  }
+  .width65{
+    width: 90%;
+  }
+  .width75{
+    width: 90%;
   }
 }
