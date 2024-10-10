@@ -1,0 +1,6 @@
+Remove all fixed margin and padding from containers and bodys
+
+create margin and padding classes given to each sub-element
+
+--> able to still have full-width elements in containers housing smaller elements
+    without using a fixed padding on container
