@@ -25,13 +25,12 @@ form {
 
 label {
   width: 50%;
+  margin-left: 0.5vw;
 }
 
 .inputfield {
-  width: 50%;
   border-radius: 5px;
   border: 0;
-  background-color: color-mix(in srgb, ghostwhite 100%, black 2%);
   padding-left: 0.7vh;
   box-shadow: 0 0 2px 0.1px rgb(59, 59, 59) inset;
   transition-duration: 0.5s;
@@ -49,7 +48,7 @@ label {
 }
 
 .submit_button {
-  margin: 2vh 10vw 0 10vw;
+  margin: 2vh 10vw 2vh 10vw;
   height: 3vh;
   background-color: #f9e4bc;
   transition-duration: 0.5s;
