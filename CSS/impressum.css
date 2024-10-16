@@ -36,7 +36,7 @@
 
 @media (max-width: 600px) {
   .mitarbeitende.flex-row {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .mb_picture {
