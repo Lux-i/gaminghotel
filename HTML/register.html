@@ -41,79 +41,82 @@
         <h2>Registrieren</h2>
         <section class="flex-column" id="login_inhalt">
           <form class="flex-column">
-            <section class="input_group">
-              <label for="anrede">Anrede:</label>
-              <select class="inputfield" name="anrede" id="anrede">
+            <section class="input_group container">
+              <select
+                class="inputfield container-md form-control"
+                name="anrede"
+                id="anrede"
+                required>
                 <option value="herr">Herr</option>
                 <option value="frau">Frau</option>
                 <option value="divers">Divers</option>
               </select>
             </section>
-            <section class="input_group">
-              <label for="vorname">Vorname:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="text"
                 id="vorname"
                 name="vorname"
                 required
                 placeholder="Max"
                 aria-label="Vorname" />
+              <label for="vorname">Vorname:</label>
             </section>
-            <section class="input_group">
-              <label for="nachname">Nachname:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="text"
                 id="nachname"
                 name="nachname"
                 required
                 placeholder="Mustermann"
                 aria-label="Nachname" />
+              <label for="nachname">Nachname:</label>
             </section>
-            <section class="input_group">
-              <label for="email">E-Mail Adresse:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="email"
                 id="email"
                 name="email"
                 placeholder="max.mustermann@example.com"
                 required
                 aria-label="Email Adresse" />
+              <label for="email">E-Mail Adresse:</label>
             </section>
-            <section class="input_group">
-              <label for="username">Nutzername:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="text"
                 id="username"
                 name="username"
                 required
                 placeholder="maxi93"
                 aria-label="Nutzername" />
+              <label for="username">Nutzername:</label>
             </section>
-            <section class="input_group">
-              <label for="pwd">Password:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="password"
                 id="pwd"
                 name="pwd"
                 required
                 aria-label="Passwort" />
+              <label for="pwd">Password:</label>
             </section>
-            <section class="input_group">
-              <label for="pwd">Password wiederholen:</label>
+            <section class="input_group container form-floating">
               <input
-                class="inputfield"
+                class="inputfield container-md form-control"
                 type="password"
                 id="pwd"
                 name="pwd"
                 required
                 aria-label="Passwort wiederholen" />
+              <label for="pwd">Password wiederholen:</label>
             </section>
-            <input 
+            <input
               class="submit_button"
               type="submit"
               value="Registrieren"
