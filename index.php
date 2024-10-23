@@ -24,33 +24,13 @@
           class="h-50 img-fluid"
           src="/Public/Images/user-128.svg"
           alt="Login Icon" />
-        <a class="navlink" href="/HTML/login.html">Log In</a>
+        <a class="navlink" href="/HTML/login.php">Log In</a>
       </section>
     </header>
 
-    <nav class="navbar navbar-expand-sm">
-        <div class="container ms-1">
-          <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link navlink" aria-current="page" href="index.html">Hauptseite</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link navlink" href="HTML/hilfe.html">Hilfe</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <?php
+      include 'components\nav.php';
+    ?>
 
     <main>
       <article id="data-splitter">
@@ -128,21 +108,21 @@
     <footer class="border-top-black flex-row">
       <section class="footer-group flex-row flex-start">
         <section class="footer-column flex-column">
-          <a href="HTML/impressum.html" class="footer-link">Impressum</a>
-          <a href="HTML/hilfe.html" class="footer-link">Hilfe</a>
+          <a href="HTML/impressum.php" class="footer-link">Impressum</a>
+          <a href="HTML/hilfe.php" class="footer-link">Hilfe</a>
           <a href="HTML/sitemap.html" class="footer-link">Sitemap</a>
         </section>
         <section class="footer-column flex-column">
-          <a href="index.html" class="footer-link">Bsp. Link</a>
-          <a href="index.html" class="footer-link">Bsp. Link</a>
-          <a href="index.html" class="footer-link">Bsp. Link</a>
+          <a href="index.php" class="footer-link">Bsp. Link</a>
+          <a href="index.php" class="footer-link">Bsp. Link</a>
+          <a href="index.php" class="footer-link">Bsp. Link</a>
         </section>
       </section>
       <section class="footer-group flex-row flex-end">
         <section class="footer-column flex-column">
           <a href="sitemap.xml" class="footer-link">Sitemap (xml)</a>
-          <a href="index.html" class="footer-link">Bsp. Link</a>
-          <a href="index.html" class="footer-link">Bsp. Link</a>
+          <a href="index.php" class="footer-link">Bsp. Link</a>
+          <a href="index.php" class="footer-link">Bsp. Link</a>
         </section>
       </section>
     </footer>

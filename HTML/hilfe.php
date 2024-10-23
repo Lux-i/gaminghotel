@@ -41,7 +41,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link navlink" aria-current="page" href="/index.html">Hauptseite</a>
+                <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link navlink" href="hilfe.html">Hilfe</a>

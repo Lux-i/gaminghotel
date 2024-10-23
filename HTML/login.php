@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register | Göppel & Göppel Hotels</title>
+    <title>Login | Göppel & Göppel Hotels</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -40,7 +40,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link navlink" aria-current="page" href="/index.html">Hauptseite</a>
+                <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link navlink" href="hilfe.html">Hilfe</a>
@@ -53,63 +53,18 @@
 
     <main class="flex-row">
       <section id="login_fenster">
-        <h2>Registrieren</h2>
+        <h2>Login</h2>
         <section class="flex-column" id="login_inhalt">
           <form class="flex-column">
-            <section class="input_group container">
-              <select
-                class="inputfield container-md form-control"
-                name="anrede"
-                id="anrede"
-                required>
-                <option value="herr">Herr</option>
-                <option value="frau">Frau</option>
-                <option value="divers">Divers</option>
-              </select>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="vorname"
-                name="vorname"
-                required
-                placeholder="Max"
-                aria-label="Vorname" />
-              <label for="vorname">Vorname:</label>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="nachname"
-                name="nachname"
-                required
-                placeholder="Mustermann"
-                aria-label="Nachname" />
-              <label for="nachname">Nachname:</label>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="max.mustermann@example.com"
-                required
-                aria-label="Email Adresse" />
-              <label for="email">E-Mail Adresse:</label>
-            </section>
             <section class="input_group container form-floating">
               <input
                 class="inputfield container-md form-control"
                 type="text"
                 id="username"
                 name="username"
-                required
-                placeholder="maxi93"
-                aria-label="Nutzername" />
-              <label for="username">Nutzername:</label>
+                placeholder="Nutzername"
+                aria-label="Username" />
+              <label for="username">Nutzername</label>
             </section>
             <section class="input_group container form-floating">
               <input
@@ -117,29 +72,15 @@
                 type="password"
                 id="pwd"
                 name="pwd"
-                required
+                placeholder="Passwort"
                 aria-label="Passwort" />
-              <label for="pwd">Password:</label>
+              <label for="pwd">Passwort</label>
             </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="password"
-                id="pwd"
-                name="pwd"
-                required
-                aria-label="Passwort wiederholen" />
-              <label for="pwd">Password wiederholen:</label>
-            </section>
-            <input
-              class="submit_button"
-              type="submit"
-              value="Registrieren"
-              required />
+            <input class="submit_button" type="submit" value="Login" />
           </form>
           <p>
-            Sie haben schon ein Konto?
-            <a href="/HTML/login.html">Hier anmelden</a>
+            Sie haben noch kein Konto?
+            <a href="register.html">Hier registrieren</a>
           </p>
         </section>
       </section>
