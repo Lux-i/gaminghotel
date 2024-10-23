@@ -3,7 +3,7 @@
     <section class="footer-column flex-column">
       <a href="/HTML/impressum.php" class="footer-link">Impressum</a>
       <a href="/HTML/hilfe.php" class="footer-link">Hilfe</a>
-      <a href="/HTML/sitemap.html" class="footer-link">Sitemap</a>
+      <a href="/sitemap.html" class="footer-link">Sitemap</a>
     </section>
     <section class="footer-column flex-column">
       <a href="/index.php" class="footer-link">Bsp. Link</a>
