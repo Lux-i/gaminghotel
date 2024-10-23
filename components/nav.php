@@ -1,3 +1,17 @@
+<!-- Code zur dynamischen Veränderung der Links. <Bis jetzt unnötig -->
+<?php
+  /*
+  //Regex überprüfung, ob "/HTML" im Ordner des include() files enthalten ist.
+  if (preg_match("/\/HTML/", __DIR__)) {
+      //Wenn in /HTML und dessen subfolder, lasse string leer
+      $linkPrefix = '';
+  } else {
+      //Wenn file im root-Ornder, addiere /HTML
+      $linkPrefix = '/HTML';
+  }
+  */
+?>
+
 <nav class="navbar navbar-expand-sm">
   <div class="container ms-1">
     <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -11,10 +25,10 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link navlink" aria-current="page" href="index.php">Hauptseite</a>
+            <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="HTML/hilfe.php">Hilfe</a>
+            <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
           </li>
         </ul>
       </div>
