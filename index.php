@@ -76,7 +76,7 @@
           <section class="data-splitter flex-row jstfy-center">
             <p class="width75">
               Besuchen Sie unser
-              <a href="/HTML/hilfe.html#faq">FAQ</a>, um Antworten auf häufig
+              <a href="/HTML/hilfe.php#faq">FAQ</a>, um Antworten auf häufig
               gestellte Fragen zu finden.
               <br />
               <br />
