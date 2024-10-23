@@ -13,45 +13,12 @@
     <link rel="stylesheet" href="/CSS/hilfe.css" />
   </head>
   <body class="ghostwhite">
-    <header id="header">
-      <section id="logo">
-        <h1 id="title">Göppel & Göppel Hotels</h1>
-        <p id="jahrgang">seit 2024</p>
-      </section>
-
-      <section class="login">
-        <img
-          class="h-50 img-fluid"
-          src="/Public/Images/user-128.svg"
-          alt="Login Icon" />
-        <a class="navlink" href="/HTML/login.html">Log In</a>
-      </section>
-    </header>
-
-    <nav class="navbar navbar-expand-sm">
-      <div class="container ms-1">
-        <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#burger_menu" aria-controls="burger_menu" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="burger_menu" aria-labelledby="burger_menuLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="burger_menuLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link navlink" href="hilfe.html">Hilfe</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-
+    <?php 
+      include(__DIR__ . '/../components/header.php');
+    ?>
+    <?php 
+      include(__DIR__ . '/../components/nav.php');
+    ?>
     <main class="flex-column">
       <section class="about data-splitter">
         <h2 class="border-bottom-cream">Über uns</h2>
@@ -107,27 +74,9 @@
         </section>
       </article>
     </main>
-    <footer class="border-top-black flex-row">
-      <section class="footer-group flex-row flex-start">
-        <section class="footer-column flex-column">
-          <a href="impressum.html" class="footer-link">Impressum</a>
-          <a href="hilfe.html" class="footer-link">Hilfe</a>
-          <a href="/sitemap.html" class="footer-link">Sitemap</a>
-        </section>
-        <section class="footer-column flex-column">
-          <a href="/index.html" class="footer-link">Bsp. Link</a>
-          <a href="/index.html" class="footer-link">Bsp. Link</a>
-          <a href="/index.html" class="footer-link">Bsp. Link</a>
-        </section>
-      </section>
-      <section class="footer-group flex-row flex-end">
-        <section class="footer-column flex-column">
-          <a href="/sitemap.xml" class="footer-link">Sitemap (xml)</a>
-          <a href="/index.html" class="footer-link">Bsp. Link</a>
-          <a href="/index.html" class="footer-link">Bsp. Link</a>
-        </section>
-      </section>
-    </footer>
+    <?php 
+      include(__DIR__ . '/../components/footer.php');
+    ?>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -14,24 +14,12 @@
     <link rel="stylesheet" href="CSS/index.css" />
   </head>
   <body class="ghostwhite">
-    <header id="header">
-      <section id="logo">
-        <h1 id="title">Göppel & Göppel Hotels</h1>
-        <p id="jahrgang">seit 2024</p>
-      </section>
-      <section class="login">
-        <img
-          class="h-50 img-fluid"
-          src="/Public/Images/user-128.svg"
-          alt="Login Icon" />
-        <a class="navlink" href="/HTML/login.php">Log In</a>
-      </section>
-    </header>
-
-    <?php
-      include 'components\nav.php';
+    <?php 
+      include(__DIR__ . '/components/header.php');
     ?>
-
+    <?php 
+      include(__DIR__ . '/components/nav.php');
+    ?>
     <main>
       <article id="data-splitter">
         <h2
@@ -105,27 +93,9 @@
         </section>
       </article>
     </main>
-    <footer class="border-top-black flex-row">
-      <section class="footer-group flex-row flex-start">
-        <section class="footer-column flex-column">
-          <a href="HTML/impressum.php" class="footer-link">Impressum</a>
-          <a href="HTML/hilfe.php" class="footer-link">Hilfe</a>
-          <a href="HTML/sitemap.html" class="footer-link">Sitemap</a>
-        </section>
-        <section class="footer-column flex-column">
-          <a href="index.php" class="footer-link">Bsp. Link</a>
-          <a href="index.php" class="footer-link">Bsp. Link</a>
-          <a href="index.php" class="footer-link">Bsp. Link</a>
-        </section>
-      </section>
-      <section class="footer-group flex-row flex-end">
-        <section class="footer-column flex-column">
-          <a href="sitemap.xml" class="footer-link">Sitemap (xml)</a>
-          <a href="index.php" class="footer-link">Bsp. Link</a>
-          <a href="index.php" class="footer-link">Bsp. Link</a>
-        </section>
-      </section>
-    </footer>
+    <?php 
+      include(__DIR__ . '/components/footer.php');
+    ?>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
