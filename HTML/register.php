@@ -107,7 +107,7 @@
           </form>
           <p>
             Sie haben schon ein Konto?
-            <a href="/HTML/login.html">Hier anmelden</a>
+            <a href="/HTML/login.php">Hier anmelden</a>
           </p>
         </section>
       </section>

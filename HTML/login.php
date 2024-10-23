@@ -48,7 +48,7 @@
           </form>
           <p>
             Sie haben noch kein Konto?
-            <a href="register.html">Hier registrieren</a>
+            <a href="/HTML/register.php">Hier registrieren</a>
           </p>
         </section>
       </section>
