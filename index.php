@@ -27,11 +27,9 @@
           id="page-title">
           Göppel & Göppel Hotel - Wien
         </h2>
-        <section class="data-splitter text-center">
-          <h3 class="p-3 mb-3 mt-3 text-bg-danger rounded-3 container-md w-50">
-            Hauptseite in Arbeit
-          </h3>
-        </section>
+        <?php 
+            include(__DIR__ . '/components/in_work.php');
+        ?>
         <section class="data-splitter flex-row jstfy-center">
           <p class="width65">
             Willkommen im Göppel & Göppel Hotel, dem ersten Gaming-Hotel in
@@ -47,7 +45,7 @@
           </p>
         </section>
         <section class="data-splitter flex-row jstfy-center">
-          <a href="/HTML/buchen" id="btn_buchen">
+          <a href="/HTML/buchen.php" id="btn_buchen">
             <strong>Jetzt Gaming-Aufenthalt buchen!</strong>
           </a>
         </section>
