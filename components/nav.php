@@ -1,4 +1,4 @@
-<!-- Code zur dynamischen Veränderung der Links. <Bis jetzt unnötig -->
+<!-- Code zur dynamischen Veränderung der a_href-Links. Bis jetzt unnötig -->
 <?php
   /*
   //Regex überprüfung, ob "/HTML" im Ordner des include() files enthalten ist.
