@@ -12,16 +12,8 @@
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/header.php');
-    ?>
-    <?php 
       include(__DIR__ . '/../components/nav.php');
-    ?>
-
-    <?php 
       include(__DIR__ . '/../components/in_work.php');
-    ?>
-
-  <?php 
       include(__DIR__ . '/../components/footer.php');
     ?>
     <script

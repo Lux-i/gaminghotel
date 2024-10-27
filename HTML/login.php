@@ -46,8 +46,6 @@
   <body class="ghostwhite" id="impressum">
     <?php 
       include(__DIR__ . '/../components/header.php');
-    ?>
-    <?php 
       include(__DIR__ . '/../components/nav.php');
     ?>
     <main class="flex-row">
