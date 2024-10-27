@@ -10,7 +10,7 @@
     );
     $json_data = json_encode($data);
   
-    $register = curl_init("http://localhost:1024/api/gaminghotel/login");
+    $register = curl_init("https://tomatenbot.com/api/gaminghotel/login");
     curl_setopt($register, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($register, CURLOPT_POST, true);
     curl_setopt($register, CURLOPT_POSTFIELDS, $json_data);

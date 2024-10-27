@@ -1,5 +1,6 @@
 <?php
     $username = "Log in";
+    $link = "login.php";
 
     if(isset($_COOKIE["loginToken"])) {
         $getData = curl_init();
@@ -9,7 +10,7 @@
         );
         $json_data = json_encode($data);
       
-        $getData = curl_init("http://localhost:1024/api/gaminghotel/getUser");
+        $getData = curl_init("https://tomatenbot.com/api/gaminghotel/getUser");
         curl_setopt($getData, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($getData, CURLOPT_POST, true);
         curl_setopt($getData, CURLOPT_POSTFIELDS, $json_data);
@@ -20,6 +21,7 @@
         $user = json_decode($user_data, false);
         if(isset($user->username)){
             $username = $user->username;
+            $link = "me.php";
         }
     
         curl_close($getData);
@@ -31,5 +33,5 @@
     class="h-50 img-fluid"
     src="/Public/Images/user-128.svg"
     alt="Login Icon" />
-  <a class="navlink" href="/HTML/login.php"><?php echo $username?></a>
+  <a class="navlink" href="/HTML/<?php echo $link?>"><?php echo $username?></a>
 </section>
