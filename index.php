@@ -39,7 +39,7 @@
           </p>
         </section>
         <section class="data-splitter flex-row jstfy-center">
-          <a href="/HTML/buchen.php" id="btn_buchen">
+          <a href="/HTML/buchen.php" class="button-cream">
             <strong>Jetzt Gaming-Aufenthalt buchen!</strong>
           </a>
         </section>

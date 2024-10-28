@@ -23,6 +23,9 @@
     } else {
       if($res_data->ok === true){
         setcookie("loginToken", $res_data->token, time() + 60 * 60 * 24 * 3, "/", "localhost");
+        curl_close($login);
+        header("Location: /index.php");
+        exit();
       }
     }
 
