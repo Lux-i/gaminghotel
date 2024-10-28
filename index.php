@@ -12,6 +12,10 @@
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/components/header.php');
+      if(isset($user)){
+        echo '<h3 class="text-center"> Wilkommen '. $username .' </h3>';
+      }
+      
       include(__DIR__ . '/components/nav.php');
     ?>
     <main>
