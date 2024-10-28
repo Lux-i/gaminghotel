@@ -24,7 +24,7 @@
     );
     $json_data = json_encode($data);
   
-    $register = curl_init("https://tomatenbot.com/gaminghotel/register");
+    $register = curl_init("https://tomatenbot.com/api/gaminghotel/register");
     curl_setopt($register, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($register, CURLOPT_POST, true);
     curl_setopt($register, CURLOPT_POSTFIELDS, $json_data);
