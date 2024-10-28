@@ -19,11 +19,11 @@
         <article class="container-lg flex-row jstfy-center">
           <section class="data-splitter width65 <?php echo isset($user) ? '' : 'center-txt'; ?>">
             <?php if (isset($user)) : ?>
-              <p>Benutzername: <?php echo htmlspecialchars($user->username); ?></p>
-              <p>E-Mail: <?php echo htmlspecialchars($user->email); ?></p>
-              <p>Vorname: <?php echo htmlspecialchars($user->firstName); ?></p>
-              <p>Nachname: <?php echo htmlspecialchars($user->lastName); ?></p>
-              <p>Geschlecht: <?php echo htmlspecialchars($user->gender); ?></p>
+              <p>Benutzername: <?php echo $user->username; ?></p>
+              <p>E-Mail: <?php echo $user->email; ?></p>
+              <p>Vorname: <?php echo $user->firstName; ?></p>
+              <p>Nachname: <?php echo $user->lastName; ?></p>
+              <p>Geschlecht: <?php echo $user->gender; ?></p>
               <p>Sie sind ein Mitglied seit: 
               <?php
                   $date = new DateTime($user->Created);
