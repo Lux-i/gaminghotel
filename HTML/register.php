@@ -31,10 +31,13 @@
     curl_setopt($register, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
   
     $response = curl_exec($register);
-    if ($response === false) {
+    $res_data = json_decode($response, false);
+    if ($res_data === false) {
       echo 'Curl error: ' . curl_error($register);
     } else {
-      setcookie("loginToken", $response, time() + 60 * 60 * 24 * 3, "/", "localhost");
+      if($res_data->ok === true){
+        setcookie("loginToken", $res_data->token, time() + 60 * 60 * 24 * 3, "/", "localhost");
+      }
     }
 
     error_log(print_r($response, true));

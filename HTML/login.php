@@ -10,16 +10,16 @@
     );
     $json_data = json_encode($data);
   
-    $register = curl_init("https://tomatenbot.com/api/gaminghotel/login");
-    curl_setopt($register, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($register, CURLOPT_POST, true);
-    curl_setopt($register, CURLOPT_POSTFIELDS, $json_data);
-    curl_setopt($register, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+    $login = curl_init("https://tomatenbot.com/api/gaminghotel/login");
+    curl_setopt($login, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($login, CURLOPT_POST, true);
+    curl_setopt($login, CURLOPT_POSTFIELDS, $json_data);
+    curl_setopt($login, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
   
-    $response = curl_exec($register);
+    $response = curl_exec($login);
     $res_data = json_decode($response, false);
     if ($res_data === false) {
-      echo 'Curl error: ' . curl_error($register);
+      echo 'Curl error: ' . curl_error($login);
     } else {
       if($res_data->ok === true){
         setcookie("loginToken", $res_data->token, time() + 60 * 60 * 24 * 3, "/", "localhost");
@@ -28,7 +28,7 @@
 
     error_log(print_r($res_data, true));
 
-    curl_close($register);
+    curl_close($login);
   }
 ?>
 
