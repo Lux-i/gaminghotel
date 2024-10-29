@@ -12,3 +12,10 @@ const logout = () => {
     window.location.href = "/index.php";
   }
 };
+
+const showReset = () => {
+  const reset_button = document.getElementById("resetButton");
+  const reset_section = document.getElementById("resetSection");
+  reset_button.hidden = true;
+  reset_section.hidden = false;
+};

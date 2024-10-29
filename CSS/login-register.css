@@ -1,4 +1,4 @@
-#login_fenster {
+.login-window {
   border: 0.34vw solid #f9e4bc;
   box-shadow: 0 0 12px 2px color-mix(in srgb, ghostwhite 100%, black 40%);
   width: 35vw;
@@ -9,12 +9,12 @@ h2 {
   text-align: center;
 }
 
-#login_inhalt {
+.form-container {
   justify-content: center;
   padding-top: 2.5vh;
 }
 
-#login_inhalt p {
+.form-container p {
   text-align: center;
 }
 
@@ -42,7 +42,7 @@ label {
   box-shadow: none;
 }
 
-.form-floating > .form-control:focus ~ label::after{
+.form-floating > .form-control:focus ~ label::after {
   background-color: transparent !important;
 }
 
@@ -57,7 +57,6 @@ label {
   transition-duration: 0.5s;
   border-radius: 8px;
   border: 0;
-
 }
 
 .submit_button:hover {
@@ -65,13 +64,13 @@ label {
 }
 
 .submit_button:focus {
- box-shadow: 0 0 5px 2px color-mix(in srgb, ghostwhite 70%, black 30%) inset; 
- background-color: #f9e4bc;
- transition-duration: 0.1s;
+  box-shadow: 0 0 5px 2px color-mix(in srgb, ghostwhite 70%, black 30%) inset;
+  background-color: #f9e4bc;
+  transition-duration: 0.1s;
 }
 
 @media (max-width: 600px) {
-  #login_fenster{
+  #login_fenster {
     width: 80vw;
   }
 }

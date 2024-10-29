@@ -52,9 +52,9 @@
       include(__DIR__ . '/../components/nav.php');
     ?>
     <main class="flex-row">
-      <section id="login_fenster">
+      <section class="login-window">
         <h2>Login</h2>
-        <section class="flex-column" id="login_inhalt">
+        <section class="flex-column form-container">
           <form class="flex-column" method="POST">
           <section class="input_group container form-floating">
               <input
