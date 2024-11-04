@@ -11,7 +11,7 @@
     }
   
     $data = array(
-      "paddword" => $password
+      "password" => $password
     );
     $json_data = json_encode($data);
   
