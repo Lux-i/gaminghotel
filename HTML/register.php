@@ -40,6 +40,8 @@
         curl_close($register);
         header("Location: /HTML/me.php");
         exit();
+      } else if($res_data->ok === false){
+        $err_msg = $res_data->message;
       }
     }
 
@@ -145,6 +147,7 @@
                 aria-label="Passwort wiederholen" />
               <label for="pwd">Password wiederholen:</label>
             </section>
+            <?php if(isset($err_msg)):echo '<p class="center-txt">'.$err_msg.'</p>'; endif?>
             <input
               class="submit_button"
               type="submit"
