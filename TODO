@@ -1,10 +1,2 @@
-Remove all fixed margin and padding from containers and bodys
-
-create margin and padding classes given to each sub-element
-
---> able to still have full-width elements in containers housing smaller elements
-    without using a fixed padding on container
-
-Fix error in server-side register api. Response missing {ok: value, token: value} format.
 Change sent token to be the calculated value instead of it's hash.
 Verify token integrity using argon in getUSer api.
