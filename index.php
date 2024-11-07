@@ -26,7 +26,7 @@
             include(__DIR__ . '/components/in_work.php');
 
             if(isset($user)){
-              echo '<h3 class="text-center"> Wilkommen '. $username .' </h3>';
+              echo '<h3 class="text-center"> Wilkommen '. $user->firstName .'! </h3>';
             }
         ?>
         <section class="data-splitter flex-row jstfy-center">
