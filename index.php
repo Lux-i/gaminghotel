@@ -1,3 +1,7 @@
+<?php
+ include(__DIR__ . '/components/header.php');
+?>
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -11,7 +15,7 @@
   </head>
   <body class="ghostwhite">
     <?php 
-      include(__DIR__ . '/components/header.php');
+     
       
       include(__DIR__ . '/components/nav.php');
     ?>

@@ -1,3 +1,7 @@
+<?php
+  include(__DIR__ . '/../components/header.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +15,6 @@
   </head>
   <body class="ghostwhite">
     <?php 
-      include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
       include(__DIR__ . '/../components/in_work.php');
     ?>
@@ -19,27 +22,13 @@
         <h2 class="border-bottom-cream center-txt">Mein Konto</h2>
         <article class="container-lg flex-row jstfy-center">
           <section class="data-splitter width65 <?php echo isset($user) ? '' : 'center-txt'; ?>">
-            <?php if (isset($user)) : ?>
-              <p>Benutzername: <?php echo $user->username; ?></p>
-              <p>E-Mail: <?php echo $user->email; ?></p>
-              <p>Vorname: <?php echo $user->firstName; ?></p>
-              <p>Nachname: <?php echo $user->lastName; ?></p>
-              <p>Geschlecht: <?php echo $user->gender; ?></p>
-              <p>Sie sind ein Mitglied seit: 
-              <?php
-                  $date = new DateTime($user->Created);
-                  $readableDate = $date->format("d.M.Y");
-                  echo $readableDate; 
-              ?></p>
-              <section class="data-splitter">
-                <button id="resetButton" class="button-cream border-none" onclick="showReset()">
-                  Reset Password
-                </button>
-                <?php
-                  include(__DIR__ . '/../components/reset_pw.php');
-                ?>
-              </section>
-              <button class="button-cream border-none" onclick="logout()">Logout</button>
+            <?php if ($_SESSION['logged'] == true) : ?>
+              <p>Benutzername: <?php echo $username; ?></p>
+              <p>E-Mail: <?php echo $email; ?></p>
+              <p>Vorname: <?php echo $vorname?></p>
+              <p>Nachname: <?php echo $nachname; ?></p>
+              <p>Geschlecht: <?php echo $anrede; ?></p>
+              <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
             <?php endif; ?>
@@ -49,10 +38,6 @@
     <?php
       include(__DIR__ . '/../components/footer.php');
     ?>
-    <script src="../JS/me.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+    
   </body>
 </html>

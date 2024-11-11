@@ -1,54 +1,21 @@
 <?php
-  if(!empty($_POST)) {
-    error_log("Form submitted. Data: " . print_r($_POST, true));
-    $anrede = $_POST['anrede'];
-    $vorname = $_POST['vorname'];
-    $nachname = $_POST['nachname'];
-    $email = $_POST['email'];
-    $username = $_POST['username'];
-    $password = $_POST['pwd'];
-    $password_confirm = $_POST['pwd_confirm'];
-  
-    if ($password !== $password_confirm) {
-      echo "Password nicht gleich";
-      exit();
-    }
-  
-    $data = array(
-      "gender" => $anrede,
-      "first_name" => $vorname,
-      "last_name" => $nachname,
-      "email" => $email,
-      "username" => $username,
-      "password" => $password
-    );
-    $json_data = json_encode($data);
-  
-    $register = curl_init("https://tomatenbot.com/api/gaminghotel/register");
-    curl_setopt($register, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($register, CURLOPT_POST, true);
-    curl_setopt($register, CURLOPT_POSTFIELDS, $json_data);
-    curl_setopt($register, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-  
-    $response = curl_exec($register);
-    $res_data = json_decode($response, false);
-    if ($res_data === false) {
-      echo 'Curl error: ' . curl_error($register);
-    } else {
-      if($res_data->ok === true){
-        setcookie("loginToken", $res_data->token, time() + 60 * 60 * 24 * 3, "/", "localhost");
-        curl_close($register);
-        header("Location: /HTML/me.php");
-        exit();
-      } else if($res_data->ok === false){
-        $err_msg = $res_data->message;
-      }
-    }
+include(__DIR__ . '/../components/header.php');
 
-    error_log(print_r($response, true));
+if(!empty($_POST)){
+  $_SESSION['anrede'] = $_POST['anrede'];
+  $_SESSION['username'] = $_POST['username'];
+  $_SESSION['vorname'] = $_POST['vorname'];
+  $_SESSION['nachname'] = $_POST['nachname'];
+  $_SESSION['email'] = $_POST['email'];
+  $_SESSION['pwd'] = $_POST['pwd'];
+  $_SESSION['pwd_confirm'] = $_POST['pwd_confirm'];
 
-    curl_close($register);
+  if ($_SESSION['pwd'] !== $_SESSION['pwd_confirm']) {
+    echo "Password nicht gleich";
+    exit();
   }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +31,6 @@
   </head>
   <body class="ghostwhite" id="impressum">
     <?php
-      include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
     ?>
     <main class="flex-row">

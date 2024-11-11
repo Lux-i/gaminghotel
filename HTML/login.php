@@ -1,37 +1,15 @@
 <?php
-  if(!empty($_POST)) {
-    error_log("Form submitted. Data: " . print_r($_POST, true));
-    $email = $_POST['username'];
-    $password = $_POST['pwd'];
-  
-    $data = array(
-      "username" => $email,
-      "password" => $password
-    );
-    $json_data = json_encode($data);
-  
-    $login = curl_init("https://tomatenbot.com/api/gaminghotel/login");
-    curl_setopt($login, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($login, CURLOPT_POST, true);
-    curl_setopt($login, CURLOPT_POSTFIELDS, $json_data);
-    curl_setopt($login, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-  
-    $response = curl_exec($login);
-    $res_data = json_decode($response, false);
-    if ($res_data === false) {
-      echo 'Curl error: ' . curl_error($login);
-    } else {
-      if($res_data->ok === true){
-        setcookie("loginToken", $res_data->token, time() + 60 * 60 * 24 * 3, "/", "localhost");
-        curl_close($login);
-        header("Location: /index.php");
-        exit();
-      }
+  include(__DIR__ . '/../components/header.php');
+
+
+  if(isset($_POST['username']) && isset($_POST['pwd']) && $_SESSION['logged'] == false){
+    if($_SESSION['username'] == $_POST['username'] && $_SESSION['pwd'] == $_POST['pwd']) {
+      $_SESSION['logged'] = true;
+      header("Location: /index.php");
+      exit;
+    }elseif($_SESSION['username'] !== $_POST['username'] || $_SESSION['pwd'] !== $_POST['pwd']){
+      echo "Username oder Passwort ist falsch";
     }
-
-    error_log(print_r($res_data, true));
-
-    curl_close($login);
   }
 ?>
 
@@ -48,7 +26,6 @@
   </head>
   <body class="ghostwhite" id="impressum">
     <?php 
-      include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
     ?>
     <main class="flex-row">
