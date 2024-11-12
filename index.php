@@ -29,8 +29,8 @@
         <?php 
             include(__DIR__ . '/components/in_work.php');
 
-            if(isset($user)){
-              echo '<h3 class="text-center"> Wilkommen '. $user->firstName .'! </h3>';
+            if(isset($_SESSION['vorname']) && $logged == true){
+              echo '<h3 class="text-center"> Wilkommen '. $vorname .'! </h3>';
             }
         ?>
         <section class="data-splitter flex-row jstfy-center">

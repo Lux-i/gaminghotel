@@ -1,5 +1,7 @@
 <?php
 session_start();
+$logged = false;
+
 if(isset($_SESSION) && isset($_SESSION['logged'])){
   $anrede = $_SESSION['anrede'];
   $username = $_SESSION['username'];
