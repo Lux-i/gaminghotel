@@ -2,6 +2,7 @@
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
 
+  include(__DIR__ . '/accounts.php');
   if(isset($_POST['username']) && isset($_POST['pwd'])){
     if(isset($_SESSION['username']) && isset($_SESSION['pwd'])){
       if($_SESSION['username'] == $_POST['username'] && $_SESSION['pwd'] == $_POST['pwd']) {
@@ -9,6 +10,28 @@
         header("Location: /index.php");
         die;
       }
+    }
+    if($account1['username'] == $_POST['username'] && $account1['pwd'] == $_POST['pwd']){
+      $_SESSION['logged'] = true;
+      $_SESSION['anrede'] = $account1['gender'];
+      $_SESSION['username'] = $account1['username'];
+      $_SESSION['vorname'] = $account1['vorname'];
+      $_SESSION['nachname'] = $account1['nachname'];
+      $_SESSION['email'] = $account1['email'];  
+      $_SESSION['pwd'] = $account1['pwd'];
+      header("Location: /index.php");
+      die;
+    }
+    if($account2['username'] == $_POST['username'] && $account2['pwd'] == $_POST['pwd']){
+      $_SESSION['logged'] = true;
+      $_SESSION['anrede'] = $account2['gender'];
+      $_SESSION['username'] = $account2['username'];
+      $_SESSION['vorname'] = $account2['vorname'];
+      $_SESSION['nachname'] = $account2['nachname'];
+      $_SESSION['email'] = $account2['email'];  
+      $_SESSION['pwd'] = $account2['pwd'];
+      header("Location: /index.php");
+      die;
     }
     echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert"> Username oder Passwort ist falsch!</div></div>';
   }
