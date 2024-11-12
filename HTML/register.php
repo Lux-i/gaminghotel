@@ -2,6 +2,12 @@
 include(__DIR__ . '/../components/header.php');
 
 if(!empty($_POST)){
+
+  if ($_POST['pwd'] !== $_POST['pwd_confirm']) {
+    echo "Password nicht gleich";
+    die;
+  }
+
   $_SESSION['anrede'] = $_POST['anrede'];
   $_SESSION['username'] = $_POST['username'];
   $_SESSION['vorname'] = $_POST['vorname'];
@@ -9,11 +15,6 @@ if(!empty($_POST)){
   $_SESSION['email'] = $_POST['email'];
   $_SESSION['pwd'] = $_POST['pwd'];
   $_SESSION['pwd_confirm'] = $_POST['pwd_confirm'];
-
-  if ($_SESSION['pwd'] !== $_SESSION['pwd_confirm']) {
-    echo "Password nicht gleich";
-    exit();
-  }
 
 }
 ?>

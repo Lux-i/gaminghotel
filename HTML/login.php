@@ -1,17 +1,18 @@
 <?php
   include(__DIR__ . '/../components/header.php');
+  include(__DIR__ . '/../components/nav.php');
 
-
-  if(isset($_POST['username']) && isset($_POST['pwd']) && $_SESSION['logged'] == false){
-    if($_SESSION['username'] == $_POST['username'] && $_SESSION['pwd'] == $_POST['pwd']) {
-      $_SESSION['logged'] = true;
-      header("Location: /index.php");
-      exit;
-    }elseif($_SESSION['username'] !== $_POST['username'] || $_SESSION['pwd'] !== $_POST['pwd']){
-      echo "Username oder Passwort ist falsch";
+  if(isset($_POST['username']) && isset($_POST['pwd'])){
+    if(isset($_SESSION['username']) && isset($_SESSION['pwd'])){
+      if($_SESSION['username'] == $_POST['username'] && $_SESSION['pwd'] == $_POST['pwd']) {
+        $_SESSION['logged'] = true;
+        header("Location: /index.php");
+        die;
+      }
     }
+    echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert"> Username oder Passwort ist falsch!</div></div>';
   }
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="de">
@@ -25,9 +26,6 @@
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite" id="impressum">
-    <?php 
-      include(__DIR__ . '/../components/nav.php');
-    ?>
     <main class="flex-row">
       <section class="login-window">
         <h2>Login</h2>

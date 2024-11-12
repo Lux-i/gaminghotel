@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION)){
+if(isset($_SESSION) && isset($_SESSION['logged'])){
   $anrede = $_SESSION['anrede'];
   $username = $_SESSION['username'];
   $vorname = $_SESSION['vorname'];
@@ -9,7 +9,6 @@ if(!isset($_SESSION)){
   $password = $_SESSION['pwd'];
   $password_confirm = $_SESSION['pwd_confirm'];
   $logged = $_SESSION['logged'];
-  $logged = false;
 }
 ?>
 
