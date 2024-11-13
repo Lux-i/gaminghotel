@@ -23,26 +23,71 @@
         <article class="container-lg flex-row jstfy-center">
           <section class="data-splitter width65 <?php echo ($logged == true) ? '' : 'center-txt'; ?>">
             <?php if ($_SESSION['logged'] == true) : ?>
-            <section class="flex-row jstfy-space-between">
-              <p>Benutzername: <?php echo $username; ?></p>
-              <input type="text" class="h-25"></input>
-            </section>
-            <section class="flex-row jstfy-space-between">
-              <p>E-Mail: <?php echo $email; ?></p>
-              <input type="text" class="h-25"></input>
-            </section>
-            <section class="flex-row jstfy-space-between">
-              <p>Vorname: <?php echo $vorname?></p>
-              <input type="text" class="h-25"></input>
+              <section id="userdata">
+                <p>Benutzername: <?php echo $username; ?></p>
+                <p>E-Mail: <?php echo $email; ?></p>
+                <p>Vorname: <?php echo $vorname?></p>
+                <p>Nachname: <?php echo $nachname; ?></p>
+                <p>Geschlecht: <?php echo $anrede; ?></p>
               </section>
-            <section class="flex-row jstfy-space-between">
-              <p>Nachname: <?php echo $nachname; ?></p>
-              <input type="text" class="h-25"></input>
-              </section>
-            <section class="flex-row jstfy-space-between">
-              <p>Geschlecht: <?php echo $anrede; ?></p>
-              <input type="text" class="h-25"></input>
-            </section>
+              <form class="flex-column" action="changeData.php" method="POST">
+              <section class="container form-floating">
+                  <input
+                    class="container-md form-control"
+                    type="text"
+                    id="username"
+                    name="username"
+                    value="<?php echo $username?>"
+                    aria-label="Nutzername" />
+                  <label for="username">Benutzername:</label>
+                </section>
+                <section class="container form-floating">
+                  <input
+                    class="container-md form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<?php echo $email?>"
+                    aria-label="Email Adresse" />
+                  <label for="email">E-Mail:</label>
+                </section>
+                <section class="container form-floating">
+                  <input
+                    class="container-md form-control"
+                    type="text"
+                    id="vorname"
+                    name="vorname"
+                    value="<?php echo $vorname?>"
+                    aria-label="Vorname" />
+                  <label for="vorname">Vorname:</label>
+                </section>
+                <section class="container form-floating">
+                  <input
+                    class="container-md form-control"
+                    type="text"
+                    id="nachname"
+                    name="nachname"
+                    value="<?php echo $nachname?>"
+                    aria-label="Nachname" />
+                  <label for="nachname">Nachname:</label>
+                </section>
+                <section class="container">
+                  <select
+                  class="container-md form-control"
+                  name="anrede"
+                  id="anrede">
+                    <option value="herr" <?php echo ($anrede == 'herr') ? 'selected' : ''?>>Herr</option>
+                    <option value="frau" <?php echo ($anrede == 'frau') ? 'selected' : ''?>>Frau</option>
+                    <option value="divers" <?php echo ($anrede == 'divers') ? 'selected' : ''?>>Divers</option>
+                  </select>
+                </section>
+                <input
+                  class="button-cream border-none"
+                  style="position:fixed;bottom:10;right:15;"
+                  type="submit"
+                  value="Änderungen bestätigen"
+                  required />
+              </form>
               <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
@@ -53,8 +98,5 @@
     <?php
       include(__DIR__ . '/../components/footer.php');
     ?>
-    <button style="position: fixed;right: 12;bottom: 8;" class="bg-primary button-cream border-none">
-      Tote hose
-    </button>
   </body>
 </html>
