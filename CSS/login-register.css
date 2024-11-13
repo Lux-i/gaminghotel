@@ -1,7 +1,6 @@
 .login-window {
   border: 0.34vw solid #f9e4bc;
   box-shadow: 0 0 12px 2px color-mix(in srgb, ghostwhite 100%, black 40%);
-  width: 35vw;
   padding: 1vh 0 1vh 0;
 }
 
@@ -53,6 +52,7 @@ label {
 
 .submit_button {
   margin: 2vh 10vw 2vh 10vw;
+  padding: 2vh 2vw 2vh 2vw;
   background-color: #f9e4bc;
   transition-duration: 0.5s;
   border-radius: 8px;
@@ -70,7 +70,7 @@ label {
 }
 
 @media (max-width: 600px) {
-  #login_fenster {
-    width: 80vw;
+  .login-window  {
+    width: 75vw;
   }
 }

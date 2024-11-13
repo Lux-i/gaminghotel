@@ -1,5 +1,7 @@
 <?php
   include(__DIR__ . '/../components/header.php');
+  include(__DIR__ . '/../components/nav.php');
+  include(__DIR__ . '/../components/in_work.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,16 +16,12 @@
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite">
-    <?php 
-      include(__DIR__ . '/../components/nav.php');
-      include(__DIR__ . '/../components/in_work.php');
-    ?>
     <main>
         <h2 class="border-bottom-cream center-txt">Mein Konto</h2>
         <article class="container-lg flex-row jstfy-center">
           <section class="data-splitter width65 <?php echo ($logged == true) ? '' : 'center-txt'; ?>">
             <?php if ($_SESSION['logged'] == true) : ?>
-              <section id="userdata">
+              <section class="mt-3" id="userdata">
                 <p>Benutzername: <?php echo $username; ?></p>
                 <p>E-Mail: <?php echo $email; ?></p>
                 <p>Vorname: <?php echo $vorname?></p>
@@ -88,7 +86,9 @@
                   value="Änderungen bestätigen"
                   required />
               </form>
-              <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+              <div class="d-flex justify-content-center">
+                <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+              </div>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
             <?php endif; ?>
@@ -98,5 +98,9 @@
     <?php
       include(__DIR__ . '/../components/footer.php');
     ?>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
   </body>
 </html>
