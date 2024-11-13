@@ -12,7 +12,7 @@ if(!empty($_POST)){
 
   if ($_SESSION['pwd'] !== $_SESSION['pwd_confirm']) {
     echo "Password nicht gleich";
-    exit();
+    die();
   }
 
 }
