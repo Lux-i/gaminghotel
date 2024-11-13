@@ -1,21 +1,20 @@
 <?php
 include(__DIR__ . '/../components/header.php');
+include(__DIR__ . '/../components/nav.php');
+
 
 if(!empty($_POST)){
 
   if ($_POST['pwd'] !== $_POST['pwd_confirm']) {
-    echo "Password nicht gleich";
-    die;
+    echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert">Passwort ist nicht gleich!</div></div>';
+  }else{
+    $_SESSION['anrede'] = $_POST['anrede'];
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['vorname'] = $_POST['vorname'];
+    $_SESSION['nachname'] = $_POST['nachname'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['pwd'] = $_POST['pwd'];
   }
-
-  $_SESSION['anrede'] = $_POST['anrede'];
-  $_SESSION['username'] = $_POST['username'];
-  $_SESSION['vorname'] = $_POST['vorname'];
-  $_SESSION['nachname'] = $_POST['nachname'];
-  $_SESSION['email'] = $_POST['email'];
-  $_SESSION['pwd'] = $_POST['pwd'];
-  $_SESSION['pwd_confirm'] = $_POST['pwd_confirm'];
-
 }
 ?>
 
@@ -31,9 +30,6 @@ if(!empty($_POST)){
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite" id="impressum">
-    <?php
-      include(__DIR__ . '/../components/nav.php');
-    ?>
     <main class="flex-row">
       <section class="login-window">
         <h2>Registrieren</h2>
@@ -114,7 +110,6 @@ if(!empty($_POST)){
                 aria-label="Passwort wiederholen" />
               <label for="pwd">Password wiederholen:</label>
             </section>
-            <?php if(isset($err_msg)):echo '<p class="center-txt">'.$err_msg.'</p>'; endif?>
             <input
               class="submit_button"
               type="submit"
