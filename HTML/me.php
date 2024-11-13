@@ -21,14 +21,29 @@
     <main>
         <h2 class="border-bottom-cream center-txt">Mein Konto</h2>
         <article class="container-lg flex-row jstfy-center">
-          <section class="data-splitter width65 <?php echo isset($user) ? '' : 'center-txt'; ?>">
+          <section class="data-splitter width65 <?php echo ($logged == true) ? '' : 'center-txt'; ?>">
             <?php if ($_SESSION['logged'] == true) : ?>
+            <section class="flex-row jstfy-space-between">
               <p>Benutzername: <?php echo $username; ?></p>
+              <input type="text" class="h-25"></input>
+            </section>
+            <section class="flex-row jstfy-space-between">
               <p>E-Mail: <?php echo $email; ?></p>
+              <input type="text" class="h-25"></input>
+            </section>
+            <section class="flex-row jstfy-space-between">
               <p>Vorname: <?php echo $vorname?></p>
+              <input type="text" class="h-25"></input>
+              </section>
+            <section class="flex-row jstfy-space-between">
               <p>Nachname: <?php echo $nachname; ?></p>
+              <input type="text" class="h-25"></input>
+              </section>
+            <section class="flex-row jstfy-space-between">
               <p>Geschlecht: <?php echo $anrede; ?></p>
-              <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </>
+              <input type="text" class="h-25"></input>
+            </section>
+              <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
             <?php endif; ?>
@@ -38,6 +53,8 @@
     <?php
       include(__DIR__ . '/../components/footer.php');
     ?>
-    
+    <button style="position: fixed;right: 12;bottom: 8;" class="bg-primary button-cream border-none">
+      Tote hose
+    </button>
   </body>
 </html>

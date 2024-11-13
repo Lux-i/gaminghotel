@@ -9,7 +9,6 @@ if(isset($_SESSION) && isset($_SESSION['logged'])){
     $nachname = $_SESSION['nachname'];
     $email = $_SESSION['email'];  
     $password = $_SESSION['pwd'];
-    $password_confirm = $_SESSION['pwd_confirm'];
     $logged = $_SESSION['logged'];
 }
 ?>
