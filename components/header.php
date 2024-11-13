@@ -1,15 +1,16 @@
 <?php
 session_start();
-if(!isset($_SESSION)){
-  $anrede = $_SESSION['anrede'];
-  $username = $_SESSION['username'];
-  $vorname = $_SESSION['vorname'];
-  $nachname = $_SESSION['nachname'];
-  $email = $_SESSION['email'];  
-  $password = $_SESSION['pwd'];
-  $password_confirm = $_SESSION['pwd_confirm'];
-  $logged = $_SESSION['logged'];
-  $logged = false;
+$logged = false;
+
+if(isset($_SESSION) && isset($_SESSION['logged'])){
+    $anrede = $_SESSION['anrede'];
+    $username = $_SESSION['username'];
+    $vorname = $_SESSION['vorname'];
+    $nachname = $_SESSION['nachname'];
+    $email = $_SESSION['email'];  
+    $password = $_SESSION['pwd'];
+    $password_confirm = $_SESSION['pwd_confirm'];
+    $logged = $_SESSION['logged'];
 }
 ?>
 
