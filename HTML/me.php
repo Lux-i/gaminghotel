@@ -1,5 +1,7 @@
 <?php
   include(__DIR__ . '/../components/header.php');
+  include(__DIR__ . '/../components/nav.php');
+  include(__DIR__ . '/../components/in_work.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +16,12 @@
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite">
-    <?php 
-      include(__DIR__ . '/../components/nav.php');
-    ?>
     <main>
         <h2 class="border-bottom-cream center-txt">Mein Konto</h2>
         <article class="container-lg flex-row jstfy-center">
           <section class="data-splitter width65 <?php echo ($logged == true) ? '' : 'center-txt'; ?>">
             <?php if ($_SESSION['logged'] == true) : ?>
-              <section id="userdata">
+              <section class="mt-3" id="userdata">
                 <p>Benutzername: <?php echo $username; ?></p>
                 <p>E-Mail: <?php echo $email; ?></p>
                 <p>Vorname: <?php echo $vorname?></p>
@@ -92,6 +91,7 @@
               </form>
               <section class="flex-row jstfy-space-around">
                 <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+                <a href="change_pwd.php"> <button class="button-cream border-none"> Passwort ändern </button> </a>
                 <button class="button-cream border-none" onclick="changeVisibility(this)">Edit</button>
               </section>
             <?php else : ?>

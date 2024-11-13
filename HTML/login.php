@@ -49,40 +49,40 @@
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite" id="impressum">
-    <main class="flex-row">
-      <section class="login-window">
+    <main class="flex-row container">
+        <section class="login-window">
         <h2>Login</h2>
-        <section class="flex-column form-container">
-          <form class="flex-column" method="POST">
-          <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="username"
-                name="username"
-                required
-                placeholder="maxi93"
-                aria-label="Nutzername" />
-              <label for="username">Nutzername:</label>
-            </section>
+          <section class="flex-column form-container">
+            <form class="flex-column" method="POST">
             <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="password"
-                id="pwd"
-                name="pwd"
-                placeholder="Passwort"
-                aria-label="Passwort" />
-              <label for="pwd">Passwort</label>
-            </section>
-            <input class="submit_button" type="submit" value="Login" />
-          </form>
-          <p>
-            Sie haben noch kein Konto?
-            <a href="/HTML/register.php">Hier registrieren</a>
-          </p>
-        </section>
-      </section>
+                <input
+                  class="inputfield container-md form-control"
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  placeholder="maxi93"
+                  aria-label="Nutzername" />
+                <label for="username">Nutzername:</label>
+              </section>
+              <section class="input_group container form-floating">
+                <input
+                  class="inputfield container-md form-control"
+                  type="password"
+                  id="pwd"
+                  name="pwd"
+                  placeholder="Passwort"
+                  aria-label="Passwort" />
+                <label for="pwd">Passwort</label>
+              </section>
+              <input class="submit_button" type="submit" value="Login" />
+            </form>
+            <p>
+              Sie haben noch kein Konto?
+              <a href="/HTML/register.php">Hier registrieren</a>
+            </p>
+          </section>
+         </section>
     </main>
     <?php 
       include(__DIR__ . '/../components/footer.php');
