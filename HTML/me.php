@@ -91,6 +91,7 @@
               </form>
               <section class="flex-row jstfy-space-around">
                 <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+                <a href="change_pwd.php"> <button class="button-cream border-none"> Passwort ändern </button> </a>
                 <button class="button-cream border-none" onclick="changeVisibility(this)">Edit</button>
               </section>
             <?php else : ?>
