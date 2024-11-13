@@ -1,3 +1,9 @@
+<?php
+if(isset($_GET['error'])){
+  $err_msg = $_GET['error'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,13 +19,12 @@
     <?php 
       include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
-      include(__DIR__ . '/../components/in_work.php');
     ?>
         <main class="flex-row container">
         <section class="login-window">
         <h2>Passwort ändern</h2>
           <section class="flex-column form-container">
-            <form class="flex-column" method="POST">
+            <form class="flex-column" action="changeData.php" method="POST">
             <section class="input_group container form-floating">
                 <input
                   class="inputfield container-md form-control"
@@ -50,6 +55,7 @@
                   aria-label="Neues Passwort wiederholen" />
                 <label for="new_pwd_again">Neues Passwort wiederholen</label>
               </section>
+              <?php if(isset($err_msg)):echo '<p class="center-txt">'.$err_msg.'</p>'; endif?>
               <input class="submit_button" type="submit" value="Bestätigen" />
             </form>
           </section>

@@ -14,8 +14,6 @@ if(!empty($_POST)){
   $_SESSION['nachname'] = $_POST['nachname'];
   $_SESSION['email'] = $_POST['email'];
   $_SESSION['pwd'] = $_POST['pwd'];
-  $_SESSION['pwd_confirm'] = $_POST['pwd_confirm'];
-
 }
 ?>
 
