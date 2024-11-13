@@ -30,8 +30,8 @@
                 <p>Nachname: <?php echo $nachname; ?></p>
                 <p>Geschlecht: <?php echo $anrede; ?></p>
               </section>
-              <form class="flex-column" action="changeData.php" method="POST">
-              <section class="container form-floating">
+              <form id="edit" class="flex-column" action="changeData.php" method="POST" hidden=true>
+                <section class="container form-floating">
                   <input
                     class="container-md form-control"
                     type="text"
@@ -74,8 +74,8 @@
                 <section class="container">
                   <select
                   class="container-md form-control"
-                  name="anrede"
-                  id="anrede">
+                  name="gender"
+                  id="gender">
                     <option value="herr" <?php echo ($anrede == 'herr') ? 'selected' : ''?>>Herr</option>
                     <option value="frau" <?php echo ($anrede == 'frau') ? 'selected' : ''?>>Frau</option>
                     <option value="divers" <?php echo ($anrede == 'divers') ? 'selected' : ''?>>Divers</option>
@@ -85,10 +85,16 @@
                   class="button-cream border-none"
                   style="position:fixed;bottom:10;right:15;"
                   type="submit"
+                  id="submitButton"
                   value="Änderungen bestätigen"
-                  required />
+                  required
+                  hidden
+                  disabled/>
               </form>
-              <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+              <section class="flex-row jstfy-space-around">
+                <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
+                <button class="button-cream border-none" onclick="changeVisibility(this)">Edit</button>
+              </section>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
             <?php endif; ?>
@@ -98,5 +104,10 @@
     <?php
       include(__DIR__ . '/../components/footer.php');
     ?>
+    <script src="/JS/changeData.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
   </body>
 </html>
