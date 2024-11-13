@@ -16,7 +16,6 @@
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/nav.php');
-      include(__DIR__ . '/../components/in_work.php');
     ?>
     <main>
         <h2 class="border-bottom-cream center-txt">Mein Konto</h2>
