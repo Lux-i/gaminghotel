@@ -26,7 +26,7 @@
                 <p>E-Mail: <?php echo $email; ?></p>
                 <p>Vorname: <?php echo $vorname?></p>
                 <p>Nachname: <?php echo $nachname; ?></p>
-                <p>Geschlecht: <?php echo $anrede; ?></p>
+                <p>Geschlecht: <?php echo ucfirst($anrede); ?></p>
               </section>
               <form id="edit" class="flex-column" action="changeData.php" method="POST" hidden=true>
                 <section class="container form-floating">
