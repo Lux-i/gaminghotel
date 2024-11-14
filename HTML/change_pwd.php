@@ -56,10 +56,7 @@ if(isset($_GET['error'])){
                 <label for="new_pwd_again">Neues Passwort wiederholen</label>
               </section>
               <?php if(isset($err_msg)):echo '<p class="center-txt">'.$err_msg.'</p>'; endif?>
-            <div>  
               <input class="submit_button" type="submit" value="Bestätigen" />
-              <a href="/HTML/me.php"><button class="submit_button">Abbrechen</button></a>
-            </div>
             </form>
           </section>
          </section>
