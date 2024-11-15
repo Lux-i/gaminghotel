@@ -12,9 +12,10 @@
     <?php 
       include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
-      echo '<h1 class="text-center">Reservierungen</h1>';
+      echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
+    
     <?php  
       include(__DIR__ . '/../components/footer.php');
     ?>

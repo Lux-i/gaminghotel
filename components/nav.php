@@ -31,7 +31,7 @@
             <a class="nav-link navlink" href="/HTML/buchen.php">Buchung</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/hilfe.php">News</a>
+            <a class="nav-link navlink" href="/HTML/news.php">News</a>
           </li>
           <li class="nav-item">
             <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
