@@ -20,66 +20,65 @@
         <section class="flex-column form-container">
           <form class="flex-column" method="POST">
             <section class="input_group container">
-              <select
-                class="inputfield container-md form-control"
-                name="anrede"
-                id="anrede"
-                required>
-                <option value="herr">Herr</option>
-                <option value="frau">Frau</option>
-                <option value="divers">Divers</option>
-              </select>
-            </section>
-            <section class="input_group container form-floating">
+                <select
+                  class="inputfield container-md form-control"
+                  name="anrede"
+                  id="anrede"
+                  required>
+                  <option value="herr">Herr</option>
+                  <option value="frau">Frau</option>
+                  <option value="divers">Divers</option>
+                </select>
+              </section>
+              <section class="input_group container form-floating">
+                <input
+                  class="inputfield container-md form-control"
+                  type="text"
+                  id="vorname"
+                  name="vorname"
+                  required
+                  placeholder="Max"
+                  aria-label="Vorname" />
+                <label for="vorname">Vorname:*</label>
+              </section>
+              <section class="input_group container form-floating">
+                <input
+                  class="inputfield container-md form-control"
+                  type="text"
+                  id="nachname"
+                  name="nachname"
+                  required
+                  placeholder="Mustermann"
+                  aria-label="Nachname" />
+                <label for="nachname">Nachname:*</label>
+              </section>
+              <section class="input_group container form-floating">
+                <input
+                  class="inputfield container-md form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="max.mustermann@example.com"
+                  required
+                  aria-label="Email Adresse" />
+                <label for="email">E-Mail Adresse:*</label>
+              </section>
+              <section class="row g-2 mt-2">
+                <section class="col">
+                  <label class="w-75" for="check_in">Check-In Datum</label>
+                  <input type="date" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
+                </section>
+                <section class="col">
+                  <label class="w-75" for="check_in">Check-Out Datum</label>
+                  <input type="date" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
+                </section>
+              </section>
               <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="vorname"
-                name="vorname"
-                required
-                placeholder="Max"
-                aria-label="Vorname" />
-              <label for="vorname">Vorname:</label>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="nachname"
-                name="nachname"
-                required
-                placeholder="Mustermann"
-                aria-label="Nachname" />
-              <label for="nachname">Nachname:</label>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="max.mustermann@example.com"
-                required
-                aria-label="Email Adresse" />
-              <label for="email">E-Mail Adresse:</label>
-            </section>
-            <section class="input_group container form-floating">
-              <input
-                class="inputfield container-md form-control"
-                type="text"
-                id="username"
-                name="username"
-                required
-                placeholder="maxi93"
-                aria-label="Nutzername" />
-              <label for="username">Nutzername:</label>
-            </section>
-            <input
-              class="submit_button"
-              type="submit"
-              value="Reservieren"
-              required />
-          </form>
+                class="submit_button"
+                type="submit"
+                value="Registrieren"
+                required />
+            </form>
         </section>
       </section>
     </main>
