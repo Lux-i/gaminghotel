@@ -30,6 +30,9 @@
           <li class="nav-item">
             <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link navlink" href="/HTML/reservierungen.php">Reservierungen</a>
+          </li>
         </ul>
       </div>
     </div>
