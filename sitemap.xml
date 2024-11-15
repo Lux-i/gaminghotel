@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>localhost/index.php</loc>
+    <loc>/index.php</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>localhost/HTML/hilfe.php</loc>
+    <loc>/HTML/hilfe.php</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
     <url>
-    <loc>localhost/HTML/buchen.php</loc>
+    <loc>/HTML/buchen.php</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>localhost/HTML/login.php</loc>
+    <loc>/HTML/login.php</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>localhost/HTML/register.php</loc>
+    <loc>/HTML/register.php</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

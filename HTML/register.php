@@ -10,10 +10,11 @@ if(!empty($_POST)){
   }else{
     $_SESSION['anrede'] = $_POST['anrede'];
     $_SESSION['username'] = $_POST['username'];
-    $_SESSION['vorname'] = $_POST['vorname'];
-    $_SESSION['nachname'] = $_POST['nachname'];
+    $_SESSION['vorname'] = ucfirst($_POST['vorname']);
+    $_SESSION['nachname'] = ucfirst($_POST['nachname']);
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['pwd'] = $_POST['pwd'];
+    header('Location: login.php');
   }
 }
 ?>

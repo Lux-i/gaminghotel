@@ -28,6 +28,12 @@
             <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link navlink" href="/HTML/buchen.php">Buchung</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navlink" href="/HTML/hilfe.php">News</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
           </li>
           <li class="nav-item">
