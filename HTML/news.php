@@ -1,3 +1,7 @@
+<?php
+  include(__DIR__ . '/news-articles.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +11,7 @@
     <?php
       include(__DIR__ . '/../components/main_style.php');
     ?>
-    <link rel="stylesheet" href="/CSS/login-register.css" />
+    <link rel="stylesheet" href="../css/news.css">
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/header.php');
@@ -15,6 +19,18 @@
       echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
+
+    <?php foreach ($articles as $article): ?>
+      <section class="container w-75 news-pre text-start p-0">
+        <section class="txt-container">
+          <h2><?= htmlspecialchars($article["title"]) ?></h2>
+          <p><?= htmlspecialchars($article["sub"]) ?></p>
+        </section>
+        <section class="img-container">
+          <img src="<?= htmlspecialchars($article["imgpath"])?>"/>
+        </section>
+      </section>
+    <?php endforeach; ?>
     
     <?php  
       include(__DIR__ . '/../components/footer.php');

@@ -1,2 +1,0 @@
-Change sent token to be the calculated value instead of it's hash.
-Verify token integrity using argon in getUSer api.

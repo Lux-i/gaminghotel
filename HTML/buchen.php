@@ -15,70 +15,75 @@
       include(__DIR__ . '/../components/in_work.php');
     ?>
     <main class="flex-row">
-      <section class="login-window">
-        <h2>Zimmer Buchen</h2>
-        <section class="flex-column form-container">
-          <form class="flex-column" method="POST">
-            <section class="input_group container">
-                <select
-                  class="inputfield container-md form-control"
-                  name="anrede"
-                  id="anrede"
-                  required>
-                  <option value="herr">Herr</option>
-                  <option value="frau">Frau</option>
-                  <option value="divers">Divers</option>
-                </select>
-              </section>
-              <section class="input_group container form-floating">
-                <input
-                  class="inputfield container-md form-control"
-                  type="text"
-                  id="vorname"
-                  name="vorname"
-                  required
-                  placeholder="Max"
-                  aria-label="Vorname" />
-                <label for="vorname">Vorname:*</label>
-              </section>
-              <section class="input_group container form-floating">
-                <input
-                  class="inputfield container-md form-control"
-                  type="text"
-                  id="nachname"
-                  name="nachname"
-                  required
-                  placeholder="Mustermann"
-                  aria-label="Nachname" />
-                <label for="nachname">Nachname:*</label>
-              </section>
-              <section class="input_group container form-floating">
-                <input
-                  class="inputfield container-md form-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="max.mustermann@example.com"
-                  required
-                  aria-label="Email Adresse" />
-                <label for="email">E-Mail Adresse:*</label>
-              </section>
-              <section class="row g-2 mt-2">
-                <section class="col">
-                  <label class="w-75" for="check_in">Check-In Datum</label>
-                  <input type="date" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
+      <section class="login-window flex-row">
+        <section style="border-right: 1px solid black;">
+          <h2>Zimmer Buchen</h2>
+          <section class="form-container">
+            <form id="bookform" class="flex-column" method="POST">
+              <section class="input_group container">
+                  <select
+                    class="inputfield container-md form-control"
+                    name="anrede"
+                    id="anrede"
+                    required>
+                    <option value="herr">Herr</option>
+                    <option value="frau">Frau</option>
+                    <option value="divers">Divers</option>
+                  </select>
                 </section>
-                <section class="col">
-                  <label class="w-75" for="check_in">Check-Out Datum</label>
-                  <input type="date" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
+                <section class="input_group container form-floating">
+                  <input
+                    class="inputfield container-md form-control"
+                    type="text"
+                    id="vorname"
+                    name="vorname"
+                    required
+                    placeholder="Max"
+                    aria-label="Vorname" />
+                  <label for="vorname">Vorname:*</label>
                 </section>
-              </section>
-              <input
-                class="submit_button"
-                type="submit"
-                value="Registrieren"
-                required />
-            </form>
+                <section class="input_group container form-floating">
+                  <input
+                    class="inputfield container-md form-control"
+                    type="text"
+                    id="nachname"
+                    name="nachname"
+                    required
+                    placeholder="Mustermann"
+                    aria-label="Nachname" />
+                  <label for="nachname">Nachname:*</label>
+                </section>
+                <section class="input_group container form-floating">
+                  <input
+                    class="inputfield container-md form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="max.mustermann@example.com"
+                    required
+                    aria-label="Email Adresse" />
+                  <label for="email">E-Mail Adresse:*</label>
+                </section>
+                <section class="row g-2 mt-2">
+                  <section class="col">
+                    <label class="w-75" for="check_in">Check-In Datum</label>
+                    <input type="date" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
+                  </section>
+                  <section class="col">
+                    <label class="w-75" for="check_in">Check-Out Datum</label>
+                    <input type="date" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
+                  </section>
+                </section>
+                <input
+                  class="submit_button"
+                  type="submit"
+                  value="Registrieren"
+                  required />
+              </form>
+          </section>
+        </section>
+        <section class="p-3 flex-column jstfy-center">
+          <p id="price-txt" class="center-txt">0 €</p>
         </section>
       </section>
     </main>
@@ -89,5 +94,6 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+    <script src="../JS/bookingCost.js"></script>
   </body>
 </html>
