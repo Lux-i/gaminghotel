@@ -120,7 +120,7 @@ $username = "Log in";
 
 //PASSWORD RESET
 
-<section class="data-splitter">
+/*<section class="data-splitter">
                 <button id="resetButton" class="button-cream border-none" onclick="showReset()">
                   Reset Password
                 </button>

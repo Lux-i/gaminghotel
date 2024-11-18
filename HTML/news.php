@@ -1,5 +1,6 @@
 <?php
   include(__DIR__ . '/news-articles.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +13,8 @@
       include(__DIR__ . '/../components/main_style.php');
     ?>
     <link rel="stylesheet" href="../css/news.css">
+    <link rel="stylesheet" href="/CSS/login-register.css" />
+  </head>
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/header.php');
@@ -19,6 +22,29 @@
       echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
+
+  <main class="d-flex flex-row">
+    <section class="login-window mb-3 w-75">
+    <form action="/components/upload.php" method="POST" enctype="multipart/form-data">
+      <h2 class="border-bottom-black">Neuer Artikel</h2>
+      <div class="mb-4">
+        <label for="file">Banner</label>
+        <input id="file" name="file" type="file" class="inputfield container-md form-control">
+      </div>
+      <div class="mb-4">
+        <label for="title">Titel</label>
+        <input id="title" type="text" class="inputfield container-md form-control">
+      </div>
+      <div class="mb-4">
+        <label for="content">Inhalt</label>
+        <textarea class="inputfield container-md form-control" name="content" id="content" rows="4" cols="50"></textarea>
+      </div>
+      <div class="d-flex justify-content-center">
+        <input class="submit_button w-25" type="submit" name="submit" value="Veröffentlichen" />
+      </div>
+    </form>
+    </section>
+  </main>
 
     <?php foreach ($articles as $article): ?>
       <a href="article.php?id=<?= urlencode($article['id']) ?>"

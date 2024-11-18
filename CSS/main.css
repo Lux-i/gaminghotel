@@ -111,6 +111,10 @@ footer {
 }
 /* Allgemeine quick-use-klassen deklarationen*/
 
+.hide{
+  display: none;
+}
+
 .border-none {
   border: none;
 }

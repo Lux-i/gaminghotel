@@ -8,6 +8,7 @@
       include(__DIR__ . '/../components/main_style.php');
     ?>
     <link rel="stylesheet" href="/CSS/login-register.css" />
+  </head>
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/header.php');
@@ -17,7 +18,8 @@
     <main class="flex-row">
       <section class="login-window flex-row">
         <section style="border-right: 1px solid black;">
-          <h2>Zimmer Buchen</h2>
+        <?php if ($_SESSION['logged'] == true) : ?> 
+        <h2>Zimmer Buchen</h2>
           <section class="form-container">
             <form id="bookform" class="flex-column" method="POST">
               <section class="input_group container">
@@ -100,6 +102,11 @@
           <p id="price-txt" class="center-txt">0 €</p>
         </section>
       </section>
+      <div>
+    <?php else : ?>
+              <p>Sie sind nicht eingeloggt.</p>
+    <?php endif; ?>
+    </div>
     </main>
     <?php  
       include(__DIR__ . '/../components/footer.php');
