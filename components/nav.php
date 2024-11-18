@@ -28,7 +28,7 @@
             <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/buchen.php">Buchung</a>
+            <a class="nav-link navlink" href="/HTML/buchen.php" <?php if($_SESSION['logged'] != true){ echo 'hidden';}?> >Buchung</a>
           </li>
           <li class="nav-item">
             <a class="nav-link navlink" href="/HTML/news.php">News</a>
