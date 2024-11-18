@@ -21,7 +21,8 @@
     ?>
 
     <?php foreach ($articles as $article): ?>
-      <section class="container w-75 news-pre text-start p-0">
+      <a href="article.php?id=<?= urlencode($article['id']) ?>"
+      class="d-block text-decoration-none text-reset container w-75 news-pre text-start p-0">
         <section class="txt-container">
           <h2><?= htmlspecialchars($article["title"]) ?></h2>
           <p><?= htmlspecialchars($article["sub"]) ?></p>
@@ -29,7 +30,7 @@
         <section class="img-container">
           <img src="<?= htmlspecialchars($article["imgpath"])?>"/>
         </section>
-      </section>
+      </a>
     <?php endforeach; ?>
     
     <?php  

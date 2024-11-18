@@ -66,18 +66,32 @@
                 </section>
                 <section class="row g-2 mt-2">
                   <section class="col">
-                    <label class="w-75" for="check_in">Check-In Datum</label>
+                    <label class="w-100" for="check_in">Check-In Datum</label>
                     <input type="date" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
                   </section>
                   <section class="col">
-                    <label class="w-75" for="check_in">Check-Out Datum</label>
+                    <label class="w-100" for="check_in">Check-Out Datum</label>
                     <input type="date" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
                   </section>
+                </section>
+                <section>
+                  <label>
+                    <input type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
+                    </label>
+                  <label>
+                    <input type="checkbox" name="extras[]" value="Frühstück"> Frühstück (18€/Tag)
+                  </label>
+                  <label>
+                    <input type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)
+                  </label>
                 </section>
                 <input
                   class="submit_button"
                   type="submit"
+                  id="submitButton"
                   value="Registrieren"
+                  hidden
+                  disabled
                   required />
               </form>
           </section>

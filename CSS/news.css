@@ -6,9 +6,13 @@
 
 .img-container {
     width: 100%;
-    aspect-ratio: 6 / 1;
+    aspect-ratio: 4 / 2;
     overflow: hidden;
     position: relative;
+}
+
+.news-pre .img-container {
+    aspect-ratio: 6 / 1;
 }
 
 .img-container img {

@@ -21,11 +21,7 @@ window.onload = () => {
   }
 
   editField.addEventListener("input", function () {
-    console.log("change detected");
     for (const input of inputs) {
-      console.log(
-        `Input value: ${input.value}, ogValue: ${ogData[input.name]}`
-      );
       if (input.value != ogData[input.name] && input.value != "") {
         submitButton.hidden = false;
         submitButton.disabled = false;
