@@ -1,20 +1,12 @@
-## NEWS
+## NEWS / ARTICLE
 
-Set the article previews to link to their respective article using GET on the news.php
-implement an article loader based on the GET array
-if the get array is empty, no specific article is loaded and the "default" news page is displayed
-(/news.php) - default page with the previews | (/news.php?article=articleId) - article page with full data
+Work on styling and layout
+on both the news.php for the previews and on the article.php for displaying the full article
 
 ## BOOKING
 
-Add checkboxes for extras like parking
-develop the javascript further for efficient display of the selected extras
-make the prices of the extras be conditionally displayed, do not show if not selected
-
-lines could be added onto the .innerText instead of setting it in one go
-this would easily allow for conditionally displaying the needed extras in the text and adding the resulting costs to the price one by one.
-if(extra1) -> add new line to .innerText with the resulting cost of the extra -> add resulting price to a sum value
-repeat for every extra
+Work on the php handling of the booking data,
+either on buchen.php or a seperate data handler file
 
 ## CSS / DESIGN
 
