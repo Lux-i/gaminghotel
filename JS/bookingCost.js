@@ -20,6 +20,7 @@ window.onload = () => {
   editField.addEventListener("input", function () {
     if (checkin.value == "" || checkout.value == "") {
       days = 0;
+      price = days * prices["room"];
     } else {
       const start = new Date(checkin.value);
       const end = new Date(checkout.value);
