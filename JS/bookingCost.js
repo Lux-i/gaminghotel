@@ -20,18 +20,17 @@ window.onload = () => {
   editField.addEventListener("input", () => {
     if (checkin.value == "" || checkout.value == "") {
       days = 0;
-      price = days * prices["room"];
     } else {
       const start = new Date(checkin.value);
       const end = new Date(checkout.value);
       days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
       if (days < 0) {
         days = 0;
-      } else {
-        //initial price (room only)
-        price = days * prices["room"];
       }
     }
+
+    //initial price (room only)
+    price = days * prices["room"];
 
     //string display code
     displayField.innerText = `Aufenthalt von ${days} Tagen.
