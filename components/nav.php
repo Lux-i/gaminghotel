@@ -37,7 +37,7 @@
             <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/reservierungen.php">Reservierungen</a>
+            <a class="nav-link navlink" href="/HTML/reservierungen.php" <?php if($_SESSION['logged'] != true){ echo 'hidden';}?>>Reservierungen</a>
           </li>
         </ul>
       </div>
