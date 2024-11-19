@@ -2,8 +2,8 @@
 $bookings = [
     [
         "gender" => "herr",
-        "firstName" => "Göt",
-        "lastName" => "Warumnichtjs",
+        "vorname" => "Göt",
+        "nachname" => "Warumnichtjs",
         "email" => "warumnphp@ich.heule",
         "start" => 1732316400,
         "end" => 1732921200,

@@ -6,8 +6,10 @@
     <title>Buchen | Göppel & Göppel Hotels</title>
     <?php
       include(__DIR__ . '/../components/main_style.php');
+      include(__DIR__. '/../components/booking_data.php');
     ?>
     <link rel="stylesheet" href="/CSS/login-register.css" />
+  </head>
   <body class="ghostwhite">
     <?php 
       include(__DIR__ . '/../components/header.php');
@@ -15,6 +17,19 @@
       echo '<h1 class="text-center">Reservierungen</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
+    <?php if ($_SESSION['logged'] == true) : ?> 
+
+      <?php foreach ($bookings as $bookings): ?>
+        <main class="d-flex justify-content-center">
+          <section class="login-window w-75">
+                <p">Reserviert für: <?php echo ucfirst($bookings['gender']) ." ". $bookings['vorname'] ." ". $bookings['nachname']; ?></p>
+                <p>E-Mail: <?php echo $bookings['email']; ?></p>
+          </section>
+        </main>
+      <?php endforeach;?>
+      <?php else : ?>
+              <p class="text-center">Sie sind nicht eingeloggt.</p>
+    <?php endif; ?>
     <?php  
       include(__DIR__ . '/../components/footer.php');
     ?>
