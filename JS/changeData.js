@@ -26,11 +26,10 @@ window.onload = () => {
         submitButton.hidden = false;
         submitButton.disabled = false;
         return;
-      } else {
-        submitButton.hidden = true;
-        submitButton.disabled = true;
       }
     }
+    submitButton.hidden = true;
+    submitButton.disabled = true;
   });
 };
 

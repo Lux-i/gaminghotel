@@ -1,6 +1,6 @@
 <?php
-$uploadDir = "uploads/";
-$thumbnail = "uploads/thumbnails/";
+$uploadDir = "../Public/uploads/";
+$thumbnail = "../Public/uploads/thumbnails/";
 $target_thumbnail = $thumbnail . basename($_FILES["file"]["name"]);
 $target_file = $uploadDir . basename($_FILES["file"]["name"]);
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -24,7 +24,7 @@ $upload = true;
                 $new_height = 480;
                 $thumb = imagecreatetruecolor($new_width, $new_height);
                 $source = imagecreatefromjpeg($target_file);
-                imagecopyresized($thumb, $source, 0,0,0,0,$new_width,$new_height, $width, $height);
+                imagecopyresized($thumb, $source, 0, 0, $width / 2 - $new_width / 2, $height / 2 - $new_height / 2, $new_width ,$new_height, $new_width, $new_height);
                 imagejpeg($thumb, $target_thumbnail);
             }
 

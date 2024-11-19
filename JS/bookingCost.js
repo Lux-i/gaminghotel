@@ -17,7 +17,7 @@ window.onload = () => {
 
   displayField = document.getElementById("price-txt");
 
-  editField.addEventListener("input", function () {
+  editField.addEventListener("input", () => {
     if (checkin.value == "" || checkout.value == "") {
       days = 0;
     } else {
@@ -33,7 +33,7 @@ window.onload = () => {
     }
 
     //string display code
-    displayField.innerText = `Aufenthalt von ${days} tagen.
+    displayField.innerText = `Aufenthalt von ${days} Tagen.
       Zimmer: ${days * prices["room"]}€`;
 
     //load selected options and display if found
@@ -58,7 +58,7 @@ window.onload = () => {
       submitButton.disabled = true;
     }
   });
-  displayField.innerText = `Aufenthalt von ${days} tagen.
+  displayField.innerText = `Aufenthalt von ${days} Tagen.
   Zimmer: ${days * 50}€\n
   Gesamt: ${days * 60}€`;
 };
