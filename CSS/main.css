@@ -111,7 +111,7 @@ footer {
 }
 /* Allgemeine quick-use-klassen deklarationen*/
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -207,7 +207,7 @@ footer {
   h3 {
     margin-bottom: 0;
   }
-  .login{
+  .login {
     margin-right: 4vw !important;
   }
   .data-splitter {
