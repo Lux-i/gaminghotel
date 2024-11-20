@@ -14,16 +14,14 @@
     <?php 
       include(__DIR__ . '/../components/header.php');
       include(__DIR__ . '/../components/nav.php');
-      echo '<h1 class="text-center">Reservierungen</h1>';
+      echo '<h1 class="text-center mt-2">Meine Buchungen</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
     <?php if ($_SESSION['logged'] == true) : ?> 
-
-
-      <?php $count = 1; foreach ($bookings as $bookings): ?>
+      <?php foreach ($bookings as $bookings): ?>
+        <?php if($bookings['email'] == $email && $bookings['vorname'] == $vorname && $bookings['nachname'] == $nachname): ?> 
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
-                <h2 class="pl-4">Buchung <?php echo $count;?></h2>
                 <p class="px-3">Reserviert für: <?php echo ucfirst($bookings['gender']) ." ". $bookings['vorname'] ." ". $bookings['nachname']; ?></p>
                 <p class="px-3">E-Mail: <?php echo $bookings['email']; ?></p>
                 <p class="px-3">Reserviert ab: <?php
@@ -40,7 +38,10 @@
 
           </section>
         </main>
-      <?php $count += 1;?>
+        <?php elseif($bookings['email'] != $email && $bookings['vorname'] != $vorname && $bookings['nachname'] != $nachname): echo "";?>
+        <?php else : ?>
+            <p class="text-center">Sie haben keine Buchungen.</p>
+        <?php endif;?>
       <?php endforeach;?>
       <?php else : ?>
               <p class="text-center">Sie sind nicht eingeloggt.</p>
