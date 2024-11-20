@@ -74,9 +74,15 @@
                   class="container-md form-control"
                   name="gender"
                   id="gender">
-                    <option value="herr" <?php echo ($anrede == 'herr') ? 'selected' : ''?>>Herr</option>
-                    <option value="frau" <?php echo ($anrede == 'frau') ? 'selected' : ''?>>Frau</option>
-                    <option value="divers" <?php echo ($anrede == 'divers') ? 'selected' : ''?>>Divers</option>
+                    <option value="herr" <?php echo ($anrede == 'herr') ? 'selected' : ''?>>
+                      Herr
+                    </option>
+                    <option value="frau" <?php echo ($anrede == 'frau') ? 'selected' : ''?>>
+                      Frau
+                    </option>
+                    <option value="divers" <?php echo ($anrede == 'divers') ? 'selected' : ''?>>
+                      Divers
+                    </option>
                   </select>
                 </section>
                 <input
@@ -90,9 +96,19 @@
                   disabled/>
               </form>
               <section class="flex-row jstfy-space-around">
-                <a href="logout.php"> <button class="button-cream border-none"> Logout </button> </a>
-                <a href="change_pwd.php"> <button class="button-cream border-none"> Passwort ändern </button> </a>
-                <button class="button-cream border-none" onclick="changeVisibility(this)">Edit</button>
+                <a href="logout.php"> 
+                  <button class="button-cream border-none">
+                     Logout 
+                  </button>
+                </a>
+                <a href="change_pwd.php">
+                  <button class="button-cream border-none">
+                     Passwort ändern 
+                  </button>
+                </a>
+                <button class="button-cream border-none" onclick="changeVisibility(this)">
+                  Edit
+                </button>
               </section>
             <?php else : ?>
               <p>Sie sind nicht eingeloggt.</p>
