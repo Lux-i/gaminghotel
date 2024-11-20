@@ -2,7 +2,7 @@ var days = 0;
 var price = 0;
 
 const prices = {
-  room: 180,
+  room: 100,
   Parkplatz: 13,
   Frühstück: 18,
   Haustiere: 10,

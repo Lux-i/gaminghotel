@@ -11,7 +11,7 @@ $bookings = [
             "Parkplatz",
             "Frühstück"
         ],
-        "price" => 1477
+        "price" => 917
     ],
     [
         "gender" => "frau",
@@ -23,7 +23,7 @@ $bookings = [
         "extras" => [
             "Haustiere"
         ],
-        "price" => 1900
+        "price" => 1100
     ],
     [
         "gender" => "herr",
@@ -35,7 +35,7 @@ $bookings = [
         "extras" => [
             "Parkplatz"
         ],
-        "price" => 1930
+        "price" => 1130
     ],
 
 ]
