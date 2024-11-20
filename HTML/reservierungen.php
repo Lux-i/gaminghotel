@@ -19,13 +19,26 @@
     ?>
     <?php if ($_SESSION['logged'] == true) : ?> 
 
-      <?php foreach ($bookings as $bookings): ?>
+
+      <?php $count = 0; foreach ($bookings as $bookings): ?>
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
-                <p">Reserviert für: <?php echo ucfirst($bookings['gender']) ." ". $bookings['vorname'] ." ". $bookings['nachname']; ?></p>
-                <p>E-Mail: <?php echo $bookings['email']; ?></p>
+                <h2 class="pl-4">Buchung <?php echo $count;?></h2>
+                <p class="px-3">Reserviert für: <?php echo ucfirst($bookings['gender']) ." ". $bookings['vorname'] ." ". $bookings['nachname']; ?></p>
+                <p class="px-3">E-Mail: <?php echo $bookings['email']; ?></p>
+                <p class="px-3">Reserviert ab: <?php
+                $epoch = $bookings['start'];
+                $dt = new DateTime("@$epoch"); 
+                echo $dt->format('d-m-Y');?> 
+                , Reserviert bis: 
+                <?php
+                $epoch = $bookings['end'];
+                $dt = new DateTime("@$epoch"); 
+                echo $dt->format('d-m-Y');?> </p>
+
           </section>
         </main>
+      <?php $count += 1;?>
       <?php endforeach;?>
       <?php else : ?>
               <p class="text-center">Sie sind nicht eingeloggt.</p>

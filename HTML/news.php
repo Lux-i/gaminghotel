@@ -22,6 +22,7 @@
       echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
+<?php if ($_SESSION['logged'] == true) : ?> 
 
   <main class="d-flex flex-row">
     <section class="login-window mb-3 w-75">
@@ -45,6 +46,10 @@
     </form>
     </section>
   </main>
+
+  <?php else : ?>
+
+    <?php endif; ?>
 
     <?php foreach ($articles as $article): ?>
       <a href="article.php?id=<?= urlencode($article['id']) ?>"
