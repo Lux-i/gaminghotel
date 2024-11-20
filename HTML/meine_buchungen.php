@@ -36,7 +36,7 @@
                 <p class="px-3">Kosten: <?= $booking['price']?>€</p>
                 <p class="px-3">Extras: <?php
                 $extrasText = "";
-                foreach($booking['extras'] as $extra){$extrasText .= ucfirst($extra. ' / ');};
+                foreach($booking['extras'] as $extra){$extrasText .= $extra. ' / ';};
                 echo substr($extrasText, 0, -3);
                 ?></p>
           </section>

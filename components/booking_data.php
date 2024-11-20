@@ -8,8 +8,8 @@ $bookings = [
         "start" => 1732316400,
         "end" => 1732921200,
         "extras" => [
-            "parking",
-            "breakfast"
+            "Parkplatz",
+            "Frühstück"
         ],
         "price" => 1477
     ],
@@ -21,7 +21,7 @@ $bookings = [
         "start" => 1733785200,
         "end" => 1734649200,
         "extras" => [
-            "pets"
+            "Haustiere"
         ],
         "price" => 1900
     ],
@@ -33,7 +33,7 @@ $bookings = [
         "start" => 1733785200,
         "end" => 1734649200,
         "extras" => [
-            "parking"
+            "Parkplatz"
         ],
         "price" => 1930
     ],
