@@ -69,11 +69,11 @@
                 <section class="row g-2 mt-2">
                   <section class="col">
                     <label class="w-100" for="check_in">Check-In Datum</label>
-                    <input type="date" min="<?php echo date("Y-m-d")?>" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
+                    <input type="date" min="<?= date("Y-m-d")?>" class="inputfield container-md form-control" aria-label="Check-In Datum" id="check_in">
                   </section>
                   <section class="col">
                     <label class="w-100" for="check_in">Check-Out Datum</label>
-                    <input type="date" min="<?php echo date("Y-m-d")?>" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
+                    <input type="date" min="<?= date("Y-m-d")?>" class="inputfield container-md form-control"  aria-label="Check-Out Datum" id="check_out">
                   </section>
                 </section>
                 <section>
