@@ -10,7 +10,8 @@ $bookings = [
         "extras" => [
             "parking",
             "breakfast"
-        ]
+        ],
+        "price" => 1477
     ],
     [
         "gender" => "frau",
@@ -21,7 +22,8 @@ $bookings = [
         "end" => 1734649200,
         "extras" => [
             "pets"
-        ]
+        ],
+        "price" => 1900
     ],
     [
         "gender" => "herr",
@@ -32,7 +34,8 @@ $bookings = [
         "end" => 1734649200,
         "extras" => [
             "parking"
-        ]
+        ],
+        "price" => 1930
     ],
 
 ]

@@ -18,27 +18,30 @@
       include(__DIR__ . '/../components/in_work.php');
     ?>
     <?php if ($_SESSION['logged'] == true) : ?> 
-      <?php foreach ($bookings as $bookings): ?>
-        <?php if($bookings['email'] == $email && $bookings['vorname'] == $vorname && $bookings['nachname'] == $nachname): ?> 
+      <?php foreach ($bookings as $booking): ?>
+        <?php if($booking['email'] == $email && $booking['vorname'] == $vorname && $booking['nachname'] == $nachname): ?> 
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
-                <p class="px-3">Reserviert für: <?php echo ucfirst($bookings['gender']) ." ". $bookings['vorname'] ." ". $bookings['nachname']; ?></p>
-                <p class="px-3">E-Mail: <?php echo $bookings['email']; ?></p>
+                <p class="px-3">Reserviert für: <?php echo ucfirst($booking['gender']) ." ". $booking['vorname'] ." ". $booking['nachname']; ?></p>
+                <p class="px-3">E-Mail: <?php echo $booking['email']; ?></p>
                 <p class="px-3">Reserviert ab: <?php
-                $epoch = $bookings['start'];
+                $epoch = $booking['start'];
                 $dt = new DateTime("@$epoch"); 
-                echo $dt->format('d-m-Y');?> 
+                echo $dt->format('d / m / Y');?> 
                 , Reserviert bis: 
                 <?php
-                $epoch = $bookings['end'];
+                $epoch = $booking['end'];
                 $dt = new DateTime("@$epoch"); 
-                echo $dt->format('d-m-Y');?> </p>
-                <p class="px-3">Kosten: </p>
-                <p class="px-3">Extras: <?php foreach($bookings['extras'] as $bookings['extras']){echo ucfirst($bookings['extras']. '/ ');};?></p>
-
+                echo $dt->format('d / m / Y');?> </p>
+                <p class="px-3">Kosten: <?= $booking['price']?>€</p>
+                <p class="px-3">Extras: <?php
+                $extrasText = "";
+                foreach($booking['extras'] as $extra){$extrasText .= ucfirst($extra. ' / ');};
+                echo substr($extrasText, 0, -3);
+                ?></p>
           </section>
         </main>
-        <?php elseif($bookings['email'] != $email && $bookings['vorname'] != $vorname && $bookings['nachname'] != $nachname): echo "";?>
+        <?php elseif($booking['email'] != $email && $booking['vorname'] != $vorname && $booking['nachname'] != $nachname): echo "";?>
         <?php else : ?>
             <p class="text-center">Sie haben keine Buchungen.</p>
         <?php endif;?>
