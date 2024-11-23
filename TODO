@@ -22,3 +22,9 @@ Implement simple database setup to allow for better storage handling.
 
 Work on a module based page
 Implement a on-page router. This probably needs config to be changed in xampp/apache, as we always want to route to index.php
+
+Find a way to efficiently route pages together with footers like it is possible in react
+This would allow for setting multiple routes inside of a structure that renders headers and footers aswell as outside of that
+route.
+This would ease work on new pages and eliminates the use of including main css styles aswell as the footer and header on
+every page.
