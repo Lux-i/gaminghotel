@@ -13,3 +13,12 @@ either on buchen.php or a seperate data handler file
 
 Change the look of most forms (especially the ones using login-register css classes)
 Review if layout should be changed for those forms
+
+## Database
+
+Implement simple database setup to allow for better storage handling.
+
+## Page Structure / Technology
+
+Work on a module based page
+Implement a on-page router. This probably needs config to be changed in xampp/apache, as we always want to route to index.php
