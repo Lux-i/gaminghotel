@@ -28,3 +28,12 @@ This would allow for setting multiple routes inside of a structure that renders 
 route.
 This would ease work on new pages and eliminates the use of including main css styles aswell as the footer and header on
 every page.
+
+IDEA: Have the router as a recursive function, if possible in php.
+(This would need a special handling of pages that are not in the main '/'route handling)
+index.php would call the router on the top level '/' route (if applicable and not a case from above),
+the router would then execute its handler on that specific route, and check if there is another subroute (possible thorugh splitting the uri retrieved into a array by every '/')
+execute the handler / load the page of this subroute and repeat if applicable.
+also use a default route, for example under '/', default would be the main page (home page), that is being loaded when no subroute is found.
+This would allow for easy nesting.
+This process still needs to be modelled into a efficient way. probably changing the routes.php will be required and a look into a recursive efficient router will be needed.
