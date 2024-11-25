@@ -37,3 +37,5 @@ execute the handler / load the page of this subroute and repeat if applicable.
 also use a default route, for example under '/', default would be the main page (home page), that is being loaded when no subroute is found.
 This would allow for easy nesting.
 This process still needs to be modelled into a efficient way. probably changing the routes.php will be required and a look into a recursive efficient router will be needed.
+
+For setting a title and extra needed custom css etc, a extra handler would probably be the best solution. It would load the title and custom css etc. The best solution would be to make a field that hosts some html inside of the routes. This html could be loaded and echoed into the index.php. This would also remove the need for setting the title through a variable and would be the easiest and most efficient way.
