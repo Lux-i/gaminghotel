@@ -39,3 +39,8 @@ This would allow for easy nesting.
 This process still needs to be modelled into a efficient way. probably changing the routes.php will be required and a look into a recursive efficient router will be needed.
 
 For setting a title and extra needed custom css etc, a extra handler would probably be the best solution. It would load the title and custom css etc. The best solution would be to make a field that hosts some html inside of the routes. This html could be loaded and echoed into the index.php. This would also remove the need for setting the title through a variable and would be the easiest and most efficient way.
+
+IDEA: The router could both handle the custom head data and the page load.
+The page filepath could be set as a variable, aswell as the head data (custom css, title, etc...)
+so we would include the router on top of the page, the router will set $page and $head, or similar.
+These will then be included / echoed into the index.php
