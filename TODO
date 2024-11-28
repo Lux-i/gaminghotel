@@ -29,18 +29,22 @@ route.
 This would ease work on new pages and eliminates the use of including main css styles aswell as the footer and header on
 every page.
 
-IDEA: Have the router as a recursive function, if possible in php.
-(This would need a special handling of pages that are not in the main '/'route handling)
-index.php would call the router on the top level '/' route (if applicable and not a case from above),
-the router would then execute its handler on that specific route, and check if there is another subroute (possible thorugh splitting the uri retrieved into a array by every '/')
-execute the handler / load the page of this subroute and repeat if applicable.
-also use a default route, for example under '/', default would be the main page (home page), that is being loaded when no subroute is found.
-This would allow for easy nesting.
-This process still needs to be modelled into a efficient way. probably changing the routes.php will be required and a look into a recursive efficient router will be needed.
+IDEA: Currently the use_header, use_nav etc. are only set at the end when no path is found anymore.
+We could change this behavior so the variables are set everytime it finds them set in every path
+With this we could set everything on true in '/', so all sub-paths have every component enabled,
+without writing it on every page, but a single page can still overwrite this by setting different
+booleans.
 
-For setting a title and extra needed custom css etc, a extra handler would probably be the best solution. It would load the title and custom css etc. The best solution would be to make a field that hosts some html inside of the routes. This html could be loaded and echoed into the index.php. This would also remove the need for setting the title through a variable and would be the easiest and most efficient way.
+Example:
+'/' route:
+subpath1,
+subpath2,
+subpath3 = [
+nav = false
+],
+header = true,
+nav = true,
+footer = true
 
-IDEA: The router could both handle the custom head data and the page load.
-The page filepath could be set as a variable, aswell as the head data (custom css, title, etc...)
-so we would include the router on top of the page, the router will set $page and $head, or similar.
-These will then be included / echoed into the index.php
+This would set everything on true expect for the nav in subpath3
+(The route '/' would would cause the router to set the variables on true and in case that the route/page accesed is subpath3, the router will set the nav variable to false)
