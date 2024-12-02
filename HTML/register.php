@@ -2,19 +2,48 @@
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
 
+require_once('../components/dbaccess.php');
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
 if(!empty($_POST)){
-
   if ($_POST['pwd'] !== $_POST['pwd_confirm']) {
     echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert">Passwort ist nicht gleich!</div></div>';
   }else{
-    $_SESSION['anrede'] = $_POST['anrede'];
+    $sql = "INSERT INTO users (anrede, name, nachname, username, email, pwd)
+            VALUES (?,?,?,?,?,?)";
+    $anrede = $_POST['anrede'];
+    $username = $_POST['username'];
+    $vorname = ucfirst($_POST['vorname']);
+    $nachname = ucfirst($_POST['nachname']);
+    $email = $_POST['email'];
+    $pwd = $_POST['pwd'];
+
+    $stmt-> bind_param("ssssss",$anrede,$username, $vorname, $nachname, $email, $pwd);
+    $stmt->execute();
+
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+
+
+/*$_SESSION['anrede'] = $_POST['anrede'];
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['vorname'] = ucfirst($_POST['vorname']);
     $_SESSION['nachname'] = ucfirst($_POST['nachname']);
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['pwd'] = $_POST['pwd'];
-    header('Location: login.php');
+    header('Location: login.php');*/
   }
 }
 ?>
