@@ -18,36 +18,39 @@ if ($conn->connect_error) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST['username']);
     $stmt->execute();
-    print_r($conn);
+    $result = $stmt->get_result();
+
+    echo "RESULT: ";
+    print_r($result);
+
+    if($result->num_rows == 0){
+      echo "Benutzer nicht gefunden";
+      $conn->close();
+      exit();
+    } else {
+      echo "<br/><br/>Benutzer gefunden";
+      $pwd_hash = $result->fetch_assoc()['pwd'];
+      echo "<br/><br/>";
+      print_r($pwd_hash);
+      if(password_verify($_POST['pwd'], $pwd_hash)){
+        $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE username = ?;";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $userrow = $result->fetch_assoc();
+        echo "<br/><br/>USER: ";
+        print_r($userrow);
+        $_SESSION['userobj'] = $userrow;
+      } else {
+        echo "<br/><br/>Passwort falsch";
+        $conn->close();
+        exit();
+      }
+    }
   }
 
   $conn->close();
-    /*
-    if($account1['username'] == $_POST['username'] && $account1['pwd'] == $_POST['pwd']){
-      $_SESSION['logged'] = true;
-      $_SESSION['anrede'] = $account1['gender'];
-      $_SESSION['username'] = $account1['username'];
-      $_SESSION['vorname'] = $account1['vorname'];
-      $_SESSION['nachname'] = $account1['nachname'];
-      $_SESSION['email'] = $account1['email'];  
-      $_SESSION['pwd'] = $account1['pwd'];
-      header("Location: /index.php");
-      die;
-    }
-    if($account2['username'] == $_POST['username'] && $account2['pwd'] == $_POST['pwd']){
-      $_SESSION['logged'] = true;
-      $_SESSION['anrede'] = $account2['gender'];
-      $_SESSION['username'] = $account2['username'];
-      $_SESSION['vorname'] = $account2['vorname'];
-      $_SESSION['nachname'] = $account2['nachname'];
-      $_SESSION['email'] = $account2['email'];  
-      $_SESSION['pwd'] = $account2['pwd'];
-      header("Location: /index.php");
-      die;
-    }
-    echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert"> Username oder Passwort ist falsch!</div></div>';
-  }*/
-
 ?> 
 
 <!DOCTYPE html>

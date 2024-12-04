@@ -14,9 +14,11 @@ either on buchen.php or a seperate data handler file
 Change the look of most forms (especially the ones using login-register css classes)
 Review if layout should be changed for those forms
 
-## Database
+## Database/LOGIN
 
-Implement simple database setup to allow for better storage handling.
+Implement a token field in the DB together with a token handler.
+
+Server stores the token in the session, this token will be used to perform actions on the DB, acting as a authentication layer.
 
 ## Page Structure / Technology
 

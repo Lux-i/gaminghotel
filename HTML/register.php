@@ -16,7 +16,7 @@ if(!empty($_POST)){
   if ($_POST['pwd'] !== $_POST['pwd_confirm']) {
     echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert">Passwort ist nicht gleich!</div></div>';
   }else{
-    $sql = "INSERT INTO users (anrede, name, nachname, username, email, pwd,rolle)
+    $sql = "INSERT INTO users (anrede, name, nachname, username, email, pwd, rolle)
             VALUES (?,?,?,?,?,?,?)";
     $stmt = $conn->prepare($sql);
 
@@ -28,7 +28,7 @@ if(!empty($_POST)){
     $pwd = password_hash($_POST['pwd'], PASSWORD_ARGON2ID);
     $rolle = "user";
 
-    $stmt->bind_param("sssssss",$anrede,$username, $vorname, $nachname, $email, $pwd,$rolle);
+    $stmt->bind_param("sssssss",$anrede, $vorname, $nachname, $username, $email, $pwd, $rolle);
 
     if ($stmt->execute()) {
       echo '<div class="alert alert-success mt-3 center-txt w-25">New record created successfully!</div>';
