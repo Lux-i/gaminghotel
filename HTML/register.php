@@ -18,32 +18,34 @@ if(!empty($_POST)){
   }else{
     $sql = "INSERT INTO users (anrede, name, nachname, username, email, pwd)
             VALUES (?,?,?,?,?,?)";
+    $stmt = $conn->prepare($sql);
+
     $anrede = $_POST['anrede'];
     $username = $_POST['username'];
     $vorname = ucfirst($_POST['vorname']);
     $nachname = ucfirst($_POST['nachname']);
     $email = $_POST['email'];
-    $pwd = $_POST['pwd'];
+    $pwd = password_hash($_POST['pwd'], PASSWORD_ARGON2ID);
 
-    $stmt-> bind_param("ssssss",$anrede,$username, $vorname, $nachname, $email, $pwd);
-    $stmt->execute();
+    $stmt->bind_param("ssssss",$anrede,$username, $vorname, $nachname, $email, $pwd);
 
-if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+    if ($stmt->execute()) {
+      echo '<div class="alert alert-success mt-3 center-txt w-25">New record created successfully!</div>';
+    } else {
+      echo '<div class="alert alert-danger mt-3 center-txt w-25" role="alert">Error: ' . $stmt->error . '</div>';
+    }
 
-mysqli_close($conn);
+    mysqli_close($conn);
 
-
-/*$_SESSION['anrede'] = $_POST['anrede'];
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['vorname'] = ucfirst($_POST['vorname']);
-    $_SESSION['nachname'] = ucfirst($_POST['nachname']);
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['pwd'] = $_POST['pwd'];
-    header('Location: login.php');*/
+    /*
+    $_SESSION['anrede'] = $_POST['anrede'];
+      $_SESSION['username'] = $_POST['username'];
+      $_SESSION['vorname'] = ucfirst($_POST['vorname']);
+      $_SESSION['nachname'] = ucfirst($_POST['nachname']);
+      $_SESSION['email'] = $_POST['email'];
+      $_SESSION['pwd'] = $_POST['pwd'];
+      header('Location: login.php');
+      */
   }
 }
 ?>
