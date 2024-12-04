@@ -3,14 +3,26 @@
   include(__DIR__ . '/../components/nav.php');
 
   include(__DIR__ . '/accounts.php');
+  require_once('../components/dbaccess.php');
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
   if(isset($_POST['username']) && isset($_POST['pwd'])){
-    if(isset($_SESSION['username']) && isset($_SESSION['pwd'])){
-      if($_SESSION['username'] == $_POST['username'] && $_SESSION['pwd'] == $_POST['pwd']) {
-        $_SESSION['logged'] = true;
-        header("Location: /index.php");
-        die;
-      }
-    }
+    $sql = "SELECT pwd FROM users WHERE username = ?;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['username']);
+    $stmt->execute();
+    print_r($conn);
+  }
+
+  $conn->close();
+    /*
     if($account1['username'] == $_POST['username'] && $account1['pwd'] == $_POST['pwd']){
       $_SESSION['logged'] = true;
       $_SESSION['anrede'] = $account1['gender'];
@@ -34,7 +46,8 @@
       die;
     }
     echo '<div class="d-flex justify-content-center"><div class="alert alert-danger mt-3 center-txt w-25" role="alert"> Username oder Passwort ist falsch!</div></div>';
-  }
+  }*/
+
 ?> 
 
 <!DOCTYPE html>
