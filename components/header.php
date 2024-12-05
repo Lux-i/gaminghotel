@@ -3,12 +3,7 @@ session_start();
 $logged = false;
 
 if(isset($_SESSION) && isset($_SESSION['logged'])){
-    $anrede = $_SESSION['anrede'];
-    $username = $_SESSION['username'];
-    $vorname = $_SESSION['vorname'];
-    $nachname = $_SESSION['nachname'];
-    $email = $_SESSION['email'];  
-    $password = $_SESSION['pwd'];
+    $user = $_SESSION['user'];
     $logged = $_SESSION['logged'];
 }
 ?>

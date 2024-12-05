@@ -3,8 +3,8 @@
     $log = "Log in";
     $link = "login.php";
 
-    if(isset($username) && $logged == true){
-      $log = $username;
+    if(isset($user) && $logged == true){
+      $log = $user['username'];
       $link = "me.php";
     }
 ?>

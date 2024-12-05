@@ -41,7 +41,8 @@ if ($conn->connect_error) {
         $userrow = $result->fetch_assoc();
         echo "<br/><br/>USER: ";
         print_r($userrow);
-        $_SESSION['userobj'] = $userrow;
+        $_SESSION['user'] = $userrow;
+        $_SESSION['logged'] = true;
       } else {
         echo "<br/><br/>Passwort falsch";
         $conn->close();
