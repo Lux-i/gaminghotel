@@ -43,6 +43,7 @@ if ($conn->connect_error) {
         print_r($userrow);
         $_SESSION['user'] = $userrow;
         $_SESSION['logged'] = true;
+        header("Location:me.php");
       } else {
         echo "<br/><br/>Passwort falsch";
         $conn->close();
