@@ -22,11 +22,11 @@
           <section class="data-splitter width65 <?php echo ($logged == true) ? '' : 'center-txt'; ?>">
             <?php if ($_SESSION['logged'] == true) : ?>
               <section class="mt-3" id="userdata">
-                <p>Benutzername: <?php echo $username; ?></p>
-                <p>E-Mail: <?php echo $email; ?></p>
-                <p>Vorname: <?php echo $vorname?></p>
-                <p>Nachname: <?php echo $nachname; ?></p>
-                <p>Geschlecht: <?php echo ucfirst($anrede); ?></p>
+                <p>Benutzername: <?php echo $user['username']; ?></p>
+                <p>E-Mail: <?php echo $user['email']; ?></p>
+                <p>Vorname: <?php echo $user['name']?></p>
+                <p>Nachname: <?php echo $user['nachname']; ?></p>
+                <p>Geschlecht: <?php echo ucfirst($user['anrede']); ?></p>
               </section>
               <form id="edit" class="flex-column" action="changeData.php" method="POST" hidden=true>
                 <section class="container form-floating">
@@ -35,7 +35,7 @@
                     type="text"
                     id="username"
                     name="username"
-                    value="<?php echo $username?>"
+                    value="<?php echo $user['username']?>"
                     aria-label="Nutzername" />
                   <label for="username">Benutzername:</label>
                 </section>
@@ -45,7 +45,7 @@
                     type="email"
                     id="email"
                     name="email"
-                    value="<?php echo $email?>"
+                    value="<?php echo $user['email']?>"
                     aria-label="Email Adresse" />
                   <label for="email">E-Mail:</label>
                 </section>
@@ -55,7 +55,7 @@
                     type="text"
                     id="vorname"
                     name="vorname"
-                    value="<?php echo $vorname?>"
+                    value="<?php echo $user['name']?>"
                     aria-label="Vorname" />
                   <label for="vorname">Vorname:</label>
                 </section>
@@ -65,7 +65,7 @@
                     type="text"
                     id="nachname"
                     name="nachname"
-                    value="<?php echo $nachname?>"
+                    value="<?php echo $user['nachname']?>"
                     aria-label="Nachname" />
                   <label for="nachname">Nachname:</label>
                 </section>
@@ -74,13 +74,13 @@
                   class="container-md form-control"
                   name="gender"
                   id="gender">
-                    <option value="herr" <?php echo ($anrede == 'herr') ? 'selected' : ''?>>
+                    <option value="herr" <?php echo ($user['anrede'] == 'herr') ? 'selected' : ''?>>
                       Herr
                     </option>
-                    <option value="frau" <?php echo ($anrede == 'frau') ? 'selected' : ''?>>
+                    <option value="frau" <?php echo ($user['anrede'] == 'frau') ? 'selected' : ''?>>
                       Frau
                     </option>
-                    <option value="divers" <?php echo ($anrede == 'divers') ? 'selected' : ''?>>
+                    <option value="divers" <?php echo ($user['anrede'] == 'divers') ? 'selected' : ''?>>
                       Divers
                     </option>
                   </select>

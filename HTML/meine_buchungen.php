@@ -19,7 +19,7 @@
     ?>
     <?php if ($_SESSION['logged'] == true) : ?> 
       <?php foreach ($bookings as $booking): ?>
-        <?php if($booking['email'] == $email && $booking['vorname'] == $vorname && $booking['nachname'] == $nachname): ?> 
+        <?php if($booking['email'] == $user['email'] && $booking['vorname'] == $user['name'] && $booking['nachname'] == $user['nachname']): ?> 
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
                 <p class="px-3">Reserviert für: <?php echo ucfirst($booking['gender']) ." ". $booking['vorname'] ." ". $booking['nachname']; ?></p>
@@ -41,7 +41,7 @@
                 ?></p>
           </section>
         </main>
-        <?php elseif($booking['email'] != $email && $booking['vorname'] != $vorname && $booking['nachname'] != $nachname): echo "";?>
+        <?php elseif($booking['email'] != $user['email'] && $booking['vorname'] != $user['name'] && $booking['nachname'] != $user['nachname']): echo "";?>
         <?php else : ?>
             <p class="text-center">Sie haben keine Buchungen.</p>
         <?php endif;?>

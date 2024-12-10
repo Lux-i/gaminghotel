@@ -42,8 +42,9 @@ if ($conn->connect_error) {
         $result = $stmt->get_result();
         $userrow = $result->fetch_assoc();
         echo "<br/><br/>USER: ";
-        print_r($userrow);
-        $_SESSION['userobj'] = $userrow;
+        $_SESSION['user'] = $userrow;
+        $_SESSION['logged'] = true;
+        header("Location:me.php");
         */
       } else {
         echo "<br/><br/>Passwort falsch";

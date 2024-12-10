@@ -27,8 +27,8 @@
           Göppel & Göppel Hotel - Wien
         </h2>
         <?php
-            if(isset($_SESSION['vorname']) && $logged == true){
-              echo '<h3 class="text-center"> Wilkommen '. $vorname .'! </h3>';
+            if(isset($user) && $logged == true){
+              echo '<h3 class="text-center"> Wilkommen '. $user['name'] .'! </h3>';
             }
         ?>
         <br>
