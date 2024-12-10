@@ -13,15 +13,11 @@ if (isset($_POST)) {
     }
 }
 
-require_once('../components/dbaccess.php');
+require_once('../components/db_utils.php');
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+$conn = connectDB();
+if(!$conn) die();
 
 if(!empty($_POST)){
     /*
@@ -32,14 +28,13 @@ if(!empty($_POST)){
             SET anrede = ?, name = ?, nachname = ?, username = ?, email = ?
             WHERE id = ?";
     $stmt = $conn->prepare($sql);
-
-    $anrede = $_POST['anrede'];
-    $username = $_POST['username'];
-    $vorname = ucfirst($_POST['vorname']);
-    $nachname = ucfirst($_POST['nachname']);
-    $email = $_POST['email'];
-    $pwd = password_hash($_POST['pwd'], PASSWORD_ARGON2ID);
-    $rolle = "user";
+    //n = new
+    $n_anrede = $_POST['anrede'];
+    $n_username = $_POST['username'];
+    $n_vorname = ucfirst($_POST['vorname']);
+    $n_nachname = ucfirst($_POST['nachname']);
+    $n_email = $_POST['email'];
+    $n_pwd = password_hash($_POST['pwd'], PASSWORD_ARGON2ID);
 
     $stmt->bind_param("sssssi", /*fill user data*/);
 

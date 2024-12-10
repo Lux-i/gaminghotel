@@ -1,20 +1,14 @@
 <?php
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
+  require_once('../components/db_utils.php');
 
-  include(__DIR__ . '/accounts.php');
-  require_once('../components/dbaccess.php');
+  $conn = connectDB();
+  if(!$conn) die();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+  #REGION PWD-AUTH
   if(isset($_POST['username']) && isset($_POST['pwd'])){
-    $sql = "SELECT pwd FROM users WHERE username = ?;";
+    $sql = "SELECT pwd, id FROM users WHERE username = ?;";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST['username']);
     $stmt->execute();
@@ -25,36 +19,46 @@ if ($conn->connect_error) {
 
     if($result->num_rows == 0){
       echo "Benutzer nicht gefunden";
-      $conn->close();
       exit();
     } else {
       echo "<br/><br/>Benutzer gefunden";
-      $pwd_hash = $result->fetch_assoc()['pwd'];
-      echo "<br/><br/>";
-      print_r($pwd_hash);
+      $row = $result->fetch_assoc();
+      $pwd_hash = $row['pwd'];
+      $userid = $row['id'];
+      #ENDREGION
       if(password_verify($_POST['pwd'], $pwd_hash)){
-        
-        /*
-        $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE username = ?;";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $_POST['username']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $userrow = $result->fetch_assoc();
-        echo "<br/><br/>USER: ";
-        $_SESSION['user'] = $userrow;
-        $_SESSION['logged'] = true;
-        header("Location:me.php");
-        */
+        $token = bin2hex(random_bytes(32));
+        $tokenhash = password_hash($token, PASSWORD_ARGON2ID);
+        $expire_date = date('Y-m-d H:i:s', strtotime("+1 week"));
+        if(!hasToken($conn, $userid)){
+          //user hat keinen token in der db, neuer wird erstellt
+          $sql = "INSERT INTO userauth (userid, tokenhash, token_expires) VALUES (?,?,?)";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("iss", $userid, $tokenhash, $expire_date);
+        } else {
+          //user hat einen aktiven token, dieser wird überschrieben
+          $sql = "UPDATE userauth SET tokenhash = ?, token_expires = ? WHERE userid = ?";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("ssi", $tokenhash, $expire_date, $userid);
+        }
+        if ($stmt->execute()) {
+          $_SESSION['auth_token'] = $token;
+          $_SESSION['user_id'] = $userid;
+          $_SESSION['logged'] = true;
+          header("Location:me.php");
+        } else {
+          echo "<br/><br/>Fehler bei der Token generierung";
+          closeConnection($conn);
+          exit();
+        }
       } else {
         echo "<br/><br/>Passwort falsch";
-        $conn->close();
+        closeConnection($conn);
         exit();
       }
     }
   }
-
-  $conn->close();
+  closeConnection($conn);
 ?> 
 
 <!DOCTYPE html>

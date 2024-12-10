@@ -32,11 +32,6 @@
             }
         ?>
         <br>
-        <?php
-          $token = bin2hex(random_bytes(32));
-          $tokenhash = password_hash($token, PASSWORD_ARGON2ID);
-          echo $token . '<br>' . $tokenhash;
-        ?>
         <br>
         <section class="data-splitter flex-row jstfy-center">
           <p class="width65">
