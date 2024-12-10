@@ -72,8 +72,8 @@
                 <section class="container">
                   <select
                   class="container-md form-control"
-                  name="gender"
-                  id="gender">
+                  name="anrede"
+                  id="anrede">
                     <option value="herr" <?php echo ($user['anrede'] == 'herr') ? 'selected' : ''?>>
                       Herr
                     </option>
