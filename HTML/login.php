@@ -33,6 +33,8 @@ if ($conn->connect_error) {
       echo "<br/><br/>";
       print_r($pwd_hash);
       if(password_verify($_POST['pwd'], $pwd_hash)){
+        
+        /*
         $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE username = ?;";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $_POST['username']);
@@ -42,6 +44,7 @@ if ($conn->connect_error) {
         echo "<br/><br/>USER: ";
         print_r($userrow);
         $_SESSION['userobj'] = $userrow;
+        */
       } else {
         echo "<br/><br/>Passwort falsch";
         $conn->close();
