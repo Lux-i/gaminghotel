@@ -46,11 +46,13 @@ if(!empty($_POST)){
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("si", $n_pwd, $_SESSION['user_id']);
             } else {
+                closeConnection($conn);
                 header('Location: change_pwd.php?error=Altes passwort falsch!');
-            die();
+                die();
             }
 
         } else {
+            closeConnection($conn);
             header('Location: change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
             die();
         }     
@@ -62,7 +64,7 @@ if(!empty($_POST)){
         echo '<div class="alert alert-danger mt-3 center-txt w-25" role="alert">Error: ' . $stmt->error . '</div>';
     }
 
-    $conn->close();
+    closeConnection($conn);
 }
 
 header('Location: me.php');
