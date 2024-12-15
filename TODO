@@ -14,11 +14,10 @@ either on buchen.php or a seperate data handler file
 Change the look of most forms (especially the ones using login-register css classes)
 Review if layout should be changed for those forms
 
-## Database/LOGIN
+## File/Code Structure
 
-Implement a token field in the DB together with a token handler.
-
-Server stores the token in the session, this token will be used to perform actions on the DB, acting as a authentication layer.
+Move all POST-DATA handlers to seperate files and create a folder (data-handlers, etc...) for all files that handle data (especially post, insert operations)
+Data loaders could also be moved (SELECT's), for cleaner code seperation.
 
 ## Page Structure / Technology
 
