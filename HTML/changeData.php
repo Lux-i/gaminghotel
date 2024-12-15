@@ -2,13 +2,14 @@
 include '../components/header.php';
 require_once('../components/db_utils.php');
 
-if(!empty($_POST)){
+if (!empty($_POST)) {
 
     // Create connection
     $conn = connectDB();
-    if(!$conn) die();
+    if (!$conn)
+        die();
 
-    if(!isset($_POST['pwd'])){
+    if (!isset($_POST['pwd'])) {
         //pwd feld nicht im POST, userdata update durchführen
 
         $sql = "UPDATE users 
@@ -26,11 +27,11 @@ if(!empty($_POST)){
 
         $stmt->bind_param("sssssi", $n_anrede, $n_vorname, $n_nachname, $n_username, $n_email, $_SESSION['user_id']);
 
-        
+
     } else {
         //pwd feld im POST, pwd update durchführen
 
-        if($_POST['new_pwd'] == $_POST['new_pwd_again']){
+        if ($_POST['new_pwd'] == $_POST['new_pwd_again']) {
             //old pwd input with db pwd check
             $sql = "SELECT pwd FROM users WHERE id = ?;";
             $stmt = $conn->prepare($sql);
@@ -39,7 +40,7 @@ if(!empty($_POST)){
             $result = $stmt->get_result();
             $pwd_hash = $result->fetch_assoc()['pwd'];
 
-            if(password_verify($_POST['pwd'], $pwd_hash)){
+            if (password_verify($_POST['pwd'], $pwd_hash)) {
                 $n_pwd = password_hash($_POST['new_pwd'], PASSWORD_ARGON2ID);
 
                 $sql = "UPDATE users SET pwd = ? WHERE id = ?";
@@ -55,7 +56,7 @@ if(!empty($_POST)){
             closeConnection($conn);
             header('Location: change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
             die();
-        }     
+        }
     }
 
     if ($stmt->execute()) {
@@ -68,4 +69,3 @@ if(!empty($_POST)){
 }
 
 header('Location: me.php');
-?>
