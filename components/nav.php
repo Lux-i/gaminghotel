@@ -49,7 +49,7 @@
             <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/reservierungen.php" <?php if($_SESSION['logged'] != true){ echo 'hidden';}?>>Reservierungen</a>
+            <a class="nav-link navlink" href="/HTML/reservierungen.php" <?php if($_SESSION['logged'] != true || $user['rolle'] != 'admin'){ echo 'hidden';}?>>Reservierungen</a>
           </li>
           <li class="nav-item">
             <a class="nav-link navlink" href="/HTML/meine_buchungen.php" <?php if($_SESSION['logged'] != true){ echo 'hidden';}?>>Meine Buchungen</a>

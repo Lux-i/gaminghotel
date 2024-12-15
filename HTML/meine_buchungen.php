@@ -1,3 +1,27 @@
+<?php
+  include(__DIR__ . '/../components/header.php');
+  include(__DIR__ . '/../components/nav.php');
+
+  require_once('../components/db_utils.php');
+  $conn = connectDB();
+  if(validateToken($conn)){
+    $sql = "SELECT start, end, extras, price FROM bookings
+    WHERE userid = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $_SESSION['user_id']);
+    if($stmt->execute()){
+      $result = $stmt->get_result();
+      $rownum = 0;
+      $rows = array();
+      while($row = $result->fetch_assoc()) {
+        $rows[$rownum] = $row;
+        echo "<br/>";
+        print_r($rows[$rownum++]);
+      }
+    }
+  }
+  closeConnection($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,9 +35,7 @@
     <link rel="stylesheet" href="/CSS/login-register.css" />
   </head>
   <body class="ghostwhite">
-    <?php 
-      include(__DIR__ . '/../components/header.php');
-      include(__DIR__ . '/../components/nav.php');
+    <?php
       echo '<h1 class="text-center mt-2">Meine Buchungen</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>

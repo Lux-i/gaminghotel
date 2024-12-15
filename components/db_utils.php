@@ -1,5 +1,5 @@
 <?php
-        function connectDB() {
+    function connectDB() {
         //require_once('dbaccess.php');
         $servername = "localhost";
         $username = "gaminghotel";
