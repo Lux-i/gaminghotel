@@ -1,36 +1,31 @@
 <?php
-  session_start();
-  $logged = false;
-  if(!isset($_SESSION['logged'])){
-    $_SESSION['logged'] = false;
-  }
+session_start();
+$logged = false;
+if (!isset($_SESSION['logged'])) {
+  $_SESSION['logged'] = false;
+}
 
-  require_once('db_utils.php');
+require_once('db_utils.php');
 
-  if(isset($_SESSION) && $_SESSION['logged']){
-    $conn = connectDB();
-    if(!$conn) die();
-    
-    //echo "<br>VALIDATING...";
-    if(validateToken($conn)){
-      $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE id = ?;";
-      $stmt = $conn->prepare($sql);
-      $stmt->bind_param("i", $_SESSION['user_id']);
-      $stmt->execute();
-      //echo "<br>EXECUTED USERDATA STATEMENT";
-      $result = $stmt->get_result();
-      //echo "<br>RESULT : ";
-      //print_r($result);
-      $user = $result->fetch_assoc();
-      //echo "<br>USER : ";
-      //print_r($user);
-      $logged = true;
-      closeConnection($conn);
-    } else {
-      //user wird ausgeloggt, wenn der auth-token seine gültigkeit verliert
-      header("Location: /HTML/logout.php");  
-    }
+if (isset($_SESSION) && $_SESSION['logged']) {
+  $conn = connectDB();
+  if (!$conn)
+    die();
+
+  if (validateToken($conn)) {
+    $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE id = ?;";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $_SESSION['user_id']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $logged = true;
+    closeConnection($conn);
+  } else {
+    //user wird ausgeloggt, wenn der auth-token seine gültigkeit verliert
+    header("Location: /HTML/logout.php");
   }
+}
 ?>
 
 <header id="header">
