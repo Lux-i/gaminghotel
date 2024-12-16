@@ -2,7 +2,9 @@ var days = 0;
 var price = 0;
 
 const prices = {
-  room: 100,
+  zimmer1: 100,
+  zimmer2: 130,
+  zimmer3: 200,
   Parkplatz: 13,
   Frühstück: 18,
   Haustiere: 10,
@@ -12,7 +14,6 @@ window.onload = () => {
   editField = document.getElementById("bookform");
   checkin = document.getElementById("check_in");
   checkout = document.getElementById("check_out");
-
   submitButton = document.getElementById("submitButton");
 
   displayField = document.getElementById("price-txt");
@@ -30,11 +31,11 @@ window.onload = () => {
     }
 
     //initial price (room only)
-    price = days * prices["room"];
+    price = days * prices["zimmer1"];
 
     //string display code
     displayField.innerText = `Aufenthalt von ${days} Tagen.
-      Zimmer: ${days * prices["room"]}€`;
+      Zimmer: ${days * prices["zimmer1"]}€`;
 
     //load selected options and display if found
     document
@@ -51,10 +52,10 @@ window.onload = () => {
     displayField.innerText += `\n\nGesamt: ${price}€`;
 
     if (days > 0) {
-      submitButton.hidden = false;
+      //submitButton.hidden = false;
       submitButton.disabled = false;
     } else {
-      submitButton.hidden = true;
+      //submitButton.hidden = true;
       submitButton.disabled = true;
     }
   });

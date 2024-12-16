@@ -73,6 +73,10 @@ main {
   padding: 3vh 5vw 3vh 5vw;
 }
 
+ul {
+  list-style: none;
+}
+
 .shadow_purple {
   box-shadow: 10px 8px 5px rgba(140, 54, 206, 0.6);
 }

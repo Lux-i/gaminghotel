@@ -22,29 +22,21 @@
       <section style="border-right: 1px solid black;">
         <?php if ($_SESSION['logged'] == true): ?>
           <h2>Zimmer Buchen</h2>
-          <section class="form-container">
+          <section class="form-container ">
             <form id="bookform" class="flex-column" action="add_booking.php" method="POST">
-              <section class="input_group container">
-                <select class="inputfield container-md form-control" name="anrede" id="anrede" required>
-                  <option value="herr">Herr</option>
-                  <option value="frau">Frau</option>
-                  <option value="divers">Divers</option>
-                </select>
-              </section>
-              <section class="input_group container form-floating">
-                <input class="inputfield container-md form-control" type="text" id="vorname" name="vorname" required
-                  placeholder="Max" aria-label="Vorname" />
-                <label for="vorname">Vorname:*</label>
-              </section>
-              <section class="input_group container form-floating">
-                <input class="inputfield container-md form-control" type="text" id="nachname" name="nachname" required
-                  placeholder="Mustermann" aria-label="Nachname" />
-                <label for="nachname">Nachname:*</label>
-              </section>
-              <section class="input_group container form-floating">
-                <input class="inputfield container-md form-control" type="email" id="email" name="email"
-                  placeholder="max.mustermann@example.com" required aria-label="Email Adresse" />
-                <label for="email">E-Mail Adresse:*</label>
+              <section class="form-check">
+                <section>
+                    <input class="form-check-input" id="zimmer1" name="zimmer" type="radio" value="zimmer1" required>
+                    <label class="form-check-label" for="zimmer1">Einzelzimmer</label>
+                  </section>
+                  <section>
+                    <input class="form-check-input" id="zimmer2" name="zimmer" type="radio" value="zimmer2" required>
+                    <label class="form-check-label" for="zimmer2">Doppelzimmer</label>
+                  </section>
+                  <section>
+                    <input class="form-check-input" id="zimmer3" name="zimmer" type="radio" value="zimmer3" required>
+                    <label class="form-check-label" for="zimmer3">Full-Squad Zimmer</label>
+                  </section>
               </section>
               <section class="row g-2 mt-2">
                 <section class="col">
@@ -59,18 +51,24 @@
                     id="check_out">
                 </section>
               </section>
-              <section>
-                <label>
-                  <input type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
-                </label>
-                <label>
-                  <input type="checkbox" name="extras[]" value="Frühstück"> Frühstück (18€/Tag)
-                </label>
-                <label>
-                  <input type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)
-                </label>
+              <section class="mt-3 form-check form-switch">
+                <section>
+                  <label>
+                      <input class="form-check-input" type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
+                  </label>                 
+                </section>
+                <section>
+                  <label>
+                      <input class="form-check-input" type="checkbox" name="extras[]" value="Frühstück"> Frühstück (18€/Tag)
+                  </label>
+                </section>
+                <section>
+                  <label>                  
+                      <input class="form-check-input" type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)                  
+                  </label>
+                </section>
               </section>
-              <input class="submit_button" type="submit" id="submitButton" value="Registrieren" hidden disabled
+              <input class="submit_button" type="submit" id="submitButton" value="Registrieren" disabled
                 required />
             </form>
           </section>

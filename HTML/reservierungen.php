@@ -13,7 +13,7 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    $sql = "SELECT start, end, extras, price, u.anrede, u.name, u.nachname, u.email FROM bookings
+    $sql = "SELECT start, end, extras, price, u.anrede, u.name, u.nachname, u.email, status FROM bookings
             JOIN users AS u ON u.id = bookings.userid";
     $stmt = $conn->prepare($sql);
     if ($stmt->execute()) {
@@ -85,6 +85,7 @@ if ($user['rolle'] == 'admin') {
               }
               ?>
             </p>
+            <p class="px-3">Status: <?= ucfirst($booking['status']) ?></p>
           </section>
         </main>
       <?php endforeach; ?>

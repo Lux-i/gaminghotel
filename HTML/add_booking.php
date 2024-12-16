@@ -9,11 +9,14 @@ if (!empty($_POST)) {
 
             //preisberechnung
             $prices = [
-                'raum' => 100,
+                'zimmer1' => 100,
+                'zimmer2' => 130,
+                'zimmer3' => 200,
                 'Parkplatz' => 13,
                 'Frühstück' => 18,
                 'Haustiere' => 10
             ];
+            $raum = $_POST["zimmer"];
             //preis für das Zimmer pro Tag
             $check_in = new DateTime($_POST["check_in"]);
             $check_out = new DateTime($_POST["check_out"]);
@@ -23,7 +26,7 @@ if (!empty($_POST)) {
                 die();
             }
             $days = ($check_in->diff($check_out))->days;
-            $price = $days * $prices['raum'];
+            $price = $days * $prices[$raum];
 
             if (!empty($_POST['extras'])) {
                 foreach ($_POST["extras"] as $extra) {
@@ -35,10 +38,11 @@ if (!empty($_POST)) {
             }
 
 
-            $sql = "INSERT INTO bookings (userid, start, end, extras, price) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO bookings (userid, start, end, extras, price, status) VALUES (?, ?, ?, ?, ?,?)";
             $stmt = $conn->prepare($sql);
+            $status = "neu";
 
-            $stmt->bind_param("isssi", $_SESSION["user_id"], $_POST["check_in"], $_POST["check_out"], $extras, $price);
+            $stmt->bind_param("isssis", $_SESSION["user_id"], $_POST["check_in"], $_POST["check_out"], $extras, $price,$status);
 
             if ($stmt->execute()) {
                 closeConnection($conn);
