@@ -96,8 +96,8 @@ if ($user['rolle'] == 'admin') {
             <section class="ml-3">
               <form class="form-check d-flex justify-content-start" action="change_booking_status.php" method="POST">
                 <p><input type="number" value="<?php echo $booking["id"];?>" id="id" name="id" readonly hidden></input>
-                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger">Stornieren</button></p>
-                <p><button type="submit" value="2" class="mx-3 btn btn-success" id="bestätigen" name="change_status">Bestätigen</button></p>
+                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger" <?php if($booking['status'] == "storniert") echo "hidden";?>>Stornieren</button></p>
+                <p><button type="submit" value="2" class="<?php if($booking['status'] != "storniert") echo "mx-3";?> btn btn-success" id="bestätigen" name="change_status" <?php if($booking['status'] == "bestätigt") echo "hidden";?>>Bestätigen</button></p>
               </form>
           </section>
         </main>
