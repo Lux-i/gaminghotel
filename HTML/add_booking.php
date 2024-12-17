@@ -38,7 +38,7 @@ if (!empty($_POST)) {
             }
 
 
-            $sql = "INSERT INTO bookings (userid, start, end, extras, price, status) VALUES (?, ?, ?, ?, ?,?)";
+            $sql = "INSERT INTO bookings (userid, start, end, extras, price, status) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $status = "neu";
 

@@ -5,7 +5,7 @@ include(__DIR__ . '/../components/nav.php');
 require_once('../components/db_utils.php');
 $conn = connectDB();
 if (validateToken($conn)) {
-  $sql = "SELECT start, end, extras, price FROM bookings
+  $sql = "SELECT id, start, end, extras, price, status FROM bookings
     WHERE userid = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param('i', $_SESSION['user_id']);
@@ -73,6 +73,22 @@ closeConnection($conn);
               }
               ?>
             </p>
+            <p class="px-3">Status: <strong class=" <?php if($booking["status"] == "neu"){
+              echo "text-primary";
+            }elseif($booking["status"] == "bestätigt"){
+              echo "text-success";
+            }else{
+              echo "text-danger";
+            }?>"> <?= ucfirst($booking['status']) ?></strong></p>
+            <section class="ml-3">
+              <?php if($booking['status'] != "storniert"): ?>
+              <form class="form-check" action="change_booking_status.php" method="POST">
+              <p><input type="number" value="<?php echo $booking["id"];?>" id="id" name="id" readonly hidden></input>
+                <label><input class="form-check-input" type="checkbox" id="check" required> Ich bestätige, dass ich die Buchung stornieren möchte.</label>
+                <p><button type="submit" value="1" id="stornieren" name="change_status" class="mt-2 btn btn-danger">Stornieren</button></p>
+              </form>
+              <?php endif;?>
+            </section>
           </section>
         </main>
       <?php endforeach; ?>

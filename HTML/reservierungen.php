@@ -13,8 +13,9 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    $sql = "SELECT start, end, extras, price, u.anrede, u.name, u.nachname, u.email, status FROM bookings
-            JOIN users AS u ON u.id = bookings.userid";
+    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, status FROM bookings
+            JOIN users AS u ON u.id = bookings.userid
+            ORDER BY bookings.id DESC";
     $stmt = $conn->prepare($sql);
     if ($stmt->execute()) {
       $result = $stmt->get_result();
@@ -85,7 +86,19 @@ if ($user['rolle'] == 'admin') {
               }
               ?>
             </p>
-            <p class="px-3">Status: <?= ucfirst($booking['status']) ?></p>
+            <p class="px-3">Status: <strong class=" <?php if($booking["status"] == "neu"){
+              echo "text-primary";
+            }elseif($booking["status"] == "bestätigt"){
+              echo "text-success";
+            }else{
+              echo "text-danger";
+            }?>"> <?= ucfirst($booking['status']) ?></strong></p>
+            <section class="ml-3">
+              <form class="form-check d-flex justify-content-start" action="change_booking_status.php" method="POST">
+                <p><input type="number" value="<?php echo $booking["id"];?>" id="id" name="id" readonly hidden></input>
+                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger">Stornieren</button></p>
+                <p><button type="submit" value="2" class="mx-3 btn btn-success" id="bestätigen" name="change_status">Bestätigen</button></p>
+              </form>
           </section>
         </main>
       <?php endforeach; ?>
