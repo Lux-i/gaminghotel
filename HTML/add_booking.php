@@ -42,7 +42,7 @@ if (!empty($_POST)) {
             $stmt = $conn->prepare($sql);
             $status = "neu";
 
-            $stmt->bind_param("isssis", $_SESSION["user_id"], $_POST["check_in"], $_POST["check_out"], $extras, $price,$status);
+            $stmt->bind_param("isssis", $_SESSION["user_id"], $_POST["check_in"], $_POST["check_out"], $extras, $price, $status);
 
             if ($stmt->execute()) {
                 closeConnection($conn);
