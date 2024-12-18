@@ -1,6 +1,5 @@
 <?php
   include(__DIR__ . '/news-articles.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +21,11 @@
       echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
-<?php if ($_SESSION['logged'] == true) : ?> 
+<?php if ($_SESSION['logged'] == true && $user['rolle'] == "admin") : ?> 
 
   <main class="d-flex flex-row">
     <section class="login-window mb-3 w-75">
-    <form action="/components/upload.php" method="POST" enctype="multipart/form-data">
+    <form action="/components/upload.php" action="" method="POST" enctype="multipart/form-data">
       <h2 class="border-bottom-black">Neuer Artikel</h2>
       <div class="mb-4">
         <label for="file">Banner</label>
