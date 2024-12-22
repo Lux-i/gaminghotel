@@ -10,14 +10,14 @@ if (!empty($_POST)) {
         die();
 
     if (!isset($_POST['pwd'])) {
-        //pwd feld nicht im POST, userdata update durchführen
+        //update userdata, as no new pwd is set in POST
 
         $sql = "UPDATE users 
         SET anrede = ?, name = ?, nachname = ?, username = ?, email = ?
         WHERE id = ?";
         $stmt = $conn->prepare($sql);
         //n = new
-        //wenn die POST-DATA leer ist, benutze user data (mit gleichen daten updaten)
+        //if the POST-DATA of a specific field is empty, use the stored user data (update field with same value)
         //könnte optimiert werden, mit automatisch erstellten sql statements pro neuem datenset -> verringerung der DB load
         $n_anrede = (empty($_POST['anrede'])) ? $user['anrede'] : $_POST['anrede'];
         $n_username = (empty($_POST['username'])) ? $user['username'] : $_POST['username'];
@@ -29,7 +29,7 @@ if (!empty($_POST)) {
 
 
     } else {
-        //pwd feld im POST, pwd update durchführen
+        //update the password, as pwd is set in POST
 
         if ($_POST['new_pwd'] == $_POST['new_pwd_again']) {
             //old pwd input with db pwd check
@@ -41,6 +41,7 @@ if (!empty($_POST)) {
             $pwd_hash = $result->fetch_assoc()['pwd'];
 
             if (password_verify($_POST['pwd'], $pwd_hash)) {
+                //old pwd is correct, hash and store new password
                 $n_pwd = password_hash($_POST['new_pwd'], PASSWORD_ARGON2ID);
 
                 $sql = "UPDATE users SET pwd = ? WHERE id = ?";

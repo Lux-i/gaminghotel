@@ -7,8 +7,8 @@ if (!empty($_POST)) {
         $conn = connectDB();
         if (validateToken($conn)) {
             //USER PERMISSION CHECK
-            if(isPermitted($conn, Permission::ADMIN)){
-                switch($_POST['change_status']){
+            if (isPermitted($conn, Permission::ADMIN)) {
+                switch ($_POST['change_status']) {
                     case 1:
                         $sql = "UPDATE bookings SET status = 'storniert' WHERE id = ?";
                         $stmt = $conn->prepare($sql);
@@ -20,21 +20,23 @@ if (!empty($_POST)) {
                         $stmt->bind_param("i", $_POST["id"]);
                 }
 
-            } elseif(isPermitted($conn, Permission::USER)){
-                if($_POST['change_status'] == 1){
+            } elseif (isPermitted($conn, Permission::USER)) {
+                //only allow case 1 (booking cancellation) for USER permissions
+                if ($_POST['change_status'] == 1) {
                     $sql = "UPDATE bookings SET status = 'storniert' WHERE id = ? AND userid = ?";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("ii", $_POST["id"], $_SESSION['user_id']);
                 }
             }
 
-            //fehler case wenn user den change-status zu einem (für sie) ungültigen wert verändern
-            if(empty($stmt)){
+            //error case when a user attempts to change the change-status to a (for the user) invalid value
+            if (empty($stmt)) {
+                //do not execute the empty statement and just return to the calling page
                 closeConnection($conn);
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 die();
             }
-            
+
             if ($stmt->execute()) {
                 closeConnection($conn);
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
