@@ -1,23 +1,28 @@
 <?php
 session_start();
 $logged = false;
+//set logged to false if unset
 if (!isset($_SESSION['logged'])) {
   $_SESSION['logged'] = false;
 }
 
 require_once('db_utils.php');
 
-if (isset($_SESSION) && $_SESSION['logged']) {
+//only run if logged in
+if ($_SESSION['logged']) {
   $conn = connectDB();
+  //exit if connection failed
   if (!$conn)
     die();
 
   if (validateToken($conn)) {
+    //load user data
     $sql = "SELECT anrede, name, nachname, username, email, rolle FROM users WHERE id = ?;";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $_SESSION['user_id']);
     $stmt->execute();
     $result = $stmt->get_result();
+    //set user assoc array and change the logged state to true
     $user = $result->fetch_assoc();
     $logged = true;
     closeConnection($conn);
