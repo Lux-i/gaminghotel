@@ -22,13 +22,14 @@ if ($_SESSION['logged']) {
     $stmt->bind_param("i", $_SESSION['user_id']);
     $stmt->execute();
     $result = $stmt->get_result();
-    //set user assoc array and change the logged state to true
+    //set user assoc array and update logged state
     $user = $result->fetch_assoc();
-    $logged = true;
+    $logged = true; //variable to use for code including this header
     closeConnection($conn);
   } else {
-    //user wird ausgeloggt, wenn der auth-token seine gültigkeit verliert
+    //User gets logged out if the stored token is invalid
     header("Location: /HTML/logout.php");
+    exit();
   }
 }
 ?>

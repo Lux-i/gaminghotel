@@ -5,7 +5,7 @@
 
 /**
  * creates a mysqli connection and returns it
- * @return mysqli
+ * @return mysqli a mysqli connection instance
  */
 function connectDB()
 {
@@ -24,6 +24,13 @@ function connectDB()
     return $connection;
 }
 
+/**
+ * closes a mysqli connection
+ * 
+ * attempting to close an already closed connection should be safe
+ * 
+ * @param mysqli $connection a mysqli connection instance
+ */
 function closeConnection(mysqli $connection)
 {
     $connection->close();
@@ -63,7 +70,7 @@ function validateToken(mysqli $connection)
 
 /**
  * Checks if a certain user has a token in the db
- * @param mysqli $connection
+ * @param mysqli $connection a mysqli connection instance
  * @param int $userid
  * @return bool
  */
@@ -85,7 +92,8 @@ function hasToken(mysqli $connection, $userid)
 
 //USER PERMISSION UTILITY
 
-enum Permission {
+enum Permission //Permission Levels
+{
     case USER;
     case ADMIN;
 }
@@ -93,22 +101,25 @@ enum Permission {
 /**
  * Checks if the logged in user has a certain permission
  * 
- * @param mysqli $connection
- * @param Permission $permission
+ * Also works if the user variable is not set (eg. the header is not loaded), as it performs a check against the db
+ * 
+ * @param mysqli $connection a mysqli connection instance
+ * @param Permission $permission permission level enum to check against
  * @return bool
  */
-function isPermitted(mysqli $connection, Permission $permission){
+function isPermitted(mysqli $connection, Permission $permission)
+{
     $sql = "SELECT rolle FROM users WHERE id = ?";
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("s", $_SESSION['user_id']);
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         $user_role = $result->fetch_assoc()['rolle'];
-        $user_permission = match($user_role){
+        $user_permission = match ($user_role) {
             "user" => Permission::USER,
             "admin" => Permission::ADMIN
         };
-        if($permission == $user_permission){
+        if ($permission == $user_permission) {
             return true;
         } else {
             return false;
@@ -116,6 +127,6 @@ function isPermitted(mysqli $connection, Permission $permission){
     } else {
         return false;
     }
-    
+
 }
 ?>
