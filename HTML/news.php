@@ -2,7 +2,27 @@
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
   include(__DIR__ . '/news-articles.php');
+  require_once('../components/dbaccess.php');
+  require_once('../components/db_utils.php');
+  $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+if(validateToken($conn)){
+  $sql = "SELECT * FROM news_articles ORDER BY id DESC";
+  $stmt = $conn->prepare($sql);
+  if($stmt->execute()){
+    $result = $stmt->get_result();
+    $rownum = 0;
+    $news = array();
+    while($row = $result->fetch_assoc()){
+      $news[$rownum++] = $row;
+    }
+  }
+}
+closeConnection($conn);
 ?>
 
 <!DOCTYPE html>
