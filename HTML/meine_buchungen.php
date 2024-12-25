@@ -6,7 +6,8 @@ require_once('../components/db_utils.php');
 $conn = connectDB();
 if (validateToken($conn)) {
   $sql = "SELECT id, start, end, extras, price, status FROM bookings
-    WHERE userid = ?";
+    WHERE userid = ?
+    ORDER BY bookings.id DESC";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param('i', $_SESSION['user_id']);
   if ($stmt->execute()) {

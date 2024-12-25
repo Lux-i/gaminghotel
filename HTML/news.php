@@ -2,27 +2,7 @@
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
   include(__DIR__ . '/news-articles.php');
-  require_once('../components/dbaccess.php');
-  require_once('../components/db_utils.php');
-  $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-if(validateToken($conn)){
-  $sql = "SELECT * FROM news_articles ORDER BY id DESC";
-  $stmt = $conn->prepare($sql);
-  if($stmt->execute()){
-    $result = $stmt->get_result();
-    $rownum = 0;
-    $news = array();
-    while($row = $result->fetch_assoc()){
-      $news[$rownum++] = $row;
-    }
-  }
-}
-closeConnection($conn);
 ?>
 
 <!DOCTYPE html>
@@ -42,33 +22,33 @@ closeConnection($conn);
       echo '<h1 class="text-center">News</h1>';
       include(__DIR__ . '/../components/in_work.php');
     ?>
-<?php if ($_SESSION['logged'] == true && $user['rolle'] == "admin") : ?> 
+    <?php if ($_SESSION['logged'] == true) : ?> 
+      <?php if($user['rolle'] == "admin") : ?>
+          
+        <main class="d-flex flex-row">
+          <section class="login-window mb-3 w-75">
+          <form action="/components/upload.php" method="POST" enctype="multipart/form-data">
+            <h2 class="border-bottom-black">Neuer Artikel</h2>
+            <div class="mb-4">
+              <label for="file">Banner</label>
+              <input id="file" name="file" type="file" class="inputfield container-md form-control">
+            </div>
+            <div class="mb-4">
+              <label for="title">Titel</label>
+              <input id="title" type="text" class="inputfield container-md form-control">
+            </div>
+            <div class="mb-4">
+              <label for="content">Inhalt</label>
+              <textarea class="inputfield container-md form-control" name="content" id="content" rows="4" cols="50"></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+              <input class="submit_button w-25" type="submit" name="submit" value="Veröffentlichen" />
+            </div>
+          </form>
+          </section>
+        </main>
 
-  <main class="d-flex flex-row">
-    <section class="login-window mb-3 w-75">
-    <form action="/components/upload.php" method="POST" enctype="multipart/form-data">
-      <h2 class="border-bottom-black">Neuer Artikel</h2>
-      <div class="mb-4">
-        <label for="file">Banner</label>
-        <input id="file" name="file" type="file" class="inputfield container-md form-control">
-      </div>
-      <div class="mb-4">
-        <label for="title">Titel</label>
-        <input id="title" name="title" type="text" class="inputfield container-md form-control">
-      </div>
-      <div class="mb-4">
-        <label for="content">Inhalt</label>
-        <textarea class="inputfield container-md form-control" name="content" id="content" rows="4" cols="50"></textarea>
-      </div>
-      <div class="d-flex justify-content-center">
-        <input class="submit_button w-25" type="submit" name="submit" value="Veröffentlichen" />
-      </div>
-    </form>
-    </section>
-  </main>
-
-  <?php else : ?>
-
+      <?php endif; ?>
     <?php endif; ?>
 
     <?php foreach ($news as $article) : ?>

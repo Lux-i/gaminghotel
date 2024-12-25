@@ -30,12 +30,15 @@ window.onload = () => {
       }
     }
 
+    //load selected room
+    room = document.querySelector('input[name="zimmer"]:checked').value;
+
     //initial price (room only)
-    price = days * prices["zimmer1"];
+    price = days * prices[room];
 
     //string display code
     displayField.innerText = `Aufenthalt von ${days} Tagen.
-      Zimmer: ${days * prices["zimmer1"]}€`;
+      Zimmer: ${days * prices[room]}€`;
 
     //load selected options and display if found
     document

@@ -2,13 +2,14 @@
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
 
-//redirect auf die index.php wenn unangemeldeter user die seite über direkten link aufruft
+//redirect to the index.php when a logged out user visits this page through a direct link
 if (!isset($user)) {
   header('Location: /index.php');
   die();
 }
 
-//ist der user angemeldet aber kein admin, wird die sql anfrage nicht ausgeführt
+//if the user is logged in, but not an admin, the sql query won't be run
+//the isPermitted() function is not used so db-utils and the db connection are not loaded for no reason
 if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
@@ -86,20 +87,23 @@ if ($user['rolle'] == 'admin') {
               }
               ?>
             </p>
-            <p class="px-3">Status: <strong class=" <?php if($booking["status"] == "neu"){
+            <p class="px-3">Status: <strong class=" <?php if ($booking["status"] == "neu") {
               echo "text-primary";
-            }elseif($booking["status"] == "bestätigt"){
+            } elseif ($booking["status"] == "bestätigt") {
               echo "text-success";
-            }else{
+            } else {
               echo "text-danger";
-            }?>"> <?= ucfirst($booking['status']) ?></strong></p>
+            } ?>"> <?= ucfirst($booking['status']) ?></strong></p>
             <section class="ml-3">
               <form class="form-check d-flex justify-content-start" action="change_booking_status.php" method="POST">
-                <p><input type="number" value="<?php echo $booking["id"];?>" id="id" name="id" readonly hidden></input>
-                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger" <?php if($booking['status'] == "storniert") echo "hidden";?>>Stornieren</button></p>
-                <p><button type="submit" value="2" class="<?php if($booking['status'] != "storniert") echo "mx-3";?> btn btn-success" id="bestätigen" name="change_status" <?php if($booking['status'] == "bestätigt") echo "hidden";?>>Bestätigen</button></p>
+                <p><input type="number" value="<?php echo $booking["id"]; ?>" id="id" name="id" readonly hidden></input>
+                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger" <?php if ($booking['status'] == "storniert")
+                  echo "hidden"; ?>>Stornieren</button></p>
+                <p><button type="submit" value="2" class="<?php if ($booking['status'] != "storniert")
+                  echo "mx-3"; ?> btn btn-success" id="bestätigen" name="change_status" <?php if ($booking['status'] == "bestätigt")
+                       echo "hidden"; ?>>Bestätigen</button></p>
               </form>
-          </section>
+            </section>
         </main>
       <?php endforeach; ?>
     <?php else: ?>

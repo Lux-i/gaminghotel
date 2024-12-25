@@ -4,11 +4,6 @@ Work on styling and layout
 on both the news.php for the previews and on the article.php for displaying the full article
 change imagecopyresized so it doesnt stretch the image
 
-## BOOKING
-
-Work on the php handling of the booking data,
-either on buchen.php or a seperate data handler file
-
 ## CSS / DESIGN
 
 Change the look of most forms (especially the ones using login-register css classes)
