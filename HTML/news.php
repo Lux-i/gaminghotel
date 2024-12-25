@@ -55,7 +55,7 @@ closeConnection($conn);
             </div>
             <div class="mb-4">
               <label for="title">Titel</label>
-              <input id="title" type="text" class="inputfield container-md form-control">
+              <input id="title" name="title" type="text" class="inputfield container-md form-control">
             </div>
             <div class="mb-4">
               <label for="content">Inhalt</label>
