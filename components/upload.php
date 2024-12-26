@@ -20,42 +20,46 @@ $upload = true;
 
 
 if(validateToken($conn)) {
-    if(!is_dir($uploadDir)){
+    if(isPermitted($conn, Permission::ADMIN)){
+        if(!is_dir($uploadDir)){
         mkdir($uploadDir, 0777, true);
-    }else if(!is_dir($thumbnail)){
-        mkdir($thumbnail, 0777, true);
-    }
-
-    if(isset($_FILES['file'])){
-        if($_FILES["file"]["type"] != "image/jpeg"){
-            echo "Es dürfen nur Jpg-Dateien hochgeladen werden!";
-            $upload = false;
-        }else if(move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)){
-            if(list($width, $height) = getimagesize($target_file)){
-                $new_width = 720;
-                $new_height = 480;
-                $thumb = imagecreatetruecolor($new_width, $new_height);
-                $source = imagecreatefromjpeg($target_file);
-                imagecopyresized($thumb, $source, 0, 0, $width / 2 - $new_width / 2, $height / 2 - $new_height / 2, $new_width ,$new_height, $new_width, $new_height);
-                imagejpeg($thumb, $target_thumbnail);
-
-                $sql = "INSERT INTO news_articles (title,content,sub,img_path) VALUES (?,?,?,?)";
-                $stmt = $conn->prepare($sql);
-                $title = $_POST['title'];
-                $content = $_POST['content'];
-                $sub = mb_substr($content, 0, 50) . "...";
-                $img_path = $target_thumbnail;
-
-                $stmt->bind_param("ssss", $title, $content, $sub, $img_path);
-                if($stmt->execute()){
-                    header('Location: /HTML/news.php');
-                }
-                closeConnection($conn);
-            }
-            
-        }else{
-            echo "Error ";
+        }else if(!is_dir($thumbnail)){
+            mkdir($thumbnail, 0777, true);
         }
+
+        if(isset($_FILES['file'])){
+            if($_FILES["file"]["type"] != "image/jpeg"){
+                echo "Es dürfen nur Jpg-Dateien hochgeladen werden!";
+                $upload = false;
+            }else if(move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)){
+                if(list($width, $height) = getimagesize($target_file)){
+                    $new_width = 720;
+                    $new_height = 480;
+                    $thumb = imagecreatetruecolor($new_width, $new_height);
+                    $source = imagecreatefromjpeg($target_file);
+                    imagecopyresized($thumb, $source, 0, 0, $width / 2 - $new_width / 2, $height / 2 - $new_height / 2, $new_width ,$new_height, $new_width, $new_height);
+                    imagejpeg($thumb, $target_thumbnail);
+
+                    $sql = "INSERT INTO news_articles (title,content,sub,img_path) VALUES (?,?,?,?)";
+                    $stmt = $conn->prepare($sql);
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $sub = mb_substr($content, 0, 50) . "...";
+                    $img_path = $target_thumbnail;
+
+                    $stmt->bind_param("ssss", $title, $content, $sub, $img_path);
+                    if($stmt->execute()){
+                        header('Location: /HTML/news.php');
+                    }
+                    closeConnection($conn);
+                }
+
+            }else{
+                echo "Error ";
+            }
+        }
+    }else{
+        echo "Sie sind nicht berechtigt, diese Aktion auszuführen!";
     }
-}
-?>
+}   
+?>  
