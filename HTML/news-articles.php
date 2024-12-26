@@ -11,8 +11,7 @@ $articles = [
     [
         "id" => "2",
         "title" => "Neue Grafikkarten",
-        "sub" => "Für die beste performance und ein noch besserer Erlebnis haben wir ab jetzt
-            in allen PC's Nvidias RTX 4090er Grafikkarten eingebaut.",
+        "sub" => "Für die beste performance und ein noch besserer Erlebnis haben wir ab jetzt in allen PC's Nvidias RTX 4090er Grafikkarten eingebaut.",
         "imgpath" => "../Public/Images/rtx-4090.jpg",
         "content" => "Filler Text Filler Text Filler Text Filler Text Filler Text Filler Text<br>
             Filler Text Filler Text Filler Text Filler Text Filler Text Filler Text<br>

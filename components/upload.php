@@ -35,9 +35,26 @@ if (validateToken($conn)) {
                 if (list($width, $height) = getimagesize($target_file)) {
                     $new_width = 720;
                     $new_height = 480;
+                    $aspectRatio = $new_width / $new_height; // = 1.5 => width = height * 1.5 , height = width / 1.5
+
+                    //cut the biggest possible part of the picture with the right aspect ratio and compress to $new_* size
+                    //try to resize with max width
+                    if ($width / $height < $aspectRatio) {
+                        $cut_width = $width;
+                        $cut_height = $width / $aspectRatio;
+                        $src_x = 0;
+                        $src_y = ($height - $cut_height) / 2;
+                    } else {
+                        //resize with max height, if max width is not possible
+                        $cut_width = $height * $aspectRatio;
+                        $cut_height = $height;
+                        $src_x = ($width - $cut_width) / 2;
+                        $src_y = 0;
+                    }
+
                     $thumb = imagecreatetruecolor($new_width, $new_height);
                     $source = imagecreatefromjpeg($target_file);
-                    imagecopyresized($thumb, $source, 0, 0, $width / 2 - $new_width / 2, $height / 2 - $new_height / 2, $new_width, $new_height, $new_width, $new_height);
+                    imagecopyresized($thumb, $source, 0, 0, $src_x, $src_y, $new_width, $new_height, $cut_width, $cut_height);
                     imagejpeg($thumb, $target_thumbnail);
 
                     $sql = "INSERT INTO news_articles (title,content,sub,img_path) VALUES (?,?,?,?)";

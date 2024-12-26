@@ -35,13 +35,12 @@ closeConnection($conn);
   include(__DIR__ . '/../components/main_style.php');
   ?>
   <link rel="stylesheet" href="../css/news.css">
-  <link rel="stylesheet" href="/CSS/login-register.css" />
+  <link rel="stylesheet" href="../css/login-register.css" />
 </head>
 
 <body class="ghostwhite">
   <?php
   echo '<h1 class="text-center">News</h1>';
-  include(__DIR__ . '/../components/in_work.php');
   ?>
   <?php if ($_SESSION['logged'] == true): ?>
     <?php if ($user['rolle'] == "admin"): ?>
