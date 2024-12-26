@@ -15,7 +15,7 @@ if(validateToken($conn)){
   $stmt = $conn->prepare($sql);
   if($stmt->execute()){
     $result = $stmt->get_result();
-    $rownum = 0;
+    $rownum = 0; 
     $news = array();
     while($row = $result->fetch_assoc()){
       $news[$rownum++] = $row;
@@ -78,7 +78,7 @@ closeConnection($conn);
           <h2><?= htmlspecialchars($article["title"]) ?></h2>
           <p><?= htmlspecialchars($article["sub"]) ?></p>
         </section>
-        <section class="img-container">
+        <section class="img-container img-thumbnail">
           <img src="<?= htmlspecialchars($article["img_path"])?>"/>
         </section>
       </a>
