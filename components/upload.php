@@ -44,7 +44,7 @@ if (validateToken($conn)) {
                     $stmt = $conn->prepare($sql);
                     $title = $_POST['title'];
                     $content = $_POST['content'];
-                    $sub = mb_substr($content, 0, 50) . "...";
+                    $sub = mb_substr($content, 0, 120) . "...";
                     $img_path = $target_thumbnail;
 
                     $stmt->bind_param("ssss", $title, $content, $sub, $img_path);
