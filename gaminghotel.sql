@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2024 at 06:39 PM
+-- Generation Time: Dec 26, 2024 at 09:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,19 +61,17 @@ CREATE TABLE `news_articles` (
   `title` varchar(100) NOT NULL,
   `sub` tinytext NOT NULL,
   `content` text NOT NULL,
-  `img_path` tinytext NOT NULL
+  `img_path` tinytext NOT NULL,
+  `upload_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `news_articles`
 --
 
-INSERT INTO `news_articles` (`id`, `title`, `sub`, `content`, `img_path`) VALUES
-(2, 'Test', 'Ich teste diesmal den sub aus und hoffe das ein Te', 'Ich teste diesmal den sub aus und hoffe das ein Teil vom Text in $sub gespeichert wird', '../Public/uploads/thumbnails/IMG-20230119-WA0012.jpg'),
-(4, 'lorem', 'Lorem ipsum dolor sit amet, consetetur sadipscing ...', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', '../Public/uploads/thumbnails/501st-stormtroopers-main_525e6786.jpeg'),
-(5, 'Juhu', 'Es funktioniert alles!...', 'Es funktioniert alles!', '../Public/uploads/thumbnails/1200Oersted-Versuch_Versuchsaufbau_klein.jpg'),
-(6, 'Counter-Strike Turnier', 'Es ist wieder soweit: Wir hosten ein neues Counter...', 'Es ist wieder soweit: Wir hosten ein neues Counter Strike Turnier! \r\nWann das Turnier stattfindet und wie ihr euch anmelden könnt, erfahrt ihr in diesem Artikel!', '../Public/uploads/thumbnails/esport_players.jpg'),
-(7, 'Neue Grafikkarten', 'Für die beste performance und ein noch besserer Er...', 'Für die beste performance und ein noch besserer Erlebnis haben wir ab jetzt in allen PC\'s Nvidias RTX 4090er Grafikkarten eingebaut.', '../Public/uploads/thumbnails/rtx-4090.jpg');
+INSERT INTO `news_articles` (`id`, `title`, `sub`, `content`, `img_path`, `upload_date`) VALUES
+(23, 'Neue Grafikkarten', 'Für die beste performance und ein noch besserer Erlebnis haben wir ab jetzt in allen PC\'s Nvidias RTX 4090er Grafikkarte...', 'Für die beste performance und ein noch besserer Erlebnis haben wir ab jetzt in allen PC\'s Nvidias RTX 4090er Grafikkarten eingebaut.', '../Public/uploads/thumbnails/rtx-4090.jpg', '2024-11-18'),
+(24, 'Counter-Strike Turnier', 'Es ist wieder soweit: Wir hosten ein neues Counter Strike Turnier! \r\nWann das Turnier stattfindet und wie ihr euch anmel...', 'Es ist wieder soweit: Wir hosten ein neues Counter Strike Turnier! \r\nWann das Turnier stattfindet und wie ihr euch anmelden könnt, erfahrt ihr in diesem Artikel!\r\n<br>\r\nZu Anfang des neuen Jahres gibt es wieder einen Göppel Hotels Cash Cup. Gespielt wird in den Wochenenden<br>18.1 - 19.1<br>25.1 - 26.1<br>\r\nAnmeldungen finden bis zum 10.1 statt.', '../Public/uploads/thumbnails/esport_players.jpg', '2024-12-26');
 
 -- --------------------------------------------------------
 
@@ -163,7 +161,7 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`

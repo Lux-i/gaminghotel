@@ -57,7 +57,7 @@ if (validateToken($conn)) {
                     imagecopyresized($thumb, $source, 0, 0, $src_x, $src_y, $new_width, $new_height, $cut_width, $cut_height);
                     imagejpeg($thumb, $target_thumbnail);
 
-                    $sql = "INSERT INTO news_articles (title,content,sub,img_path) VALUES (?,?,?,?)";
+                    $sql = "INSERT INTO news_articles (title,content,sub,img_path,upload_date) VALUES (?,?,?,?,CURRENT_DATE())";
                     $stmt = $conn->prepare($sql);
                     $title = $_POST['title'];
                     $content = $_POST['content'];

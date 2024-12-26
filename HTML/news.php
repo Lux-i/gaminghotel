@@ -77,7 +77,8 @@ closeConnection($conn);
       class="d-block text-decoration-none text-reset container w-75 news-pre text-start p-0">
       <section class="txt-container">
         <h2><?= htmlspecialchars($article["title"]) ?></h2>
-        <p><?= htmlspecialchars($article["sub"]) ?></p>
+        <?php $dt = new DateTime($article["upload_date"]); ?>
+        <p><?= '[' . $dt->format('d.m.y') . "]: " . htmlspecialchars($article["sub"]) ?></p>
       </section>
       <section class="img-container img-thumbnail">
         <img src="<?= htmlspecialchars($article["img_path"]) ?>" />
