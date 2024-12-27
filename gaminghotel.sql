@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2024 at 06:26 PM
+-- Generation Time: Dec 27, 2024 at 09:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -163,7 +163,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `anrede`, `name`, `nachname`, `username`, `email`, `pwd`, `rolle`, `status`) VALUES
 (1, 'herr', 'Lucjan', 'Lubomski', 'Luxor', 'lucjan.lubomski@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$QVlZelNkazVISnRQckx5TQ$9NmKD0eQQRjf4M6hmMT+MI3vun/MKP0BHyV1amyuYKk', 'user', 'active'),
 (2, 'herr', '123', '123', '123', '123@123', '$argon2id$v=19$m=65536,t=4,p=1$Sno0NTIybVBub0YydWw2RA$NYRCvte8KQwFV6uwoGEWm2AgTL8GyGR9Wiqe1DTOXjw', 'user', 'active'),
-(8, 'herr', 'Admin', 'Admin', 'admin', 'admin@admin', '$argon2id$v=19$m=65536,t=4,p=1$L21MelBLci8wR2VTTEFEaQ$AXjCWn/HidYdbfzWRSEToQKsh5OrIxVtTiAyBGvEhj0', 'admin', 'active');
+(8, 'herr', 'Admin', 'Admin', 'admin', 'admin@admin', '$argon2id$v=19$m=65536,t=4,p=1$L21MelBLci8wR2VTTEFEaQ$AXjCWn/HidYdbfzWRSEToQKsh5OrIxVtTiAyBGvEhj0', 'admin', 'active'),
+(9, 'herr', 'Test', 'Test', 'test', 'test@test', '$argon2id$v=19$m=65536,t=4,p=1$V0IwejhOSWdwc0JKaldSMQ$G+6tlxi0RwuFbxlVDld+iGVN19Y6yZTOeGj3T/IffFw', 'user', 'inactive');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +228,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

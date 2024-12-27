@@ -48,7 +48,7 @@ if (!empty($_POST)) {
             $pwd_hash = $result->fetch_assoc()['pwd'];
 
             if (password_verify($_POST['pwd'], $pwd_hash) || isPermitted($conn, Permission::ADMIN)) {
-                //old pwd is correct, hash and store new password (or admin performing update)
+                //old pwd is correct, hash and store new password (or admin performing update (bypass))
                 $n_pwd = password_hash($_POST['new_pwd'], PASSWORD_ARGON2ID);
 
                 $sql = "UPDATE users SET pwd = ? WHERE id = ?";

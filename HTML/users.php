@@ -15,7 +15,7 @@ if ($logged) {
             isset($_GET['filter']) && in_array($_GET['filter'], $allowedFilters) ? $filterType = $_GET['filter'] : $filterType = 'username';
 
             $users = [];
-            $sql = "SELECT username, email, id FROM users
+            $sql = "SELECT username, email, id, status FROM users
                     ORDER BY $filterType ASC";
             $stmt = $conn->prepare($sql);
             if ($stmt->execute()) {
@@ -66,10 +66,20 @@ if ($logged) {
                     <h2>User: <?= $user['username']; ?></h2>
                     <h3>ID: <?= $user['id']; ?></h3>
                     <p>Email: <?php echo $user['email']; ?></p>
+                    <?php if ($user['status'] == 'inactive'): ?>
+                        <p class="text-danger">Inaktiver Benutzer</p>
+                    <?php endif; ?>
 
                     <section>
                         <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
                         <a href="reservierungen.php?id=<?= $user['id'] ?>" class="btn btn-light">Reservierungen</a>
+                        <?php if ($user['status'] == 'active'): ?>
+                            <a href="userstatus.php?status=inactive&user=<?= $user['id'] ?>" class="text-danger">Konto
+                                deaktivieren</a>
+                        <?php else: ?>
+                            <a href="userstatus.php?status=active&user=<?= $user['id'] ?>" class="text-success">Konto
+                                aktivieren</a>
+                        <?php endif; ?>
                     </section>
                 </li>
             <?php endforeach; ?>
