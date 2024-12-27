@@ -1,6 +1,5 @@
 <?php
-include(__DIR__ . '/../components/header.php');
-require_once('../components/dbaccess.php');
+include('header.php');
 require_once('db_utils.php');
 
 // Create connection
