@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2024 at 09:54 PM
+-- Generation Time: Dec 27, 2024 at 05:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,26 +29,27 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `id` int(10) UNSIGNED NOT NULL,
-  `userid` int(10) UNSIGNED NOT NULL,
+  `userid` int(11) UNSIGNED NOT NULL,
   `start` date NOT NULL,
   `end` date NOT NULL,
   `extras` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `price` int(10) UNSIGNED NOT NULL,
-  `status` enum('neu','bestätigt','storniert') NOT NULL DEFAULT 'neu'
+  `status` enum('neu','bestätigt','storniert') NOT NULL DEFAULT 'neu',
+  `roomid` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `status`) VALUES
-(1, 1, '2024-12-14', '2024-12-19', NULL, 500, 'neu'),
-(2, 1, '2024-12-16', '2024-12-19', NULL, 300, 'neu'),
-(3, 1, '2024-12-20', '2024-12-27', 'Parkplatz,Frühstück', 917, 'neu'),
-(4, 1, '2024-12-24', '2024-12-26', 'Frühstück,Haustiere', 256, 'neu'),
-(5, 8, '2024-12-24', '2024-12-27', 'Parkplatz,Frühstück,Haustiere', 423, 'neu'),
-(6, 1, '2024-12-16', '2024-12-20', 'Parkplatz,Frühstück', 524, 'neu'),
-(7, 1, '2024-12-22', '2024-12-23', 'Parkplatz,Frühstück', 231, 'neu');
+INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `status`, `roomid`) VALUES
+(1, 1, '2024-12-14', '2024-12-19', NULL, 500, 'neu', NULL),
+(2, 1, '2024-12-16', '2024-12-19', NULL, 300, 'neu', NULL),
+(3, 1, '2024-12-20', '2024-12-27', 'Parkplatz,Frühstück', 917, 'neu', NULL),
+(4, 1, '2024-12-24', '2024-12-26', 'Frühstück,Haustiere', 256, 'neu', NULL),
+(5, 8, '2024-12-24', '2024-12-27', 'Parkplatz,Frühstück,Haustiere', 423, 'neu', NULL),
+(6, 1, '2024-12-16', '2024-12-20', 'Parkplatz,Frühstück', 524, 'neu', NULL),
+(7, 1, '2024-12-22', '2024-12-23', 'Parkplatz,Frühstück', 231, 'neu', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,11 +77,43 @@ INSERT INTO `news_articles` (`id`, `title`, `sub`, `content`, `img_path`, `uploa
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `type` enum('single','double','squad') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `type`) VALUES
+(1, 'single'),
+(2, 'single'),
+(3, 'single'),
+(4, 'single'),
+(5, 'single'),
+(6, 'double'),
+(7, 'double'),
+(8, 'double'),
+(9, 'double'),
+(10, 'squad'),
+(11, 'squad'),
+(12, 'squad'),
+(13, 'squad'),
+(14, 'squad'),
+(15, 'squad');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `userauth`
 --
 
 CREATE TABLE `userauth` (
-  `userid` int(10) UNSIGNED NOT NULL,
+  `userid` int(11) UNSIGNED NOT NULL,
   `tokenhash` varchar(97) NOT NULL,
   `token_expires` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -90,8 +123,8 @@ CREATE TABLE `userauth` (
 --
 
 INSERT INTO `userauth` (`userid`, `tokenhash`, `token_expires`) VALUES
-(1, '$argon2id$v=19$m=65536,t=4,p=1$cy4zemthLzJWNjh1ZGFIVw$AFQz8Tod9AAAJ25UMnaIyCxEJPgdWvDqN1A8vgJ4M98', '2024-12-29'),
-(8, '$argon2id$v=19$m=65536,t=4,p=1$MHdqQXdxbkU5Q2JoYURERg$JVUIVzF6z4zgd7MgXZQnaPo16Ke/olifLRqIpKtEanI', '2025-01-02');
+(1, '$argon2id$v=19$m=65536,t=4,p=1$SkZaRy80VjJPVGxuTm5oWQ$DISn2taceWzUSVaMqRYsp1ZRFn4Xnc11rfq+O54c7zY', '2025-01-03'),
+(8, '$argon2id$v=19$m=65536,t=4,p=1$MkpHem1Cb2hFQm94akVlMg$BbLM+aU//G+8+psqX6VRgvhx+/sjstzpvoue5K0gv68', '2025-01-03');
 
 -- --------------------------------------------------------
 
@@ -100,7 +133,7 @@ INSERT INTO `userauth` (`userid`, `tokenhash`, `token_expires`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `anrede` enum('herr','frau','divers') NOT NULL,
   `name` varchar(50) NOT NULL,
   `nachname` varchar(50) NOT NULL,
@@ -127,12 +160,20 @@ INSERT INTO `users` (`id`, `anrede`, `name`, `nachname`, `username`, `email`, `p
 -- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_roomid` (`roomid`),
+  ADD KEY `fk_userid` (`userid`);
 
 --
 -- Indexes for table `news_articles`
 --
 ALTER TABLE `news_articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -164,10 +205,27 @@ ALTER TABLE `news_articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD CONSTRAINT `fk_roomid` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
