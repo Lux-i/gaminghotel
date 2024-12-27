@@ -14,10 +14,20 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
-            JOIN users AS u ON u.id = bookings.userid
-            ORDER BY bookings.id DESC";
-    $stmt = $conn->prepare($sql);
+    if(empty($_GET['filter'])){
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
+      JOIN users AS u ON u.id = bookings.userid
+              ORDER BY bookings.id DESC";
+      $stmt = $conn->prepare($sql);
+    }else{
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
+      JOIN users AS u ON u.id = bookings.userid
+              WHERE bookings.status = ?
+              ORDER BY bookings.id DESC";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param('s', $_GET['filter']);
+    }
+    
     if ($stmt->execute()) {
       $result = $stmt->get_result();
       $rownum = 0;
@@ -48,12 +58,18 @@ if ($user['rolle'] == 'admin') {
 </head>
 
 <body class="ghostwhite">
-  <?php
-  echo '<h1 class="text-center">Reservierungen</h1>';
-  include(__DIR__ . '/../components/in_work.php');
-  ?>
+
+  <h1 class="text-center mt-4 mb-4">Reservierungen</h1>
+
   <?php if ($_SESSION['logged'] == true): ?>
     <?php if (!empty($bookings)): ?>
+      <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4">
+        <h2>Filter:</h2>
+        <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+        <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+        <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+        <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
+      </section>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
