@@ -9,7 +9,22 @@ if ($logged) {
         if (isPermitted($conn, Permission::ADMIN)) {
             //user passes all authentication and authorization checks
             //execute code
-            $sql = "SELECT * FROM";
+
+            //injecting filter directly because binding it as param doesn't work
+            $allowedFilters = ["username", "id"];
+            isset($_GET['filter']) && in_array($_GET['filter'], $allowedFilters) ? $filterType = $_GET['filter'] : $filterType = 'username';
+
+            $users = [];
+            $sql = "SELECT username, email, id FROM users
+                    ORDER BY $filterType ASC";
+            $stmt = $conn->prepare($sql);
+            if ($stmt->execute()) {
+                $result = $stmt->get_result();
+                $count = 0;
+                while ($row = $result->fetch_assoc()) {
+                    $users[$count++] = $row;
+                }
+            }
         } else {
             header('Location: /index.php');
             die();
@@ -35,8 +50,27 @@ if ($logged) {
 </head>
 
 <body>
-    <main class="d-flex">
+    <main class="flex-column">
+        <h1 class="text-center">User</h1>
+        <section class="flex-row w-100 jstfy-space-around">
+            <a href="users.php?filter=username"
+                class="btn btn-light <?= ($filterType == 'username') ? 'text-primary' : 'text-secondary' ?>">Sortieren
+                nach username</a>
+            <a href="users.php?filter=id"
+                class="btn btn-light <?= ($filterType == 'id') ? 'text-primary' : 'text-secondary' ?>">Sortieren nach
+                id</a>
+        </section>
+        <ul class="flex-column w-100">
+            <?php foreach ($users as $user): ?>
+                <li class="flex-column justify-content-center border-bottom-cream mb-3">
+                    <h2>User: <?= $user['username']; ?></h2>
+                    <h3>ID: <?= $user['id']; ?></h3>
+                    <p>Email: <?php echo $user['email']; ?></p>
 
+                    <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </main>
 </body>
 
