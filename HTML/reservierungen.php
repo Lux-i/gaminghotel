@@ -19,13 +19,20 @@ if ($user['rolle'] == 'admin') {
       JOIN users AS u ON u.id = bookings.userid
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
-    }else{
+    }elseif(!empty($_GET['filter'])){
       $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
       JOIN users AS u ON u.id = bookings.userid
               WHERE bookings.status = ?
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
       $stmt->bind_param('s', $_GET['filter']);
+    }else{
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
+      JOIN users AS u ON u.id = bookings.userid
+              WHERE u.id = ?
+              ORDER BY bookings.id DESC";
+      $stmt = $conn->prepare($sql);
+      $stmt->bind_param('i', $_GET['id']);
     }
     
     if ($stmt->execute()) {
