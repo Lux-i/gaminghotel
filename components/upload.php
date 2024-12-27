@@ -4,7 +4,7 @@ require_once('../components/dbaccess.php');
 require_once('db_utils.php');
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = connectDB();
 
 // Check connection
 if ($conn->connect_error) {
