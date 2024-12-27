@@ -1,8 +1,25 @@
 <?php
-include('../components/db_utils.php');
-$conn = connectDB();
-if (validateToken($conn)) {
-
+include('../components/header.php');
+include('../components/nav.php');
+if ($logged) {
+    require_once('../components/db_utils.php');
+    $conn = connectDB();
+    if (validateToken($conn)) {
+        if (isPermitted($conn, Permission::ADMIN)) {
+            //user passes all authentication and authorization checks
+            //execute code
+            $sql = "SELECT * FROM";
+        } else {
+            header('Location: /index.php');
+            die();
+        }
+    } else {
+        header('Location: /index.php');
+        die();
+    }
+} else {
+    header('Location: /index.php');
+    die();
 }
 ?>
 

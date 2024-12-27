@@ -14,7 +14,7 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, status FROM bookings
+    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
             JOIN users AS u ON u.id = bookings.userid
             ORDER BY bookings.id DESC";
     $stmt = $conn->prepare($sql);
