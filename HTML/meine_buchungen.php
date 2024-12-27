@@ -5,11 +5,19 @@ include(__DIR__ . '/../components/nav.php');
 require_once('../components/db_utils.php');
 $conn = connectDB();
 if (validateToken($conn)) {
-  $sql = "SELECT id, start, end, extras, price, status FROM bookings
-    WHERE userid = ?
-    ORDER BY bookings.id DESC";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param('i', $_SESSION['user_id']);
+  if(empty($_GET['filter'])){
+    $sql = "SELECT id, start, end, extras, price, status FROM bookings
+      WHERE userid = ?
+      ORDER BY bookings.id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('i', $_SESSION['user_id']);
+  }else{
+    $sql = "SELECT id, start, end, extras, price, status FROM bookings
+      WHERE userid =? AND status =?
+      ORDER BY bookings.id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('is', $_SESSION['user_id'], $_GET['filter']);
+  }
   if ($stmt->execute()) {
     $result = $stmt->get_result();
     $rownum = 0;
@@ -35,11 +43,15 @@ closeConnection($conn);
 </head>
 
 <body class="ghostwhite">
-  <?php
-  echo '<h1 class="text-center mt-2">Meine Buchungen</h1>';
-  include(__DIR__ . '/../components/in_work.php');
-  ?>
+  <h1 class="text-center mt-2">Meine Buchungen</h1>
   <?php if ($_SESSION['logged'] == true): ?>
+    <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4 my-3">
+        <h2>Filter:</h2>
+        <a href="meine_buchungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+        <a href="meine_buchungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+        <a href="meine_buchungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+        <a href="meine_buchungen.php" class="btn btn-secondary"> Filter löschen </a>
+      </section>
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
