@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2024 at 05:49 PM
+-- Generation Time: Dec 27, 2024 at 05:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -106,6 +106,16 @@ INSERT INTO `rooms` (`id`, `type`) VALUES
 (14, 'squad'),
 (15, 'squad');
 
+--
+-- Triggers `rooms`
+--
+DELIMITER $$
+CREATE TRIGGER `ROOM DELETE` BEFORE DELETE ON `rooms` FOR EACH ROW UPDATE bookings
+SET status = 'storniert'
+WHERE roomid = OLD.id
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -196,7 +206,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `news_articles`
@@ -208,7 +218,7 @@ ALTER TABLE `news_articles`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
