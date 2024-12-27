@@ -14,7 +14,7 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    if(empty($_GET['filter'])){
+    if(empty($_GET['filter']) && empty($_GET['id'])){
       $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
       JOIN users AS u ON u.id = bookings.userid
               ORDER BY bookings.id DESC";
@@ -69,14 +69,14 @@ if ($user['rolle'] == 'admin') {
   <h1 class="text-center mt-4 mb-4">Reservierungen</h1>
 
   <?php if ($_SESSION['logged'] == true): ?>
-    <?php if (!empty($bookings)): ?>
-      <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4">
+    <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4">
         <h2>Filter:</h2>
         <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
         <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
         <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
         <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
       </section>
+    <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
