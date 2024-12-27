@@ -67,7 +67,10 @@ if ($logged) {
                     <h3>ID: <?= $user['id']; ?></h3>
                     <p>Email: <?php echo $user['email']; ?></p>
 
-                    <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
+                    <section>
+                        <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
+                        <a href="reservierungen.php?id=<?= $user['id'] ?>" class="btn btn-light">Reservierungen</a>
+                    </section>
                 </li>
             <?php endforeach; ?>
         </ul>
