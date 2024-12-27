@@ -51,7 +51,7 @@ if ($logged) {
 
 <body>
     <main class="flex-column">
-        <h1 class="text-center">User</h1>
+        <h1 class="text-center">Users</h1>
         <section class="flex-row w-100 jstfy-space-around">
             <a href="users.php?filter=username"
                 class="btn btn-light <?= ($filterType == 'username') ? 'text-primary' : 'text-secondary' ?>">Sortieren
