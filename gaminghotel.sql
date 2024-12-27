@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2024 at 05:56 PM
+-- Generation Time: Dec 27, 2024 at 06:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,21 +35,23 @@ CREATE TABLE `bookings` (
   `extras` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `price` int(10) UNSIGNED NOT NULL,
   `status` enum('neu','bestätigt','storniert') NOT NULL DEFAULT 'neu',
-  `roomid` int(10) UNSIGNED DEFAULT NULL
+  `roomid` int(10) UNSIGNED DEFAULT NULL,
+  `booking_submitted` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `status`, `roomid`) VALUES
-(1, 1, '2024-12-14', '2024-12-19', NULL, 500, 'neu', NULL),
-(2, 1, '2024-12-16', '2024-12-19', NULL, 300, 'neu', NULL),
-(3, 1, '2024-12-20', '2024-12-27', 'Parkplatz,Frühstück', 917, 'neu', NULL),
-(4, 1, '2024-12-24', '2024-12-26', 'Frühstück,Haustiere', 256, 'neu', NULL),
-(5, 8, '2024-12-24', '2024-12-27', 'Parkplatz,Frühstück,Haustiere', 423, 'neu', NULL),
-(6, 1, '2024-12-16', '2024-12-20', 'Parkplatz,Frühstück', 524, 'neu', NULL),
-(7, 1, '2024-12-22', '2024-12-23', 'Parkplatz,Frühstück', 231, 'neu', NULL);
+INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `status`, `roomid`, `booking_submitted`) VALUES
+(1, 1, '2024-12-14', '2024-12-19', NULL, 500, 'neu', NULL, '2024-12-27'),
+(2, 1, '2024-12-16', '2024-12-19', NULL, 300, 'neu', NULL, '2024-12-27'),
+(3, 1, '2024-12-20', '2024-12-27', 'Parkplatz,Frühstück', 917, 'neu', NULL, '2024-12-27'),
+(4, 1, '2024-12-24', '2024-12-26', 'Frühstück,Haustiere', 256, 'neu', NULL, '2024-12-27'),
+(5, 8, '2024-12-24', '2024-12-27', 'Parkplatz,Frühstück,Haustiere', 423, 'neu', NULL, '2024-12-27'),
+(6, 1, '2024-12-16', '2024-12-20', 'Parkplatz,Frühstück', 524, 'neu', NULL, '2024-12-27'),
+(7, 1, '2024-12-22', '2024-12-23', 'Parkplatz,Frühstück', 231, 'neu', NULL, '2024-12-27'),
+(9, 8, '2024-12-27', '2024-12-29', 'Parkplatz,Frühstück', 262, 'neu', NULL, '2024-12-27');
 
 -- --------------------------------------------------------
 
@@ -150,17 +152,18 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `pwd` varchar(100) NOT NULL,
-  `rolle` enum('admin','user') NOT NULL
+  `rolle` enum('admin','user') NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `anrede`, `name`, `nachname`, `username`, `email`, `pwd`, `rolle`) VALUES
-(1, 'herr', 'Lucjan', 'Lubomski', 'Luxor', 'lucjan.lubomski@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$QVlZelNkazVISnRQckx5TQ$9NmKD0eQQRjf4M6hmMT+MI3vun/MKP0BHyV1amyuYKk', 'user'),
-(2, 'herr', '123', '123', '123', '123@123', '$argon2id$v=19$m=65536,t=4,p=1$Sno0NTIybVBub0YydWw2RA$NYRCvte8KQwFV6uwoGEWm2AgTL8GyGR9Wiqe1DTOXjw', 'user'),
-(8, 'herr', 'Admin', 'Admin', 'admin', 'admin@admin', '$argon2id$v=19$m=65536,t=4,p=1$L21MelBLci8wR2VTTEFEaQ$AXjCWn/HidYdbfzWRSEToQKsh5OrIxVtTiAyBGvEhj0', 'admin');
+INSERT INTO `users` (`id`, `anrede`, `name`, `nachname`, `username`, `email`, `pwd`, `rolle`, `status`) VALUES
+(1, 'herr', 'Lucjan', 'Lubomski', 'Luxor', 'lucjan.lubomski@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$QVlZelNkazVISnRQckx5TQ$9NmKD0eQQRjf4M6hmMT+MI3vun/MKP0BHyV1amyuYKk', 'user', 'active'),
+(2, 'herr', '123', '123', '123', '123@123', '$argon2id$v=19$m=65536,t=4,p=1$Sno0NTIybVBub0YydWw2RA$NYRCvte8KQwFV6uwoGEWm2AgTL8GyGR9Wiqe1DTOXjw', 'user', 'active'),
+(8, 'herr', 'Admin', 'Admin', 'admin', 'admin@admin', '$argon2id$v=19$m=65536,t=4,p=1$L21MelBLci8wR2VTTEFEaQ$AXjCWn/HidYdbfzWRSEToQKsh5OrIxVtTiAyBGvEhj0', 'admin', 'active');
 
 --
 -- Indexes for dumped tables
@@ -206,13 +209,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `news_articles`
 --
 ALTER TABLE `news_articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `rooms`
