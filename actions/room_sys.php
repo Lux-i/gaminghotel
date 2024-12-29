@@ -31,13 +31,13 @@ function getRooms($conn, $type, $start, $end)
                 SELECT 1
                 FROM bookings b_overlap
                 WHERE  b_overlap.roomid = r.id
-                    AND b_overlap.start < ? 
-                    AND b_overlap.end > ?
+                    AND b_overlap.start <= ? 
+                    AND b_overlap.end >= ?
             )
             ORDER BY weight ASC, roomid ASC";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam("sss", $start, $end, $type);
+    $stmt->bind_param("sssss", $start, $end, $type, $end, $start);
     if ($stmt->execute()) {
         $result = $stmt->get_result();
         $step = 0;
@@ -80,7 +80,7 @@ function getRoom($conn, $type, $start, $end)
         $sql = "SELECT start, end FROM bookings
                 WHERE roomid = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam("i", $room["roomid"]);
+        $stmt->bind_param("i", $room["roomid"]);
         //if this if statement fails, no wrong value is returned, but all rooms where execution might fail just won't be adjusted in weight
         if ($stmt->execute()) {
             $result = $stmt->get_result();
@@ -100,10 +100,10 @@ function getRoom($conn, $type, $start, $end)
 
                 if ($bStart > $cStart) {
                     //already existing booking starts after the current new one ends
-                    $difference = $cEnd->diff($bStart);
+                    $difference = $cEnd->diff($bStart)->days;
                 } else {
                     //already existing booking ends before the current new one start
-                    $difference = $bEnd->diff($cStart);
+                    $difference = $bEnd->diff($cStart)->days;
                 }
                 //only update closest days when the new difference is lower (eg. the booking is closer)
                 $closestDays = $difference;

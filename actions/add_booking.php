@@ -44,6 +44,13 @@ if (!empty($_POST)) {
             //retrieve a suitable and available room
             $room = getRoom($conn, $_POST['zimmer'], $_POST['check_in'], $_POST['check_out']);
 
+            if ($room == 0) {
+                //no suitable room found
+                closeConnection($conn);
+                header('Location: /HTML/buchen.php?error=Es ist kein ' . $_POST['zimmer'] . ' Raum für ihren gewählten Zeitraum verfügbar');
+                die();
+            }
+
             //add booking entry into db
             $sql = "INSERT INTO bookings (userid, start, end, extras, price, status, roomid) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
