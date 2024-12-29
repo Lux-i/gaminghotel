@@ -119,10 +119,14 @@ function getRoom($conn, $type, $start, $end)
         }
     }
 
-    //after all rooms got their weight adjusted, resort $rooms array
-
-    //delete reference $room;
+    //delete reference (pointer) $room;
     unset($room);
+
+    //after all rooms got their weight adjusted, resort $rooms array
+    //sorting with the spaceship operator (a < b = -1, a == b = 0, a > b = 1)
+    usort($rooms, function ($a, $b) {
+        return $a["weight"] <=> $b["weight"];
+    });
 
     return $rooms[0]["roomid"];
 }
