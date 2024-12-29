@@ -31,19 +31,6 @@ if (validateToken($conn)) {
 }
 
 closeConnection($conn);
-
-/*$article = null;
-foreach ($articles as $a) {
-    if($a['id'] == $_GET['id']){
-        $article = $a;
-        break;
-    }
-}
-
-if($article == null){
-    header('Location: news.php');
-    die();
-}*/
 ?>
 
 <!DOCTYPE html>

@@ -25,7 +25,10 @@ if (!empty($_POST)) {
         $n_nachname = (empty($_POST['nachname'])) ? $user['nachname'] : ucfirst($_POST['nachname']);
         $n_email = (empty($_POST['email'])) ? $user['email'] : $_POST['email'];
 
-        $stmt->bind_param("sssssi", $n_anrede, $n_vorname, $n_nachname, $n_username, $n_email, $_SESSION['user_id']);
+        //allow admins to set a userid through get array
+        $userid = isset($_GET['user']) && isPermitted($conn, Permission::ADMIN) ? $_GET['user'] : $_SESSION['user_id'];
+
+        $stmt->bind_param("sssssi", $n_anrede, $n_vorname, $n_nachname, $n_username, $n_email, $userid);
 
 
     } else {
@@ -35,27 +38,31 @@ if (!empty($_POST)) {
             //old pwd input with db pwd check
             $sql = "SELECT pwd FROM users WHERE id = ?;";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $_SESSION['user_id']);
+
+            //allow admins to set a userid through get array
+            $userid = isset($_GET['user']) && isPermitted($conn, Permission::ADMIN) ? $_GET['user'] : $_SESSION['user_id'];
+
+            $stmt->bind_param("s", $userid);
             $stmt->execute();
             $result = $stmt->get_result();
             $pwd_hash = $result->fetch_assoc()['pwd'];
 
-            if (password_verify($_POST['pwd'], $pwd_hash)) {
-                //old pwd is correct, hash and store new password
+            if (password_verify($_POST['pwd'], $pwd_hash) || isPermitted($conn, Permission::ADMIN)) {
+                //old pwd is correct, hash and store new password (or admin performing update (bypass))
                 $n_pwd = password_hash($_POST['new_pwd'], PASSWORD_ARGON2ID);
 
                 $sql = "UPDATE users SET pwd = ? WHERE id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("si", $n_pwd, $_SESSION['user_id']);
+                $stmt->bind_param("si", $n_pwd, $userid);
             } else {
                 closeConnection($conn);
-                header('Location: change_pwd.php?error=Altes passwort falsch!');
+                header('Location: /HTML/change_pwd.php?error=Altes passwort falsch!');
                 die();
             }
 
         } else {
             closeConnection($conn);
-            header('Location: change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
+            header('Location: /HTML/change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
             die();
         }
     }
@@ -66,7 +73,13 @@ if (!empty($_POST)) {
         echo '<div class="alert alert-danger mt-3 center-txt w-25" role="alert">Error: ' . $stmt->error . '</div>';
     }
 
+    if (isset($_GET['user']) && isPermitted($conn, Permission::ADMIN)) {
+        header('Location: /HTML/users.php');
+        closeConnection($conn);
+        die();
+    }
+
     closeConnection($conn);
 }
 
-header('Location: me.php');
+header('Location: /HTML/me.php');

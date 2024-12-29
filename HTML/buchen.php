@@ -23,20 +23,20 @@
         <?php if ($_SESSION['logged'] == true): ?>
           <h2>Zimmer Buchen</h2>
           <section class="form-container ">
-            <form id="bookform" class="flex-column" action="add_booking.php" method="POST">
+            <form id="bookform" class="flex-column" action="/actions/add_booking.php" method="POST">
               <section class="form-check">
                 <section>
-                    <input class="form-check-input" id="zimmer1" name="zimmer" type="radio" value="zimmer1" required>
-                    <label class="form-check-label" for="zimmer1">Einzelzimmer</label>
-                  </section>
-                  <section>
-                    <input class="form-check-input" id="zimmer2" name="zimmer" type="radio" value="zimmer2" required>
-                    <label class="form-check-label" for="zimmer2">Doppelzimmer</label>
-                  </section>
-                  <section>
-                    <input class="form-check-input" id="zimmer3" name="zimmer" type="radio" value="zimmer3" required>
-                    <label class="form-check-label" for="zimmer3">Full-Squad Zimmer</label>
-                  </section>
+                  <input class="form-check-input" id="zimmer1" name="zimmer" type="radio" value="zimmer1" required>
+                  <label class="form-check-label" for="zimmer1">Einzelzimmer</label>
+                </section>
+                <section>
+                  <input class="form-check-input" id="zimmer2" name="zimmer" type="radio" value="zimmer2" required>
+                  <label class="form-check-label" for="zimmer2">Doppelzimmer</label>
+                </section>
+                <section>
+                  <input class="form-check-input" id="zimmer3" name="zimmer" type="radio" value="zimmer3" required>
+                  <label class="form-check-label" for="zimmer3">Full-Squad Zimmer</label>
+                </section>
               </section>
               <section class="row g-2 mt-2">
                 <section class="col">
@@ -54,22 +54,21 @@
               <section class="mt-3 form-check form-switch">
                 <section>
                   <label>
-                      <input class="form-check-input" type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
-                  </label>                 
+                    <input class="form-check-input" type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
+                  </label>
                 </section>
                 <section>
                   <label>
-                      <input class="form-check-input" type="checkbox" name="extras[]" value="Frühstück"> Frühstück (18€/Tag)
+                    <input class="form-check-input" type="checkbox" name="extras[]" value="Frühstück"> Frühstück (18€/Tag)
                   </label>
                 </section>
                 <section>
-                  <label>                  
-                      <input class="form-check-input" type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)                  
+                  <label>
+                    <input class="form-check-input" type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)
                   </label>
                 </section>
               </section>
-              <input class="submit_button" type="submit" id="submitButton" value="Registrieren" disabled
-                required />
+              <input class="submit_button" type="submit" id="submitButton" value="Registrieren" disabled required />
             </form>
           </section>
         </section>

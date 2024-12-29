@@ -28,7 +28,7 @@ if ($_SESSION['logged']) {
     closeConnection($conn);
   } else {
     //User gets logged out if the stored token is invalid
-    header("Location: /HTML/logout.php");
+    header("Location: /actions/logout.php");
     exit();
   }
 }

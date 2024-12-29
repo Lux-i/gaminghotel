@@ -9,13 +9,7 @@
  */
 function connectDB()
 {
-    //require_once('dbaccess.php');
-    //because this script is called from various file paths, dbaccess is currently hard-coded into this utility file
-    //a process calculating the needed path could be incorporated
-    $servername = "localhost";
-    $username = "gaminghotel";
-    $password = "!*K8FdmqAe}#ZMb";
-    $dbname = "gaminghotel";
+    $config = require __DIR__ . '/dbaccess.php';
 
     $connection = new mysqli($servername, $username, $password, $dbname);
 
