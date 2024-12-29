@@ -68,7 +68,7 @@ include(__DIR__ . '/../components/in_work.php');
               id="submitButton" value="Änderungen bestätigen" required hidden disabled />
           </form>
           <section class="flex-row jstfy-space-around">
-            <a href="logout.php">
+            <a href="/actions/logout.php">
               <button class="button-cream border-none">
                 Logout
               </button>

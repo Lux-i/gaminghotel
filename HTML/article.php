@@ -2,8 +2,9 @@
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
 include(__DIR__ . '/news-articles.php');
+include('../components/dbaccess.php');
 require_once('../components/db_utils.php');
-$conn = connectDB();
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -16,16 +17,15 @@ if (empty($_GET['id'])) {
 }
 
 
-$sql = "SELECT * FROM news_articles WHERE id = ?";
-$id = $_GET['id'];
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('s', $id);
+    $sql = "SELECT * FROM news_articles WHERE id = ?";
+    $id = $_GET['id'];
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $id);
 
-if ($stmt->execute()) {
-    $result = $stmt->get_result();
-    $article = $result->fetch_assoc();
-}
-
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $article = $result->fetch_assoc();
+    }
 
 closeConnection($conn);
 ?>
