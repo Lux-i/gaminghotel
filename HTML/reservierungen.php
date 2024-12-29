@@ -69,12 +69,24 @@ if ($user['rolle'] == 'admin') {
   <h1 class="text-center mt-4 mb-4">Reservierungen</h1>
 
   <?php if ($_SESSION['logged'] == true): ?>
-    <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4">
-        <h2>Filter:</h2>
-        <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
-        <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
-        <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
-        <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
+    <section class="login-window w-50 container">
+        <section class="row gy-2 align-items-center">
+          <section class="col">
+            <h2>Filter:</h2>
+          </section>
+          <section class="col-xl">
+            <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+          </section>
+          <section class="col-xl">
+            <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+          </section>
+          <section class="col-xl">
+            <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+          </section>
+          <section class="col-xl">
+            <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
+          </section>
+        </section>
       </section>
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
@@ -83,7 +95,6 @@ if ($user['rolle'] == 'admin') {
             <p class="px-3">Reserviert für:
               <?php echo ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
             </p>
-            <p class="px-3">E-Mail: <?php echo $booking['email']; ?></p>
             <p class="px-3">Reserviert ab: <?php
             $epoch = $booking['start'];
             $dt = new DateTime("$epoch");
@@ -94,22 +105,6 @@ if ($user['rolle'] == 'admin') {
               $dt = new DateTime("$epoch");
               echo $dt->format('d / m / Y'); ?>
             </p>
-            <p class="px-3">Kosten: <?= $booking['price'] ?>€</p>
-            <p class="px-3">Extras:
-              <?php
-              if ($booking['extras'] != NULL) {
-                $extrasText = "";
-                $extras = explode(',', $booking['extras']);
-                foreach ($extras as $extra) {
-                  $extrasText .= $extra . ' / ';
-                }
-                ;
-                echo substr($extrasText, 0, -3);
-              } else {
-                echo "Keine extras.";
-              }
-              ?>
-            </p>
             <p class="px-3">Status: <strong class=" <?php if ($booking["status"] == "neu") {
               echo "text-primary";
             } elseif ($booking["status"] == "bestätigt") {
@@ -117,20 +112,17 @@ if ($user['rolle'] == 'admin') {
             } else {
               echo "text-danger";
             } ?>"> <?= ucfirst($booking['status']) ?></strong></p>
-            <section class="ml-3">
-              <form class="form-check d-flex justify-content-start" action="change_booking_status.php" method="POST">
-                <p><input type="number" value="<?php echo $booking["id"]; ?>" id="id" name="id" readonly hidden></input>
-                <p><button type="submit" value="1" id="stornieren" name="change_status" class="btn btn-danger" <?php if ($booking['status'] == "storniert")
-                  echo "hidden"; ?>>Stornieren</button></p>
-                <p><button type="submit" value="2" class="<?php if ($booking['status'] != "storniert")
-                  echo "mx-3"; ?> btn btn-success" id="bestätigen" name="change_status" <?php if ($booking['status'] == "bestätigt")
-                       echo "hidden"; ?>>Bestätigen</button></p>
-              </form>
+            <section class="container">
+                <section class="row"> 
+                    <section class="col">
+                        <a href="reservierung.php?id=<?= $booking['id']?>" class="btn btn-secondary">Mehr anzeigen</a>
+                    </section>
+                </section>
             </section>
         </main>
       <?php endforeach; ?>
     <?php else: ?>
-      <p class="text-center">Keine offenen Reservierungen.</p>
+      <p class="text-center mt-3">Keine offenen Reservierungen.</p>
     <?php endif; ?>
   <?php endif; ?>
   <?php

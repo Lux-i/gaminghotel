@@ -2,7 +2,7 @@
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
 include(__DIR__ . '/news-articles.php');
-require_once('../components/dbaccess.php');
+include('../components/dbaccess.php');
 require_once('../components/db_utils.php');
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -16,7 +16,7 @@ if (empty($_GET['id'])) {
     die();
 }
 
-if (validateToken($conn)) {
+
     $sql = "SELECT * FROM news_articles WHERE id = ?";
     $id = $_GET['id'];
     $stmt = $conn->prepare($sql);
@@ -26,9 +26,6 @@ if (validateToken($conn)) {
         $result = $stmt->get_result();
         $article = $result->fetch_assoc();
     }
-} else {
-    echo "Error";
-}
 
 closeConnection($conn);
 ?>
