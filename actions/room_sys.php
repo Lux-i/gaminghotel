@@ -60,7 +60,7 @@ function getRooms($conn, $type, $start, $end)
  */
 function getRoom($conn, $type, $start, $end)
 {
-    require_once '../components/db_utils';
+    require_once '../components/db_utils.php';
 
     //getting all available rooms already sorted
     $rooms = getRooms($conn, $type, $start, $end);
