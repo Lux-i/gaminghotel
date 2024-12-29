@@ -17,15 +17,15 @@ if (empty($_GET['id'])) {
 }
 
 
-    $sql = "SELECT * FROM news_articles WHERE id = ?";
-    $id = $_GET['id'];
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $id);
+$sql = "SELECT * FROM news_articles WHERE id = ?";
+$id = $_GET['id'];
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $id);
 
-    if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $article = $result->fetch_assoc();
-    }
+if ($stmt->execute()) {
+    $result = $stmt->get_result();
+    $article = $result->fetch_assoc();
+}
 
 closeConnection($conn);
 ?>
@@ -54,7 +54,7 @@ closeConnection($conn);
         <section class="txt-container mt-3 pb-4">
             <p><?= $article['content']; ?></p>
             <?php $dt = new DateTime($article['upload_date']); ?>
-            <p>Beitrag vom <?= $dt->format('y.m.d') ?></p>
+            <p>Beitrag vom <?= $dt->format('d.m.y') ?></p>
         </section>
     </article>
 </body>
