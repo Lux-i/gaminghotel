@@ -2,9 +2,9 @@ var days = 0;
 var price = 0;
 
 const prices = {
-  zimmer1: 100,
-  zimmer2: 130,
-  zimmer3: 200,
+  single: 100,
+  duo: 170,
+  squad: 400,
   Parkplatz: 13,
   Frühstück: 18,
   Haustiere: 10,

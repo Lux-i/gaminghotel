@@ -22,9 +22,6 @@ function connectDB()
 
 /**
  * closes a mysqli connection
- * 
- * attempting to close an already closed connection should be safe
- * 
  * @param mysqli $connection a mysqli connection instance
  */
 function closeConnection(mysqli $connection)
@@ -38,6 +35,7 @@ function closeConnection(mysqli $connection)
  * validates the token of logged in user
  * 
  * uses the stored userid and token from the session and checks if stored token is valid for the user
+ * session needs to be started
  * @param mysqli $connection a mysqli connection instance
  * @return bool
  */

@@ -26,16 +26,16 @@
             <form id="bookform" class="flex-column" action="/actions/add_booking.php" method="POST">
               <section class="form-check">
                 <section>
-                  <input class="form-check-input" id="zimmer1" name="zimmer" type="radio" value="zimmer1" required>
-                  <label class="form-check-label" for="zimmer1">Einzelzimmer</label>
+                  <input class="form-check-input" id="single" name="zimmer" type="radio" value="single" required>
+                  <label class="form-check-label" for="single">Einzelzimmer</label>
                 </section>
                 <section>
-                  <input class="form-check-input" id="zimmer2" name="zimmer" type="radio" value="zimmer2" required>
-                  <label class="form-check-label" for="zimmer2">Doppelzimmer</label>
+                  <input class="form-check-input" id="duo" name="zimmer" type="radio" value="duo" required>
+                  <label class="form-check-label" for="duo">Doppelzimmer</label>
                 </section>
                 <section>
-                  <input class="form-check-input" id="zimmer3" name="zimmer" type="radio" value="zimmer3" required>
-                  <label class="form-check-label" for="zimmer3">Full-Squad Zimmer</label>
+                  <input class="form-check-input" id="squad" name="zimmer" type="radio" value="squad" required>
+                  <label class="form-check-label" for="squad">Full-Squad Zimmer</label>
                 </section>
               </section>
               <section class="row g-2 mt-2">
