@@ -109,10 +109,12 @@ function getRoom($conn, $type, $start, $end)
                 $closestDays = $difference;
             }
 
+            //weight stays the same when the nearest booking is 5 days away
+            //if a booking is closer than that the weight gets punished (higher) else lower
             $factor = 0.2 * $closestDays;
             $newWeight = $room['weight'] / $factor;
 
-            //apply the factor to the room weight
+            //apply the newWeight to the room weight
             $room["weight"] = $newWeight;
         }
     }
