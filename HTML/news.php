@@ -78,7 +78,7 @@ closeConnection($conn);
       <section class="txt-container">
         <h2><?= htmlspecialchars($article["title"]) ?></h2>
         <?php $dt = new DateTime($article["upload_date"]); ?>
-        <p><?= '[' . $dt->format('d.m.y') . "]: " . htmlspecialchars($article["sub"]) ?></p>
+        <p><?= '[' . $dt->format('d.m.y') . "]: " . strip_tags($article["sub"]) ?></p>
       </section>
       <section class="img-container img-thumbnail">
         <img src="<?= htmlspecialchars($article["img_path"]) ?>" />
