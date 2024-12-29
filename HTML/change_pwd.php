@@ -26,7 +26,7 @@ if (isset($_GET['error'])) {
     <section class="login-window">
       <h2>Passwort ändern</h2>
       <section class="flex-column form-container">
-        <form class="flex-column" action="changeData.php" method="POST">
+        <form class="flex-column" action="/actions/changeData.php" method="POST">
           <section class="input_group container form-floating">
             <input class="inputfield container-md form-control" type="password" id="pwd" name="pwd" required
               aria-label="altes Passwort" />

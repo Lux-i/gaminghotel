@@ -9,7 +9,7 @@ if (isset($_GET['user']) && isset($_GET['status'])) {
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("si", $_GET['status'], $_GET["user"]);
             $stmt->execute();
-            header('Location: users.php');
+            header('Location: /HTML/users.php');
             closeConnection($conn);
             die();
         }

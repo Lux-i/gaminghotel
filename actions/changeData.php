@@ -56,13 +56,13 @@ if (!empty($_POST)) {
                 $stmt->bind_param("si", $n_pwd, $userid);
             } else {
                 closeConnection($conn);
-                header('Location: change_pwd.php?error=Altes passwort falsch!');
+                header('Location: /HTML/change_pwd.php?error=Altes passwort falsch!');
                 die();
             }
 
         } else {
             closeConnection($conn);
-            header('Location: change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
+            header('Location: /HTML/change_pwd.php?error=Die neuen Passwörter stimmen nicht überein!');
             die();
         }
     }
@@ -74,7 +74,7 @@ if (!empty($_POST)) {
     }
 
     if (isset($_GET['user']) && isPermitted($conn, Permission::ADMIN)) {
-        header('Location: users.php');
+        header('Location: /HTML/users.php');
         closeConnection($conn);
         die();
     }
@@ -82,4 +82,4 @@ if (!empty($_POST)) {
     closeConnection($conn);
 }
 
-header('Location: me.php');
+header('Location: /HTML/me.php');

@@ -58,7 +58,7 @@ if ($logged) {
         <h1 class="text-center">User-Daten Management</h1>
         <h2 class="text-center">User: <?= $user['username']; ?></h2>
         <section class="data-splitter"></section>
-        <form class="flex-column" action="changeData.php?user=<?= $_GET['user'] ?>" method="POST">
+        <form class="flex-column" action="/actions/changeData.php?user=<?= $_GET['user'] ?>" method="POST">
             <h3 class="text-center">PERSONENDATEN ÄNDERN</h3>
             <section class="flex-column input_group container form-floating">
                 <input class="inputfield container-md form-control" type="text" id="username" name="username"

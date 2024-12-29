@@ -74,10 +74,10 @@ if ($logged) {
                         <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
                         <a href="reservierungen.php?id=<?= $user['id'] ?>" class="btn btn-light">Reservierungen</a>
                         <?php if ($user['status'] == 'active'): ?>
-                            <a href="userstatus.php?status=inactive&user=<?= $user['id'] ?>" class="text-danger">Konto
+                            <a href="/actions/userstatus.php?status=inactive&user=<?= $user['id'] ?>" class="text-danger">Konto
                                 deaktivieren</a>
                         <?php else: ?>
-                            <a href="userstatus.php?status=active&user=<?= $user['id'] ?>" class="text-success">Konto
+                            <a href="/actions/userstatus.php?status=active&user=<?= $user['id'] ?>" class="text-success">Konto
                                 aktivieren</a>
                         <?php endif; ?>
                     </section>

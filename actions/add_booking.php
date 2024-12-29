@@ -22,7 +22,7 @@ if (!empty($_POST)) {
             $check_out = new DateTime($_POST["check_out"]);
             if ($check_in >= $check_out) {
                 closeConnection($conn);
-                header('Location: buchen.php?error=Check-in datum nach oder gleich dem Abreise Datum');
+                header('Location: /HTML/buchen.php?error=Check-in datum nach oder gleich dem Abreise Datum');
                 die();
             }
             //price for the room per day
@@ -49,16 +49,16 @@ if (!empty($_POST)) {
 
             if ($stmt->execute()) {
                 closeConnection($conn);
-                header('Location: meine_buchungen.php');
+                header('Location: /HTML/meine_buchungen.php');
                 die();
             } else {
                 closeConnection($conn);
-                header('Location: buchen.php?error=Ein Fehler ist aufgetreten!');
+                header('Location: /HTML/buchen.php?error=Ein Fehler ist aufgetreten!');
                 die();
             }
         }
     }
 } else {
-    header('Location: buchen.php');
+    header('Location: /HTML/buchen.php');
     die();
 }
