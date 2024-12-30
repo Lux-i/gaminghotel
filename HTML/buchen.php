@@ -16,6 +16,7 @@
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
   include(__DIR__ . '/../components/in_work.php');
+  include '../components/error_handler.php';
   ?>
   <main class="flex-row">
     <section class="login-window flex-row">
