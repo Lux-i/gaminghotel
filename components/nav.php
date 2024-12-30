@@ -1,17 +1,3 @@
-<!-- Code zur dynamischen Veränderung der a_href-Links. Bis jetzt unnötig -->
-<?php
-/*
-//Regex überprüfung, ob "/HTML" im Ordner des include() files enthalten ist.
-if (preg_match("/\/HTML/", __DIR__)) {
-    //Wenn in /HTML und dessen subfolder, lasse string leer
-    $linkPrefix = '';
-} else {
-    //Wenn file im root-Ornder, addiere /HTML
-    $linkPrefix = '/HTML';
-}
-*/
-?>
-
 <nav class="navbar navbar-expand-sm">
   <div class="container ms-1">
     <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas"
