@@ -30,7 +30,7 @@ include(__DIR__ . '/../components/in_work.php');
             <p>Nachname: <?= $user['nachname']; ?></p>
             <p>Geschlecht: <?= ucfirst($user['anrede']); ?></p>
           </section>
-          <form id="edit" class="flex-column" action="changeData.php" method="POST" hidden=true>
+          <form id="edit" class="flex-column" action="/actions/changeData.php" method="POST" hidden=true>
             <section class="container form-floating">
               <input class="container-md form-control" type="text" id="username" name="username"
                 value="<?= $user['username'] ?>" aria-label="Nutzername" />

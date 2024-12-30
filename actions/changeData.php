@@ -67,11 +67,10 @@ if (!empty($_POST)) {
         }
     }
 
-    if ($stmt->execute()) {
-        echo '<div class="alert alert-success mt-3 center-txt w-25">Update successful!</div>';
-    } else {
-        echo '<div class="alert alert-danger mt-3 center-txt w-25" role="alert">Error: ' . $stmt->error . '</div>';
+    if (!$stmt->execute()) {
+        header("Location: /HTML/change_pwd.php?error=" . $stmt->error);
     }
+
 
     if (isset($_GET['user']) && isPermitted($conn, Permission::ADMIN)) {
         header('Location: /HTML/users.php');

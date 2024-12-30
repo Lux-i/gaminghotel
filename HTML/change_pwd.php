@@ -1,9 +1,3 @@
-<?php
-if (isset($_GET['error'])) {
-  $err_msg = $_GET['error'];
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +15,7 @@ if (isset($_GET['error'])) {
   <?php
   include(__DIR__ . '/../components/header.php');
   include(__DIR__ . '/../components/nav.php');
+  include '../components/error_handler.php';
   ?>
   <main class="flex-row container">
     <section class="login-window">
@@ -42,9 +37,6 @@ if (isset($_GET['error'])) {
               required aria-label="Neues Passwort wiederholen" />
             <label for="new_pwd_again">Neues Passwort wiederholen</label>
           </section>
-          <?php if (isset($err_msg)):
-            echo '<p class="center-txt">' . $err_msg . '</p>';
-          endif ?>
           <input class="submit_button" type="submit" value="Bestätigen" />
         </form>
       </section>

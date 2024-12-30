@@ -25,6 +25,7 @@ function getRooms($conn, $type, $start, $end)
     $sql = "SELECT r.id AS roomid, COUNT(b.id) AS weight FROM rooms r
             LEFT JOIN bookings b ON r.id = b.roomid
                 AND (b.end < ? OR b.start > ?)
+                AND NOT b.status = 'storniert'
             WHERE r.type = ?
             GROUP BY r.id
             HAVING NOT EXISTS (
@@ -33,6 +34,7 @@ function getRooms($conn, $type, $start, $end)
                 WHERE  b_overlap.roomid = r.id
                     AND b_overlap.start <= ? 
                     AND b_overlap.end >= ?
+                    AND NOT b_overlap.status = 'storniert'
             )
             ORDER BY weight ASC, roomid ASC";
 
@@ -78,7 +80,7 @@ function getRoom($conn, $type, $start, $end)
     foreach ($rooms as &$room) {
         //get all bookings for exactly this room (if any)
         $sql = "SELECT start, end FROM bookings
-                WHERE roomid = ?";
+                WHERE roomid = ? AND NOT status = 'storniert'";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $room["roomid"]);
         //if this if statement fails, no wrong value is returned, but all rooms where execution might fail just won't be adjusted in weight
