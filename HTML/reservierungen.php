@@ -70,10 +70,10 @@ if ($user['rolle'] == 'admin') {
 
   <?php if ($_SESSION['logged'] == true): ?>
     <section class="login-window w-50 container">
-      <section class="">
-        <h2>Filter:</h2>
-      </section>
       <section class="flex-row flex-wrap justify-content-between align-items-center mx-2">
+        <section class="">
+          <h2>Filter:</h2>
+        </section>
         <section>
           <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
         </section>

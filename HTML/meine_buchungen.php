@@ -45,12 +45,24 @@ closeConnection($conn);
 <body class="ghostwhite">
   <h1 class="text-center mt-2">Meine Buchungen</h1>
   <?php if ($_SESSION['logged'] == true): ?>
-    <section class="login-window w-50 d-flex justify-content-center mx-auto gap-4 my-3">
-      <h2>Filter:</h2>
-      <a href="meine_buchungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
-      <a href="meine_buchungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
-      <a href="meine_buchungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
-      <a href="meine_buchungen.php" class="btn btn-secondary"> Filter löschen </a>
+    <section class="login-window w-50 container">
+      <section class="flex-row flex-wrap justify-content-between align-items-center mx-2">
+        <section class="">
+          <h2>Filter:</h2>
+        </section>
+        <section>
+          <a href="meine_buchungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+        </section>
+        <section>
+          <a href="meine_buchungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+        </section>
+        <section>
+          <a href="meine_buchungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+        </section>
+        <section>
+          <a href="meine_buchungen.php" class="btn btn-secondary"> Filter löschen </a>
+        </section>
+      </section>
     </section>
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
@@ -108,7 +120,7 @@ closeConnection($conn);
         </main>
       <?php endforeach; ?>
     <?php else: ?>
-      <p class="text-center">Sie haben keine Buchungen.</p>
+      <p class="text-center mt-2">Sie haben keine Buchungen.</p>
     <?php endif; ?>
   <?php else: ?>
     <p class="text-center">Sie sind nicht eingeloggt.</p>
