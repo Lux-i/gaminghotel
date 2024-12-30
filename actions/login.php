@@ -15,7 +15,7 @@ if (!$conn) {
 
 //PWD-AUTH
 if (isset($_POST['username']) && isset($_POST['pwd'])) {
-    $sql = "SELECT pwd, id FROM users WHERE username = ?;";
+    $sql = "SELECT pwd, id FROM users WHERE username = ? AND NOT status = 'inactive';";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST['username']);
     $stmt->execute();
