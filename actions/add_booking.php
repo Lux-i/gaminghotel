@@ -47,7 +47,13 @@ if (!empty($_POST)) {
             if ($room == 0) {
                 //no suitable room found
                 closeConnection($conn);
-                header('Location: /HTML/buchen.php?error=Es ist kein ' . $_POST['zimmer'] . ' Raum für ihren gewählten Zeitraum verfügbar');
+                //Text für die Fehlermeldung, die Datenbank value wird dem deutschen Text auf der Seite entsprechend zugeteilt
+                $zimmerText = match ($_POST["zimmer"]) {
+                    "single" => "Einzelzimmer",
+                    "duo" => "Doppelzimmer",
+                    "squad" => "Full-Squad Zimmer"
+                };
+                header('Location: /HTML/buchen.php?error=Es ist kein ' . $zimmerText . ' für ihren gewählten Zeitraum verfügbar');
                 die();
             }
 
@@ -64,10 +70,13 @@ if (!empty($_POST)) {
                 die();
             } else {
                 closeConnection($conn);
-                header('Location: /HTML/buchen.php?error=Ein Fehler ist aufgetreten!');
+                header('Location: /HTML/buchen.php?error=Ein Fehler ist aufgetreten! Wir konnten ihre Buchung nicht hinzufügen.');
                 die();
             }
         }
+    } else {
+        header('Location: /index.php');
+        die();
     }
 } else {
     header('Location: /HTML/buchen.php');
