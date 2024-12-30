@@ -14,19 +14,19 @@ if ($user['rolle'] == 'admin') {
   require_once('../components/db_utils.php');
   $conn = connectDB();
   if (validateToken($conn)) {
-    if(empty($_GET['filter']) && empty($_GET['id'])){
+    if (empty($_GET['filter']) && empty($_GET['id'])) {
       $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
       JOIN users AS u ON u.id = bookings.userid
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
-    }elseif(!empty($_GET['filter'])){
+    } elseif (!empty($_GET['filter'])) {
       $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
       JOIN users AS u ON u.id = bookings.userid
               WHERE bookings.status = ?
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
       $stmt->bind_param('s', $_GET['filter']);
-    }else{
+    } else {
       $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
       JOIN users AS u ON u.id = bookings.userid
               WHERE u.id = ?
@@ -34,7 +34,7 @@ if ($user['rolle'] == 'admin') {
       $stmt = $conn->prepare($sql);
       $stmt->bind_param('i', $_GET['id']);
     }
-    
+
     if ($stmt->execute()) {
       $result = $stmt->get_result();
       $rownum = 0;
@@ -70,24 +70,24 @@ if ($user['rolle'] == 'admin') {
 
   <?php if ($_SESSION['logged'] == true): ?>
     <section class="login-window w-50 container">
-    <section class="">
-            <h2>Filter:</h2>
-          </section>
-        <section class="row mx-auto row-cols-2 gy-2 align-items-center">
-          <section class="col-xl">
-            <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
-          </section>
-          <section class="col-xl">
-            <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
-          </section>
-          <section class="col-xl">
-            <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
-          </section>
-          <section class="col-xl">
-            <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
-          </section>
+      <section class="">
+        <h2>Filter:</h2>
+      </section>
+      <section class="flex-row flex-wrap justify-content-between align-items-center mx-2">
+        <section>
+          <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+        </section>
+        <section>
+          <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+        </section>
+        <section>
+          <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+        </section>
+        <section>
+          <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
         </section>
       </section>
+    </section>
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
@@ -113,11 +113,11 @@ if ($user['rolle'] == 'admin') {
               echo "text-danger";
             } ?>"> <?= ucfirst($booking['status']) ?></strong></p>
             <section class="container">
-                <section class="row"> 
-                    <section class="col">
-                        <a href="reservierung.php?id=<?= $booking['id']?>" class="btn btn-secondary">Mehr anzeigen</a>
-                    </section>
+              <section class="row">
+                <section class="col">
+                  <a href="reservierung.php?id=<?= $booking['id'] ?>" class="btn btn-secondary">Mehr anzeigen</a>
                 </section>
+              </section>
             </section>
         </main>
       <?php endforeach; ?>

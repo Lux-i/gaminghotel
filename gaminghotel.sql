@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 09:24 PM
+-- Generation Time: Dec 30, 2024 at 08:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,21 +44,23 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `status`, `roomid`, `booking_submitted`) VALUES
-(1, 1, '2024-12-14', '2024-12-19', NULL, 500, 'storniert', 1, '2024-12-27'),
-(2, 1, '2024-12-16', '2024-12-19', NULL, 300, 'storniert', 2, '2024-12-27'),
-(3, 1, '2024-12-20', '2024-12-27', 'Parkplatz,Frühstück', 917, 'storniert', 3, '2024-12-27'),
-(4, 1, '2024-12-24', '2024-12-26', 'Frühstück,Haustiere', 256, 'neu', 6, '2024-12-27'),
-(5, 8, '2024-12-24', '2024-12-27', 'Parkplatz,Frühstück,Haustiere', 423, 'neu', 10, '2024-12-27'),
-(6, 1, '2024-12-16', '2024-12-20', 'Parkplatz,Frühstück', 524, 'neu', 11, '2024-12-27'),
-(7, 1, '2024-12-22', '2024-12-23', 'Parkplatz,Frühstück', 231, 'neu', 7, '2024-12-27'),
-(9, 8, '2024-12-27', '2024-12-29', 'Parkplatz,Frühstück', 262, 'neu', 14, '2024-12-27'),
 (10, 1, '2024-12-29', '2024-12-31', NULL, 200, 'neu', 4, '2024-12-29'),
 (11, 1, '2024-12-29', '2024-12-31', NULL, 200, 'neu', 5, '2024-12-29'),
 (12, 1, '2024-12-29', '2025-01-02', NULL, 400, 'neu', 1, '2024-12-29'),
 (13, 1, '2024-12-30', '2024-12-31', NULL, 100, 'neu', 2, '2024-12-29'),
 (14, 1, '2025-02-28', '2025-03-16', 'Parkplatz,Frühstück', 2096, 'neu', 3, '2024-12-29'),
 (15, 1, '2024-12-29', '2024-12-31', NULL, 200, 'neu', 3, '2024-12-29'),
-(16, 1, '2025-01-08', '2025-02-12', 'Parkplatz,Frühstück', 15085, 'neu', 12, '2024-12-29');
+(16, 1, '2025-01-08', '2025-02-12', 'Parkplatz,Frühstück', 15085, 'neu', 12, '2024-12-29'),
+(17, 1, '2024-12-30', '2024-12-31', NULL, 170, 'neu', 6, '2024-12-30'),
+(18, 1, '2024-12-30', '2024-12-31', NULL, 170, 'neu', 7, '2024-12-30'),
+(19, 1, '2024-12-30', '2024-12-31', NULL, 170, 'neu', 8, '2024-12-30'),
+(20, 1, '2024-12-30', '2024-12-31', NULL, 170, 'neu', 9, '2024-12-30'),
+(21, 10, '2025-01-01', '2025-01-02', NULL, 100, 'storniert', 2, '2024-12-30'),
+(22, 10, '2025-01-01', '2025-01-02', NULL, 100, 'storniert', 2, '2024-12-30'),
+(23, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 4, '2024-12-30'),
+(24, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 5, '2024-12-30'),
+(25, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 3, '2024-12-30'),
+(26, 10, '2025-01-01', '2025-01-02', NULL, 100, 'bestätigt', 2, '2024-12-30');
 
 -- --------------------------------------------------------
 
@@ -144,8 +146,9 @@ CREATE TABLE `userauth` (
 --
 
 INSERT INTO `userauth` (`userid`, `tokenhash`, `token_expires`) VALUES
-(1, '$argon2id$v=19$m=65536,t=4,p=1$SEV2bnEuUGd4S0JzZDFmLw$9f+fpcHaqqvlzZDXSaI409HfE+V3ofZfSDywY4bTA1w', '2025-01-05'),
-(8, '$argon2id$v=19$m=65536,t=4,p=1$MkpHem1Cb2hFQm94akVlMg$BbLM+aU//G+8+psqX6VRgvhx+/sjstzpvoue5K0gv68', '2025-01-03');
+(1, '$argon2id$v=19$m=65536,t=4,p=1$QmdKZHRDTThWMWtST2hoUA$3pRN0XJ3j2RbNRx+SftF6yzsehLHubLCr10oblIBNqc', '2025-01-06'),
+(8, '$argon2id$v=19$m=65536,t=4,p=1$MURHRVRuelNDLlFhMGRJeg$q3PgWZnvRo9CyFR4HUfmqpzu2k6tVQEDNfy66zpLHMI', '2025-01-06'),
+(10, '$argon2id$v=19$m=65536,t=4,p=1$M3ZYRC96ZFVTclRiQnpjOQ$PqOkNnclLfNk4rO7oVa7REIFMcBIJlPYxiie8sOeQeA', '2025-01-06');
 
 -- --------------------------------------------------------
 
@@ -173,7 +176,8 @@ INSERT INTO `users` (`id`, `anrede`, `name`, `nachname`, `username`, `email`, `p
 (1, 'herr', 'Lucjan', 'Lubomski', 'Luxor', 'lucjan.lubomski@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$QVlZelNkazVISnRQckx5TQ$9NmKD0eQQRjf4M6hmMT+MI3vun/MKP0BHyV1amyuYKk', 'user', 'active'),
 (2, 'herr', '123', '123', '123', '123@123', '$argon2id$v=19$m=65536,t=4,p=1$Sno0NTIybVBub0YydWw2RA$NYRCvte8KQwFV6uwoGEWm2AgTL8GyGR9Wiqe1DTOXjw', 'user', 'active'),
 (8, 'herr', 'Admin', 'Admin', 'admin', 'admin@admin', '$argon2id$v=19$m=65536,t=4,p=1$L21MelBLci8wR2VTTEFEaQ$AXjCWn/HidYdbfzWRSEToQKsh5OrIxVtTiAyBGvEhj0', 'admin', 'active'),
-(9, 'herr', 'Test', 'Test', 'test', 'test@test', '$argon2id$v=19$m=65536,t=4,p=1$V0IwejhOSWdwc0JKaldSMQ$G+6tlxi0RwuFbxlVDld+iGVN19Y6yZTOeGj3T/IffFw', 'user', 'inactive');
+(9, 'herr', 'Test', 'Test', 'test', 'test@test', '$argon2id$v=19$m=65536,t=4,p=1$V0IwejhOSWdwc0JKaldSMQ$G+6tlxi0RwuFbxlVDld+iGVN19Y6yZTOeGj3T/IffFw', 'user', 'inactive'),
+(10, 'divers', 'Bombo', 'Claat', 'Bomboclaat', 'bombo.claat@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$Y2NURTFZQkZZL2RieTVubA$u5aVe+sKTrlZpGzSODdwnODf+qsZ5TnlfojNGS2CRZs', 'user', 'active');
 
 --
 -- Indexes for dumped tables
@@ -219,7 +223,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `news_articles`
@@ -237,7 +241,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
