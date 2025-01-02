@@ -3,8 +3,6 @@
 //system to return a fitting room for a booking
 //based on availability and a weigt algo prioritizing a balanced spread between rooms
 
-//this file is currently wrote to be called by add_booking.php ONLY, otherwise it will probably BREAK because of MISSING VARIABLES
-
 /**
  * get all available rooms of the given type for the given date range
  * utility file for getRoom
@@ -121,7 +119,7 @@ function getRoom($conn, $type, $start, $end)
         }
     }
 
-    //delete reference (pointer) $room;
+    //delete reference ("pointer") $room;
     unset($room);
 
     //after all rooms got their weight adjusted, resort $rooms array
