@@ -5,7 +5,6 @@
 
 /**
  * get all available rooms of the given type for the given date range
- * utility file for getRoom
  * @param string $type - the type of room to look for (e.g., 'single', 'duo', 'squad');
  * @param string $start - the starting date of the requested booking
  * @param string $end - the ending date of the requested booking
@@ -64,7 +63,7 @@ function getRoom($conn, $type, $start, $end)
 
     //getting all available rooms already sorted
     $rooms = getRooms($conn, $type, $start, $end);
-    //if no suitable room found, return an empty room id
+    //if no suitable room found, return an empty room id (0)
     if (empty($rooms)) {
         return 0;
     }
@@ -84,9 +83,9 @@ function getRoom($conn, $type, $start, $end)
         //if this if statement fails, no wrong value is returned, but all rooms where execution might fail just won't be adjusted in weight
         if ($stmt->execute()) {
             $result = $stmt->get_result();
-            //calulate factor
+            //calculate factor
             //the factor is based on how many days away the closest booking is
-            //the more days away, the smaller the weight gain
+            //the more days away, the smaller the weight gets
             $closestDays = 0;
 
             //while loop to determine the least amount of days another booking will be away
@@ -102,11 +101,11 @@ function getRoom($conn, $type, $start, $end)
                     //already existing booking starts after the current new one ends
                     $difference = $cEnd->diff($bStart)->days;
                 } else {
-                    //already existing booking ends before the current new one start
+                    //already existing booking ends before the current new one starts
                     $difference = $bEnd->diff($cStart)->days;
                 }
                 //only update closest days when the new difference is lower (eg. the booking is closer)
-                $closestDays = $difference;
+                $closestDays = ($difference < $closestDays) ? $difference : $closestDays;
             }
 
             //weight stays the same when the nearest booking is 5 days away
