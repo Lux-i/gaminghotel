@@ -15,20 +15,23 @@ if ($user['rolle'] == 'admin') {
   $conn = connectDB();
   if (validateToken($conn)) {
     if (empty($_GET['filter']) && empty($_GET['id'])) {
-      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
-      JOIN users AS u ON u.id = bookings.userid
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status, booking_submitted
+              FROM bookings
+              JOIN users AS u ON u.id = bookings.userid
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
     } elseif (!empty($_GET['filter'])) {
-      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
-      JOIN users AS u ON u.id = bookings.userid
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status, booking_submitted
+              FROM bookings
+              JOIN users AS u ON u.id = bookings.userid
               WHERE bookings.status = ?
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
       $stmt->bind_param('s', $_GET['filter']);
     } else {
-      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
-      JOIN users AS u ON u.id = bookings.userid
+      $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status, booking_submitted
+              FROM bookings
+              JOIN users AS u ON u.id = bookings.userid
               WHERE u.id = ?
               ORDER BY bookings.id DESC";
       $stmt = $conn->prepare($sql);
@@ -93,13 +96,22 @@ if ($user['rolle'] == 'admin') {
         <main class="d-flex justify-content-center">
           <section class="login-window w-75">
             <p class="px-3">Reserviert für:
-              <?php echo ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
+              <?= ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
             </p>
-            <p class="px-3">Reserviert ab: <?php
-            $epoch = $booking['start'];
-            $dt = new DateTime("$epoch");
-            echo $dt->format('d / m / Y'); ?>
-              , Reserviert bis:
+            <p class="px-3">
+              <?php
+              $epoch = $booking['booking_submitted'];
+              $dt = new DateTime($epoch);
+              echo "Reserviert am: " . $dt->format('d.m.Y');
+              ?>
+            </p>
+            <p class="px-3">Reserviert ab: 
+              <?php
+              $epoch = $booking['start'];
+              $dt = new DateTime("$epoch");
+              echo $dt->format('d / m / Y'); ?>
+            </p>
+            <p class="px-3">Reserviert bis:
               <?php
               $epoch = $booking['end'];
               $dt = new DateTime("$epoch");

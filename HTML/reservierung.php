@@ -17,9 +17,10 @@ if (empty($_GET['id'])) {
 
 if (validateToken($conn)) {
   if (isPermitted($conn, PERMISSION::ADMIN)) {
-    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status FROM bookings
-      JOIN users AS u ON u.id = bookings.userid
-              WHERE bookings.id = ?";
+    $sql = "SELECT bookings.id, start, end, extras, price, u.anrede, u.name, u.nachname, u.email, bookings.status, booking_submitted
+            FROM bookings
+            JOIN users AS u ON u.id = bookings.userid
+            WHERE bookings.id = ?";
     $id = $_GET['id'];
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('s', $id);
@@ -59,14 +60,19 @@ closeConnection($conn);
   <main class="d-flex justify-content-center">
     <section class="login-window w-75">
       <p class="px-3">Reserviert für:
-        <?php echo ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
+        <?= ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
+        <?php
+        $epoch = $booking['booking_submitted'];
+        $dt = new DateTime($epoch);
+        echo " am " . $dt->format('d.m.Y');
+        ?>
       </p>
       <p class="px-3">E-Mail: <?php echo $booking['email']; ?></p>
       <p class="px-3">Reserviert ab: <?php
       $epoch = $booking['start'];
       $dt = new DateTime("$epoch");
       echo $dt->format('d / m / Y'); ?>
-        , Reserviert bis:
+        | Reserviert bis:
         <?php
         $epoch = $booking['end'];
         $dt = new DateTime("$epoch");
