@@ -41,12 +41,13 @@
               <section class="row g-2 mt-2">
                 <section class="col">
                   <label class="w-100" for="check_in">Check-In Datum</label>
-                  <input type="date" min="<?= date("Y-m-d") ?>" class="inputfield container-md form-control"
+                  <input type="date" min="<?= date("Y-m-d", strtotime('+1 day')) ?>"
+                    class="inputfield container-md form-control"
                     aria-label="Check-In Datum" name="check_in" id="check_in">
                 </section>
                 <section class="col">
                   <label class="w-100" for="check_in">Check-Out Datum</label>
-                  <input type="date" min="<?= date("Y-m-d", strtotime('+1 day')) ?>"
+                  <input type="date" min="<?= date("Y-m-d", strtotime('+2 day')) ?>"
                     class="inputfield container-md form-control" aria-label="Check-Out Datum" name="check_out"
                     id="check_out">
                 </section>

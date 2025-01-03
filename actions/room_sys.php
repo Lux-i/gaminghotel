@@ -23,6 +23,7 @@ function getRooms($conn, $type, $start, $end)
             LEFT JOIN bookings b ON r.id = b.roomid
                 AND (b.end < ? OR b.start > ?)
                 AND NOT b.status = 'storniert'
+                AND NOT b.end < CURDATE()
             WHERE r.type = ?
             GROUP BY r.id
             HAVING NOT EXISTS (
@@ -77,7 +78,8 @@ function getRoom($conn, $type, $start, $end)
     foreach ($rooms as &$room) {
         //get all bookings for exactly this room (if any)
         $sql = "SELECT start, end FROM bookings
-                WHERE roomid = ? AND NOT status = 'storniert'";
+                WHERE roomid = ? AND NOT status = 'storniert'
+                AND NOT b.end < CURDATE()";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $room["roomid"]);
         //if this if statement fails, no wrong value is returned, but all rooms where execution might fail just won't be adjusted in weight
