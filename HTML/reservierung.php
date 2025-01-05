@@ -58,7 +58,7 @@ closeConnection($conn);
     <h2 class="mt-3 text-center border-bottom-black w-75 mx-auto">Details zur Reservierung</h2>
   </section>
   <main class="d-flex justify-content-center">
-    <section class="login-window w-75">
+    <section class="login-window">
       <p class="px-3">Reserviert für:
         <?= ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
         <?php

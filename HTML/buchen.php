@@ -18,7 +18,7 @@
   include '../components/error_handler.php';
   ?>
   <main class="flex-row">
-    <section class="login-window flex-row">
+    <section class="login-window flex-row ">
       <section style="border-right: 1px solid black;">
         <?php if ($_SESSION['logged'] == true): ?>
           <h2>Zimmer Buchen</h2>

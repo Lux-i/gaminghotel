@@ -71,6 +71,11 @@ label {
 
 @media (max-width: 600px) {
   .login-window  {
-    width: 75vw;
+    width: 95vw;
+  }
+}
+@media (min-width: 600px) {
+  .login-window  {
+    width: 45vw;
   }
 }

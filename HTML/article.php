@@ -1,7 +1,6 @@
 <?php
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
-include(__DIR__ . '/news-articles.php');
 include('../components/dbaccess.php');
 require_once('../components/db_utils.php');
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -45,13 +44,13 @@ closeConnection($conn);
 
 <body>
     <article class="container text-start px-5 mt-4 bg-secondary-subtle">
-        <section class="txt-container pt-4">
+        <section class="txt-container pt-4 px-0">
             <h1 class="text-center"><?= ucfirst($article['title']); ?></h1>
         </section>
-        <section class="img-container">
+        <section class="img-container mt-3">
             <img src="<?= $article['img_path'] ?>" />
         </section>
-        <section class="txt-container mt-3 pb-4">
+        <section class="txt-container mt-3 pb-4 px-0">
             <p><?= $article['content']; ?></p>
             <?php $dt = new DateTime($article['upload_date']); ?>
             <p>Beitrag vom <?= $dt->format('d.m.y') ?></p>

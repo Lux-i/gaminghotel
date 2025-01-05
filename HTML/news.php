@@ -39,9 +39,9 @@ closeConnection($conn);
 </head>
 
 <body class="ghostwhite">
-  <?php
-  echo '<h1 class="text-center">News</h1>';
-  ?>
+
+  <h2 class="text-center">News</h2>
+
   <?php if ($_SESSION['logged'] == true): ?>
     <?php if ($user['rolle'] == "admin"): ?>
 
