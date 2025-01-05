@@ -23,7 +23,7 @@ function getRooms($conn, $type, $start, $end)
             LEFT JOIN bookings b ON r.id = b.roomid
                 AND (b.end < ? OR b.start > ?)
                 AND NOT b.status = 'storniert'
-                AND NOT b.end < CURDATE()
+                AND NOT b.end <= CURDATE()
             WHERE r.type = ?
             GROUP BY r.id
             HAVING NOT EXISTS (
@@ -79,7 +79,7 @@ function getRoom($conn, $type, $start, $end)
         //get all bookings for exactly this room (if any)
         $sql = "SELECT start, end FROM bookings
                 WHERE roomid = ? AND NOT status = 'storniert'
-                AND NOT b.end < CURDATE()";
+                AND NOT end <= CURDATE()";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $room["roomid"]);
         //if this if statement fails, no wrong value is returned, but all rooms where execution might fail just won't be adjusted in weight
@@ -106,12 +106,16 @@ function getRoom($conn, $type, $start, $end)
                     //already existing booking ends before the current new one starts
                     $difference = $bEnd->diff($cStart)->days;
                 }
+
+                //this if clause ensures that $closestDays is set at least once. (initialization)
+                $closestDays = ($closestDays == 0) ? $difference : $closestDays;
+
                 //only update closest days when the new difference is lower (eg. the booking is closer)
                 $closestDays = ($difference < $closestDays) ? $difference : $closestDays;
             }
 
-            //weight stays the same when the nearest booking is 5 days away
-            //if a booking is closer than that the weight gets punished (higher) else lower
+            //weight stays the same when the nearest booking is 5 days away (0.2 * 5 => 1)
+            //if a booking is closer than that the weight is determined to be higher, else lower
             $factor = 0.2 * $closestDays;
             $newWeight = $room['weight'] / $factor;
 
