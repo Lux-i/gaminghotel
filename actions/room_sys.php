@@ -108,7 +108,9 @@ function getRoom($conn, $type, $start, $end)
                 }
 
                 //this if clause ensures that $closestDays is set at least once. (initialization)
-                $closestDays = ($closestDays == 0) ? $difference : $closestDays;
+                if ($closestDays == 0) {
+                    $closestDays = $difference;
+                }
 
                 //only update closest days when the new difference is lower (eg. the booking is closer)
                 $closestDays = ($difference < $closestDays) ? $difference : $closestDays;
