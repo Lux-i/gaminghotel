@@ -45,8 +45,8 @@ closeConnection($conn);
 <body class="ghostwhite">
   <h1 class="text-center mt-2">Meine Buchungen</h1>
   <?php if ($_SESSION['logged'] == true): ?>
-    <section class="login-window w-50 container">
-      <section class="flex-row flex-wrap justify-content-between align-items-center mx-2">
+    <section class="login-window container">
+      <section class="flex-row flex-wrap justify-content-around align-items-center mx-2">
         <section class="">
           <h2>Filter:</h2>
         </section>
