@@ -13,31 +13,31 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link navlink" aria-current="page" href="/index.php">Hauptseite</a>
+            <a class="nav-link navlink" aria-current="page" href="/">Hauptseite</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/news.php">News</a>
+            <a class="nav-link navlink" href="/news">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/hilfe.php">Hilfe</a>
+            <a class="nav-link navlink" href="/hilfe">Hilfe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/buchen.php" <?php if ($_SESSION['logged'] != true) {
+            <a class="nav-link navlink" href="/buchen" <?php if ($_SESSION['logged'] != true) {
               echo 'hidden';
             } ?>>Buchung</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/meine_buchungen.php" <?php if ($_SESSION['logged'] != true) {
+            <a class="nav-link navlink" href="/meine_buchungen" <?php if ($_SESSION['logged'] != true) {
               echo 'hidden';
             } ?>>Meine Buchungen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/reservierungen.php" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
+            <a class="nav-link navlink" href="/reservierungen" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
               echo 'hidden';
             } ?>>Reservierungen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/HTML/users.php" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
+            <a class="nav-link navlink" href="/users" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
               echo 'hidden';
             } ?>>Userpanel</a>
           </li>

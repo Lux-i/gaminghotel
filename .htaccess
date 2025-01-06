@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Do not strictly route to index.php if link goes to a file or folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect to index.php with get value
+RewriteRule ^(.*)$ index.php [QSA,L]

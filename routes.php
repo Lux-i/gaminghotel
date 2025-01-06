@@ -1,69 +1,41 @@
 <?php
 $routes = [
-    /*"/Module_Router-based-page/index.php" => [
-        "path" => "./pages/main.php",
-        "header" => true,
-        "nav" => true,
-        "footer" => true,
-        "title" => "Home"
-    ],
-    "/about" => [
-        "path" => "./pages/about.php",
-        "header" => true,
-        "nav" => true,
-        "footer" => true,
-        "title" => "About Us"
-    ],
-    "/error" => [
-        "path" => "./pages/error.php",
-        "header" => false,
-        "nav" => false,
-        "footer" => false,
-        "title" => "Error"
-    ]*/
     "/" => [
-        "Module_Router-based-page" => [
-            "index.php" => [
-                "path" => "./pages/main.php",
-                "header" => true,
-                "nav" => true,
-                "footer" => true,
-                "title" => "Home"
-            ],
-            "default" => [
-                "path" => "./pages/whitepaper.php",
-                "header" => true,
-                "nav" => true,
-                "footer" => true,
-                "title" => "About Router"
-            ]
-        ],
-        "Another Sub-path" => [
-            "Test1" => [
-                "path" => "./pages/test1.php",
-                "header" => true,
-                "nav" => true,
-                "footer" => true,
-                "Title" => "Test1"
-            ],
-            "Test2" => [
-                "path" => "./pages/test2.php",
-                "header" => true,
-                "nav" => true,
-                "footer" => true,
-                "Title" => "Test2"
-            ]
-        ],
         "default" => [
-            "path" => "./pages/main.php",
-            "header" => true,
-            "nav" => true,
-            "footer" => true,
+            "path" => "./HTML/main.php",
             "Title" => "Home"
+        ],
+        "hilfe" => [
+            "path" => "./HTML/hilfe.php",
+            "Title" => "Hilfe"
+        ],
+        "login" => [
+            "path" => "./HTML/login.php",
+            "Title" => "Login"
+        ],
+        "news" => [
+            "path" => "./HTML/news.php",
+            "Title" => "News"
+        ],
+        "artikel" => [
+            "path" => "./HTML/article.php",
+            "Title" => "Artikel"
+        ],
+        "buchen" => [
+            "path" => "./HTML/buchen.php",
+            "Title" => "Buchen"
+        ],
+        "me" => [
+            "path" => "./HTML/me.php",
+            "Title" => "Mein Konto"
+        ],
+        "logout" => [
+            "path" => "./actions/logout.php",
+            "Title" => "Logging out..."
         ]
     ],
     "error" => [
-        "path" => "./pages/error.php",
+        "path" => "./HTML/error.php",
         "header" => true,
         "nav" => false,
         "footer" => true,

@@ -1,7 +1,3 @@
-<?php
-include(__DIR__ . '/components/header.php');
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 
@@ -10,17 +6,12 @@ include(__DIR__ . '/components/header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Göppel & Göppel Hotels</title>
     <?php
-    include(__DIR__ . '/components/main_style.php');
+    include './components/main_style.php';
     ?>
     <link rel="stylesheet" href="CSS/index.css" />
 </head>
 
 <body class="ghostwhite">
-    <?php
-
-
-    include(__DIR__ . '/components/nav.php');
-    ?>
     <main>
         <article id="data-splitter">
             <h2 class="border-bottom-cream flex-row jstfy-center container-sm" id="page-title">
@@ -87,9 +78,6 @@ include(__DIR__ . '/components/header.php');
             </section>
         </article>
     </main>
-    <?php
-    include(__DIR__ . '/components/footer.php');
-    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
