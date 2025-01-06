@@ -1,7 +1,6 @@
 <?php
 include(__DIR__ . '/../components/header.php');
 include(__DIR__ . '/../components/nav.php');
-include(__DIR__ . '/../components/in_work.php');
 ?>
 
 <!DOCTYPE html>
