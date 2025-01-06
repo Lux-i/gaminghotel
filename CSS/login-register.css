@@ -68,12 +68,12 @@ label {
   transition-duration: 0.1s;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 870px) {
   .login-window  {
     width: 95vw;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 870px) {
   .login-window  {
     width: 45vw;
   }

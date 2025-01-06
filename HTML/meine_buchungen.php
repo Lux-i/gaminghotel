@@ -43,7 +43,7 @@ closeConnection($conn);
 </head>
 
 <body class="ghostwhite">
-  <h1 class="text-center mt-2">Meine Buchungen</h1>
+  <h1 class="text-center my-2">Meine Buchungen</h1>
   <?php if ($_SESSION['logged'] == true): ?>
     <section class="login-window container">
       <section class="flex-row flex-wrap justify-content-around align-items-center mx-2">
@@ -67,7 +67,7 @@ closeConnection($conn);
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
-          <section class="login-window w-75">
+          <section class="login-window width-75">
             <p class="px-3">Reserviert für:
               <?php echo ucfirst($user['anrede']) . " " . $user['name'] . " " . $user['nachname']; ?>
             </p>
@@ -108,7 +108,7 @@ closeConnection($conn);
             <section class="ml-3">
               <?php if ($booking['status'] != "storniert"): ?>
                 <form class="form-check" action="/actions/change_booking_status.php" method="POST">
-                  <p><input type="number" value="<?php echo $booking["id"]; ?>" id="id" name="id" readonly hidden></input>
+                  <input type="number" value="<?php echo $booking["id"]; ?>" id="id" name="id" readonly hidden></input>
                     <label><input class="form-check-input" type="checkbox" id="check" required> Ich bestätige, dass ich die
                       Buchung stornieren möchte.</label>
                   <p><button type="submit" value="1" id="stornieren" name="change_status"

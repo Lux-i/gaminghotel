@@ -59,13 +59,13 @@
             <section class="mitarbeiter flex-column center-items">
               <img
                 class="impress-data mb_picture"
-                src="/Public/Images/Luxor_ESVÖ.jpg" />
+                src="/Public/Images/Luxor_ESVÖ.jpg" alt="Bild von Lucjan Lubomski"/>
               <p class="impress-data mb_name">Lucjan Lubomski</p>
             </section>
             <section class="mitarbeiter flex-column center-items">
               <img
                 class="impress-data mb_picture"
-                src="/Public/Images/IMG-20230514-WA0019.jpg" />
+                src="/Public/Images/IMG-20230514-WA0019.jpg" alt="Bild von Kacper Titowski"/>
               <p class="impress-data mb_name">Kacper Titowski</p>
             </section>
           </section>

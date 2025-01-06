@@ -24,7 +24,8 @@
           <h2>Zimmer Buchen</h2>
           <section class="form-container ">
             <form id="bookform" class="flex-column" action="/actions/add_booking.php" method="POST">
-              <section class="form-check">
+              <fieldset class="form-check">
+              <legend class="col-form-label">Auswahl des Zimmers</legend>
                 <section>
                   <input class="form-check-input" id="single" name="zimmer" type="radio" value="single" required>
                   <label class="form-check-label" for="single">Einzelzimmer</label>
@@ -37,7 +38,7 @@
                   <input class="form-check-input" id="squad" name="zimmer" type="radio" value="squad" required>
                   <label class="form-check-label" for="squad">Full-Squad Zimmer</label>
                 </section>
-              </section>
+              </fieldset>
               <section class="row g-2 mt-2">
                 <section class="col">
                   <label class="w-100" for="check_in">Check-In Datum</label>
@@ -46,13 +47,14 @@
                     aria-label="Check-In Datum" name="check_in" id="check_in">
                 </section>
                 <section class="col">
-                  <label class="w-100" for="check_in">Check-Out Datum</label>
+                  <label class="w-100" for="check_out">Check-Out Datum</label>
                   <input type="date" min="<?= date("Y-m-d", strtotime('+2 day')) ?>"
                     class="inputfield container-md form-control" aria-label="Check-Out Datum" name="check_out"
                     id="check_out">
                 </section>
               </section>
-              <section class="mt-3 form-check form-switch">
+              <fieldset class="mt-3 form-check form-switch">
+                <legend class="col-form-label">Extras</legend>
                 <section>
                   <label>
                     <input class="form-check-input" type="checkbox" name="extras[]" value="Parkplatz"> Parkplatz (13€/Tag)
@@ -68,7 +70,7 @@
                     <input class="form-check-input" type="checkbox" name="extras[]" value="Haustiere"> Haustiere (10€/Tag)
                   </label>
                 </section>
-              </section>
+              </fieldset>
               <input class="submit_button" type="submit" id="submitButton" value="Registrieren" disabled required />
             </form>
           </section>
