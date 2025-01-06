@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-md">
   <div class="container ms-1">
-    <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas"
+    <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

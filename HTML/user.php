@@ -100,12 +100,12 @@ if ($logged) {
             <section class="flex-column input_group container form-floating">
                 <input class="inputfield container-md form-control" type="password" id="new_pwd" name="new_pwd" required
                     aria-label="Neues Passwort"></input>
-                <label>Neues Passwort</label>
+                <label for="new_pwd">Neues Passwort</label>
             </section>
             <section class="flex-column input_group container form-floating">
                 <input class="inputfield container-md form-control" type="password" id="new_pwd_again"
                     name="new_pwd_again" required aria-label="Neues Passwort wiederholen"></input>
-                <label>Passwort Wiederholen</label>
+                <label for="new_pwd_again">Passwort Wiederholen</label>
             </section>
             <input class="inputfield container-md form-control" type="hidden" id="pwd" name="pwd" required
                 aria-label="Neues Passwort wiederholen" value="0"></input>
