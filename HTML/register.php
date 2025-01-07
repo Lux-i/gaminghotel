@@ -1,7 +1,5 @@
 <?php
-include(__DIR__ . '/../components/header.php');
-include(__DIR__ . '/../components/nav.php');
-include '../components/error_handler.php';
+include __DIR__ . '/../components/error_handler.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +10,7 @@ include '../components/error_handler.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register | Göppel & Göppel Hotels</title>
   <?php
-  include(__DIR__ . '/../components/main_style.php');
+  include __DIR__ . '/../components/main_style.php';
   ?>
   <link rel="stylesheet" href="/CSS/login-register.css" />
 </head>
@@ -64,14 +62,11 @@ include '../components/error_handler.php';
         </form>
         <p>
           Sie haben schon ein Konto?
-          <a href="/HTML/login.php">Hier anmelden</a>
+          <a href="/login">Hier anmelden</a>
         </p>
       </section>
     </section>
   </main>
-  <?php
-  include(__DIR__ . '/../components/footer.php');
-  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

@@ -23,7 +23,7 @@ if (!empty($_POST)) {
             $check_out = new DateTime($_POST["check_out"]);
             if ($check_in >= $check_out) {
                 closeConnection($conn);
-                header('Location: /HTML/buchen.php?error=Check-in datum nach oder gleich dem Abreise Datum');
+                header('Location: /buchen?error=Check-in datum nach oder gleich dem Abreise Datum');
                 die();
             }
             //price for the room per day
@@ -53,7 +53,7 @@ if (!empty($_POST)) {
                     "duo" => "Doppelzimmer",
                     "squad" => "Full-Squad Zimmer"
                 };
-                header('Location: /HTML/buchen.php?error=Es ist kein ' . $zimmerText . ' für ihren gewählten Zeitraum verfügbar');
+                header('Location: /buchen?error=Es ist kein ' . $zimmerText . ' für ihren gewählten Zeitraum verfügbar');
                 die();
             }
 
@@ -66,19 +66,19 @@ if (!empty($_POST)) {
 
             if ($stmt->execute()) {
                 closeConnection($conn);
-                header('Location: /HTML/meine_buchungen.php');
+                header('Location: /meine_buchungen');
                 die();
             } else {
                 closeConnection($conn);
-                header('Location: /HTML/buchen.php?error=Ein Fehler ist aufgetreten! Wir konnten ihre Buchung nicht hinzufügen.');
+                header('Location: /buchen?error=Ein Fehler ist aufgetreten! Wir konnten ihre Buchung nicht hinzufügen.');
                 die();
             }
         }
     } else {
-        header('Location: /index.php');
+        header('Location: /');
         die();
     }
 } else {
-    header('Location: /HTML/buchen.php');
+    header('Location: /buchen');
     die();
 }

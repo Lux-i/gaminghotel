@@ -4,6 +4,6 @@ $_SESSION['logged'] = false;
 $logged = $_SESSION['logged'];
 session_destroy();
 session_write_close();
-header('Location: /HTML/login.php');
+header('Location: /login');
 die;
 ?>

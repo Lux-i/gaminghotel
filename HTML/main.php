@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Göppel & Göppel Hotels</title>
     <?php
-    include './components/main_style.php';
+    //using the Directory Global so the file works if included through the router and if accessed directly.
+    include __DIR__ . '/../components/main_style.php';
     ?>
     <link rel="stylesheet" href="CSS/index.css" />
 </head>

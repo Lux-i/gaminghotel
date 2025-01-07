@@ -1,15 +1,12 @@
 <!-- ADMIN USER MANAGEMENT (SIGNLE USER) -->
 <?php
-include('../components/header.php');
-include('../components/nav.php');
-
 if (!isset($_GET['user'])) {
-    header('Location: /index.php');
+    header('Location: /');
     die();
 }
 
 if ($logged) {
-    require_once('../components/db_utils.php');
+    require_once __DIR__ . '/../components/db_utils.php';
     $conn = connectDB();
     if (validateToken($conn)) {
         if (
@@ -29,15 +26,15 @@ if ($logged) {
                 $user = $result->fetch_assoc();
             }
         } else {
-            header('Location: /index.php');
+            header('Location: /');
             die();
         }
     } else {
-        header('Location: /index.php');
+        header('Location: /');
         die();
     }
 } else {
-    header('Location: /index.php');
+    header('Location: /');
     die();
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-include './components/error_handler.php';
+include __DIR__ . '/../components/error_handler.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ include './components/error_handler.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Göppel & Göppel Hotels</title>
   <?php
-  include './components/main_style.php';
+  include __DIR__ . '/../components/main_style.php';
   ?>
   <link rel="stylesheet" href="/CSS/login-register.css" />
 </head>
@@ -35,7 +35,7 @@ include './components/error_handler.php';
         </form>
         <p>
           Sie haben noch kein Konto?
-          <a href="/HTML/register.php">Hier registrieren</a>
+          <a href="/register">Hier registrieren</a>
         </p>
       </section>
     </section>

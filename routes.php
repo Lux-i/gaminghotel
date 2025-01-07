@@ -13,6 +13,10 @@ $routes = [
             "path" => "./HTML/login.php",
             "Title" => "Login"
         ],
+        "register" => [
+            "path" => "./HTML/register.php",
+            "Title" => "Register"
+        ],
         "news" => [
             "path" => "./HTML/news.php",
             "Title" => "News"
@@ -29,9 +33,36 @@ $routes = [
             "path" => "./HTML/me.php",
             "Title" => "Mein Konto"
         ],
-        "logout" => [
-            "path" => "./actions/logout.php",
-            "Title" => "Logging out..."
+        "meine_buchungen" => [
+            "path" => "./HTML/meine_buchungen.php",
+            "Title" => "Meine Buchungen"
+        ],
+        "reservierungen" => [
+            "path" => "./HTML/reservierungen.php",
+            "Title" => "Reservierungsmanager"
+        ],
+        "reservierung" => [
+            "path" => "./HTML/reservierung.php",
+            "Title" => "Reservierungsmanager"
+        ],
+        "userpanel" => [
+            "path" => "./HTML/users.php",
+            "Title" => "Usermanager"
+        ],
+        "user" => [
+            "path" => "./HTML/user.php",
+            "Title" => "Usermanager"
+        ],
+        "impressum" => [
+            "path" => "./HTML/impressum.php",
+            "Title" => "Impressum"
+        ],
+        "sitemap" => [
+            "path" => "./sitemap.html",
+            "Title" => "Sitemap",
+            "header" => false,
+            "nav" => false,
+            "footer" => false
         ]
     ],
     "error" => [

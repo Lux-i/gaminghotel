@@ -3,12 +3,12 @@
 
 session_start();
 
-require_once('../components/db_utils.php');
+require_once __DIR__ . '/../components/db_utils.php';
 
 $conn = connectDB();
 //exit if connection failed
 if (!$conn) {
-    header("Location: /HTML/login.php?error=Wir konnten keine Verbindung zu unserer Datenbank herstellen. Bitte versuche es später noch einmal.");
+    header("Location: /login?error=Wir konnten keine Verbindung zu unserer Datenbank herstellen. Bitte versuche es später noch einmal.");
     closeConnection($conn);
     die();
 }
@@ -26,7 +26,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
         //this ensures that potential attackers can not check if a ceratin username has a account (normally done with emails)
         //see holehe: https://github.com/megadose/holehe
         //this obscures if a password is incorrect or the username is simply not existent to a potential attacker
-        header("Location: /HTML/login.php?error=Benutzername oder Passwort falsch");
+        header("Location: /login?error=Benutzername oder Passwort falsch");
         closeConnection($conn);
         die();
     } else {
@@ -61,22 +61,22 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
                 //set the user to be logged in in the session
                 $_SESSION['logged'] = true;
                 //redirect to the account page
-                header("Location: /HTML/me.php");
+                header("Location: /me");
                 closeConnection($conn);
                 die();
             } else {
-                header("Location: /HTML/login.php?error=Fehler bei der Tokengenerierung");
+                header("Location: /login?error=Fehler bei der Tokengenerierung");
                 closeConnection($conn);
                 die();
             }
         } else {
-            header("Location: /HTML/login.php?error=Benutzername oder Passwort falsch");
+            header("Location: /login?error=Benutzername oder Passwort falsch");
             closeConnection($conn);
             die();
         }
     }
 } else {
-    header("Location: /HTML/login.php?error=Nutzername oder Passwort fehlen");
+    header("Location: /login?error=Nutzername oder Passwort fehlen");
     closeConnection($conn);
     die();
 }

@@ -37,7 +37,7 @@
             } ?>>Reservierungen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navlink" href="/users" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
+            <a class="nav-link navlink" href="/userpanel" <?php if ($_SESSION['logged'] != true || $user['rolle'] != 'admin') {
               echo 'hidden';
             } ?>>Userpanel</a>
           </li>

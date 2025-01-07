@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="/CSS/impressum.css" />
   </head>
   <body class="ghostwhite" id="impressum">
-    <?php 
-      include(__DIR__ . '/../components/header.php');
-      include(__DIR__ . '/../components/nav.php');
-    ?>
     <main class="flex-column">
       <article id="impress-data-field">
         <h2 class="border-bottom-cream" id="page-title">Impressum</h2>
@@ -70,44 +66,8 @@
             </section>
           </section>
         </section>
-        <section class="data-splitter">
-          <section
-            class="impress-data disclaimer border-top-cream"
-            id="disclaimer_legal">
-            <p>
-              WICHTIGER DISCLAIMER:<br /><br />
-              Diese Seite ist ein Schulprojekt und ist in jedem Szenario als
-              solches zu sehen.<br />
-              <br />
-              Diese Seite steht nicht in Verbindung mit dem Gewerbe "GISA-Zahl:
-              36751129" von "Lucjan Lubomski",<br />
-              sowie ist diese Seite kein Erzeugnis und/oder Produkt dieses
-              Gewerbes.<br />
-              Diese Seite ist unter keinem Umstand als gewerbliche Tätigkeit des
-              Gewerbes zuzuordnen.<br />
-              <br />
-              Der komplette Inhalt dieser Seite ist fiktiv.
-              <br /><br />
-            </p>
-            <p>
-              Daten des Gewerbes:<br />
-              Lucjan Przemysław Lubomski<br />
-              Forsthausgasse 26B/2/2<br />
-              1200 Wien
-            </p>
-            <p>GISA-Zahl: 36751129</p>
-            <p>Behörde: Magistrat der Stadt Wien</p>
-            <p>
-              Dienstleistungen in der automatischen Datenverarbeitung und
-              Informationstechnik
-            </p>
-          </section>
-        </section>
       </article>
     </main>
-    <?php 
-      include(__DIR__ . '/../components/footer.php');
-    ?>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

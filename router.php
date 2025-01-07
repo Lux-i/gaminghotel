@@ -10,10 +10,10 @@ if (isset($URI[$ROUTER_STEP])) {
     //There is another part of the link
     //So the router tries to resolute the path in CURRENT_ROUTE
     if ($ROUTER_STEP == 0) {
-        echo "<br> Routing to /";
+        //echo "<br> Routing to /";
         $CURRENT_ROUTE = $routes['/'];
     } else if (isset($CURRENT_ROUTE["error"])) {
-        echo "<br> Routing to Error";
+        //echo "<br> Routing to Error";
         //if the URI still has a path, but the router already resolved an error
         //show the error page
         //(ignore further routing)
@@ -28,9 +28,13 @@ if (isset($URI[$ROUTER_STEP])) {
             $CURRENT_ROUTE = $routes['error'];
         }
     } else {
-        echo "<br> Routing to " . $URI[$ROUTER_STEP];
-        if (isset($CURRENT_ROUTE[$URI[$ROUTER_STEP]])) {
-            $CURRENT_ROUTE = $CURRENT_ROUTE[$URI[$ROUTER_STEP]];
+        //ignore ? (and after) to handle GET Array correctly (eg. not handling it at all)
+        //this is so the router does not try to route with the get array in the link
+        //as this will cause the error page to be displayed
+        $newRoute = explode('?', $URI[$ROUTER_STEP])[0];
+        //echo "<br> Routing to " . $newRoute;
+        if (isset($CURRENT_ROUTE[$newRoute])) {
+            $CURRENT_ROUTE = $CURRENT_ROUTE[$newRoute];
         } else {
             $CURRENT_ROUTE = $routes['error'];
         }

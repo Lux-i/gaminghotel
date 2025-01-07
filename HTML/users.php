@@ -1,9 +1,7 @@
 <!-- ADMIN USER MANAGEMENT (USER OVERVIEW) -->
 <?php
-include('../components/header.php');
-include('../components/nav.php');
 if ($logged) {
-    require_once('../components/db_utils.php');
+    require_once __DIR__ . '/../components/db_utils.php';
     $conn = connectDB();
     if (validateToken($conn)) {
         if (isPermitted($conn, Permission::ADMIN)) {
@@ -26,15 +24,15 @@ if ($logged) {
                 }
             }
         } else {
-            header('Location: /index.php');
+            header('Location: /');
             die();
         }
     } else {
-        header('Location: /index.php');
+        header('Location: /');
         die();
     }
 } else {
-    header('Location: /index.php');
+    header('Location: /');
     die();
 }
 ?>
@@ -53,10 +51,10 @@ if ($logged) {
     <main class="flex-column">
         <h1 class="text-center">Users</h1>
         <section class="flex-row w-100 jstfy-space-around">
-            <a href="users.php?filter=username"
+            <a href="/users?filter=username"
                 class="btn btn-light <?= ($filterType == 'username') ? 'text-primary' : 'text-secondary' ?>">Sortieren
                 nach username</a>
-            <a href="users.php?filter=id"
+            <a href="/users?filter=id"
                 class="btn btn-light <?= ($filterType == 'id') ? 'text-primary' : 'text-secondary' ?>">Sortieren nach
                 id</a>
         </section>
@@ -71,8 +69,8 @@ if ($logged) {
                     <?php endif; ?>
 
                     <section>
-                        <a href="user.php?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
-                        <a href="reservierungen.php?id=<?= $user['id'] ?>" class="btn btn-light">Reservierungen</a>
+                        <a href="/user?user=<?= $user['id'] ?>" class="btn btn-light">Edit</a>
+                        <a href="/reservierungen?id=<?= $user['id'] ?>" class="btn btn-light">Reservierungen</a>
                         <?php if ($user['status'] == 'active'): ?>
                             <a href="/actions/userstatus.php?status=inactive&user=<?= $user['id'] ?>" class="text-danger">Konto
                                 deaktivieren</a>

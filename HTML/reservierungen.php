@@ -1,17 +1,14 @@
 <?php
-include(__DIR__ . '/../components/header.php');
-include(__DIR__ . '/../components/nav.php');
-
 //redirect to the index.php when a logged out user visits this page through a direct link
 if (!isset($user)) {
-  header('Location: /index.php');
+  header('Location: /');
   die();
 }
 
 //if the user is logged in, but not an admin, the sql query won't be run
 //the isPermitted() function is not used so db-utils and the db connection are not loaded for no reason
 if ($user['rolle'] == 'admin') {
-  require_once('../components/db_utils.php');
+  require_once __DIR__ . '/../components/db_utils.php';
   $conn = connectDB();
   if (validateToken($conn)) {
     if (empty($_GET['filter']) && empty($_GET['id'])) {
@@ -49,7 +46,7 @@ if ($user['rolle'] == 'admin') {
   }
   closeConnection($conn);
 } else {
-  header('Location: /index.php');
+  header('Location: /');
   die();
 }
 
@@ -78,16 +75,16 @@ if ($user['rolle'] == 'admin') {
           <h2>Filter:</h2>
         </section>
         <section>
-          <a href="reservierungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+          <a href="/reservierungen?filter=neu" class="px-4 btn btn-primary"> Neu </a>
         </section>
         <section>
-          <a href="reservierungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+          <a href="/reservierungen?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
         </section>
         <section>
-          <a href="reservierungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+          <a href="/reservierungen?filter=storniert" class="btn btn-danger"> Storniert </a>
         </section>
         <section>
-          <a href="reservierungen.php" class="btn btn-secondary"> Filter löschen </a>
+          <a href="/reservierungen" class="btn btn-secondary"> Filter löschen </a>
         </section>
       </section>
     </section>
@@ -127,7 +124,7 @@ if ($user['rolle'] == 'admin') {
             <section class="container">
               <section class="row">
                 <section class="col">
-                  <a href="reservierung.php?id=<?= $booking['id'] ?>" class="btn btn-secondary">Mehr anzeigen</a>
+                  <a href="/reservierung?id=<?= $booking['id'] ?>" class="btn btn-secondary">Mehr anzeigen</a>
                 </section>
               </section>
             </section>
@@ -137,9 +134,6 @@ if ($user['rolle'] == 'admin') {
       <p class="text-center mt-3">Keine offenen Reservierungen.</p>
     <?php endif; ?>
   <?php endif; ?>
-  <?php
-  include(__DIR__ . '/../components/footer.php');
-  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

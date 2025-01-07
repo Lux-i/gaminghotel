@@ -1,8 +1,5 @@
 <?php
-include(__DIR__ . '/../components/header.php');
-include(__DIR__ . '/../components/nav.php');
-
-require_once('../components/db_utils.php');
+require_once __DIR__ . '/../components/db_utils.php';
 $conn = connectDB();
 if (validateToken($conn)) {
   if (empty($_GET['filter'])) {
@@ -51,16 +48,16 @@ closeConnection($conn);
           <h2>Filter:</h2>
         </section>
         <section>
-          <a href="meine_buchungen.php?filter=neu" class="px-4 btn btn-primary"> Neu </a>
+          <a href="meine_buchungen?filter=neu" class="px-4 btn btn-primary"> Neu </a>
         </section>
         <section>
-          <a href="meine_buchungen.php?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
+          <a href="meine_buchungen?filter=bestätigt" class="btn btn-success"> Bestätigt </a>
         </section>
         <section>
-          <a href="meine_buchungen.php?filter=storniert" class="btn btn-danger"> Storniert </a>
+          <a href="meine_buchungen?filter=storniert" class="btn btn-danger"> Storniert </a>
         </section>
         <section>
-          <a href="meine_buchungen.php" class="btn btn-secondary"> Filter löschen </a>
+          <a href="meine_buchungen" class="btn btn-secondary"> Filter löschen </a>
         </section>
       </section>
     </section>
@@ -125,9 +122,6 @@ closeConnection($conn);
   <?php else: ?>
     <p class="text-center">Sie sind nicht eingeloggt.</p>
   <?php endif; ?>
-  <?php
-  include(__DIR__ . '/../components/footer.php');
-  ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

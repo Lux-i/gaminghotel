@@ -1,8 +1,6 @@
 <?php
-include(__DIR__ . '/../components/header.php');
-include(__DIR__ . '/../components/nav.php');
-include('../components/dbaccess.php');
-require_once('../components/db_utils.php');
+include __DIR__ . '/../components/dbaccess.php';
+require_once __DIR__ . '/../components/db_utils.php';
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -11,7 +9,7 @@ if ($conn->connect_error) {
 }
 
 if (empty($_GET['id'])) {
-  header('Location: reservierungen.php');
+  header('Location: /reservierungen');
   die();
 }
 
@@ -30,7 +28,7 @@ if (validateToken($conn)) {
       $booking = $result->fetch_assoc();
     }
   } else {
-    header('Location: reservierungen.php');
+    header('Location: /reservierungen');
     die();
   }
 } else {
@@ -116,17 +114,13 @@ closeConnection($conn);
                   echo "hidden"; ?>>Bestätigen</button>
             </section>
             <section>
-              <a href="reservierungen.php" class="btn btn-secondary m-1">Zurück</a>
+              <a href="/reservierungen" class="btn btn-secondary m-1">Zurück</a>
             </section>
           </section>
         </form>
       </section>
   </main>
 </body>
-
-<?php
-include(__DIR__ . '/../components/footer.php');
-?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
