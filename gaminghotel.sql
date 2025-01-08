@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2024 at 08:45 PM
+-- Generation Time: Jan 08, 2025 at 08:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -60,7 +60,13 @@ INSERT INTO `bookings` (`id`, `userid`, `start`, `end`, `extras`, `price`, `stat
 (23, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 4, '2024-12-30'),
 (24, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 5, '2024-12-30'),
 (25, 10, '2025-01-01', '2025-01-02', NULL, 100, 'neu', 3, '2024-12-30'),
-(26, 10, '2025-01-01', '2025-01-02', NULL, 100, 'bestätigt', 2, '2024-12-30');
+(26, 10, '2025-01-01', '2025-01-02', NULL, 100, 'bestätigt', 2, '2024-12-30'),
+(27, 1, '2025-01-06', '2025-01-08', NULL, 200, 'neu', 1, '2025-01-05'),
+(28, 1, '2025-01-06', '2025-01-08', NULL, 200, 'neu', 2, '2025-01-05'),
+(29, 1, '2025-01-07', '2025-01-16', NULL, 900, 'neu', 4, '2025-01-05'),
+(30, 1, '2025-01-06', '2025-01-09', NULL, 300, 'neu', 5, '2025-01-05'),
+(31, 1, '2025-01-30', '2025-02-08', NULL, 900, 'neu', 1, '2025-01-05'),
+(32, 1, '2025-02-03', '2025-02-09', NULL, 600, 'neu', 2, '2025-01-05');
 
 -- --------------------------------------------------------
 
@@ -146,7 +152,7 @@ CREATE TABLE `userauth` (
 --
 
 INSERT INTO `userauth` (`userid`, `tokenhash`, `token_expires`) VALUES
-(1, '$argon2id$v=19$m=65536,t=4,p=1$QmdKZHRDTThWMWtST2hoUA$3pRN0XJ3j2RbNRx+SftF6yzsehLHubLCr10oblIBNqc', '2025-01-06'),
+(1, '$argon2id$v=19$m=65536,t=4,p=1$NUZVbGd0MUV3R2RJNkZxUw$nit6nhYSCetS4PWHNPHc+lFNDAIgirjX/c2a4Vtn1hk', '2025-01-13'),
 (8, '$argon2id$v=19$m=65536,t=4,p=1$MURHRVRuelNDLlFhMGRJeg$q3PgWZnvRo9CyFR4HUfmqpzu2k6tVQEDNfy66zpLHMI', '2025-01-06'),
 (10, '$argon2id$v=19$m=65536,t=4,p=1$M3ZYRC96ZFVTclRiQnpjOQ$PqOkNnclLfNk4rO7oVa7REIFMcBIJlPYxiie8sOeQeA', '2025-01-06');
 
@@ -223,7 +229,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `news_articles`
