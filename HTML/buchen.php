@@ -71,7 +71,7 @@
                   </label>
                 </section>
               </fieldset>
-              <input class="submit_button" type="submit" id="submitButton" value="Registrieren" disabled required />
+              <input class="submit_button" type="submit" id="submitButton" value="Zimmer buchen" disabled required />
             </form>
           </section>
         </section>
