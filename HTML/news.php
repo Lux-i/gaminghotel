@@ -80,8 +80,9 @@ closeConnection($conn);
         <?php $dt = new DateTime($article["upload_date"]); ?>
         <p><?= '[' . $dt->format('d.m.y') . "]: " . strip_tags($article["sub"]) ?></p>
       </section>
-      <section class="img-container img-thumbnail">
-        <img src="<?= htmlspecialchars($article["img_path"]) ?>" alt="<?= "Thumbnail vom Artikel: " . $article["title"]?>"/>
+      <section class="img-container img-thumbnail p-0">
+        <img src="<?= htmlspecialchars($article["img_path"]) ?>"
+          alt="<?= "Thumbnail vom Artikel: " . $article["title"] ?>" />
       </section>
     </a>
   <?php endforeach ?>
