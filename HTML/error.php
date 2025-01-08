@@ -25,11 +25,12 @@
         <section class="d-flex flex-column justify-content-center">
             <h3 class="text-center">Eine dieser Seiten Gesucht?</h3>
             <section class="d-flex flex-column mx-auto">
-                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
-                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
-                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
-                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
+                <a href="/HTML/hilfe.php" class="btn btn-primary mb-2">Hilfe</a>
+                <a href="/HTML/news.php" class="btn btn-primary mb-2">News</a>
+                <a href="/HTML/buchen.php" class="btn btn-primary mb-2">Buchen</a>
+                <a href="/" class="btn btn-primary mb-2">Zurück zur Startseite</a>
             </section>
+            <h4 class="text-center">Oder schauen sie zu unserer <a href="/sitemap.html">Sitemap</a></h4>
         </section>
     </main>
     <?php
