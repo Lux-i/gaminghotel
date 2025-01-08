@@ -5,6 +5,10 @@ body {
   font-size: 110%;
 }
 
+a {
+  color: #004EC2;
+}
+
 #header {
   padding: 2vh 1.5vw 2vh 1.5vw;
   display: flex;
@@ -32,7 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgb(229, 188, 138);
+  color: #734613;
 }
 
 #jahrgang {
