@@ -23,8 +23,8 @@
 }
 
 .mb_picture {
-  width: 15vw;
-  height: 15vw;
+  width: 30vw;
+  height: 30vw;
   border-radius: 0.5vw;
 }
 
@@ -40,7 +40,7 @@
   }
 
   .mb_picture {
-    width: 25vw;
-    height: 25vw;
+    width: 40vw;
+    height: 40vw;
   }
 }

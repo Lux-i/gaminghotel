@@ -26,3 +26,9 @@
     padding-left: 1em;
     padding-right: 1em;
 }
+
+@media (max-width: 600px) {
+    .news-pre .img-container {
+        aspect-ratio: 7 / 3;
+    }
+}
