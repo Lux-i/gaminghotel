@@ -22,9 +22,14 @@
             <h2 class="text-center">Die Seite die Sie versucht haben aufzurufen, existiert nicht!</h2>
         </section>
         <section class="data-splitter"></section>
-        <section class="flex-column justify-content-center">
+        <section class="d-flex flex-column justify-content-center">
             <h3 class="text-center">Eine dieser Seiten Gesucht?</h3>
-            <a href="index.php" class="btn btn-primary">Zurück zur Startseite</a>
+            <section class="d-flex flex-column mx-auto">
+                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
+                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
+                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
+                <a href="index.php" class="btn btn-primary mb-2">Zurück zur Startseite</a>
+            </section>
         </section>
     </main>
     <?php
