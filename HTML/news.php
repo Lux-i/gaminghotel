@@ -46,7 +46,7 @@ closeConnection($conn);
     <?php if ($user['rolle'] == "admin"): ?>
 
       <main class="d-flex flex-row">
-        <section class="login-window mb-3 w-75">
+        <section class="login-window mb-3">
           <form action="/actions/upload.php" method="POST" enctype="multipart/form-data">
             <h2 class="border-bottom-black">Neuer Artikel</h2>
             <div class="mb-4">
@@ -63,7 +63,7 @@ closeConnection($conn);
                 cols="50"></textarea>
             </div>
             <div class="d-flex justify-content-center">
-              <input class="submit_button w-25" type="submit" name="submit" value="Veröffentlichen" />
+              <input class="submit_button" type="submit" name="submit" value="Veröffentlichen" />
             </div>
           </form>
         </section>
@@ -74,7 +74,7 @@ closeConnection($conn);
 
   <?php foreach ($news as $article): ?>
     <a href="article.php?id=<?= urlencode($article['id']) ?>"
-      class="d-block text-decoration-none text-reset container w-75 news-pre text-start p-0">
+      class="d-block text-decoration-none text-reset container news-pre text-start p-0">
       <section class="txt-container">
         <h2><?= htmlspecialchars($article["title"]) ?></h2>
         <?php $dt = new DateTime($article["upload_date"]); ?>

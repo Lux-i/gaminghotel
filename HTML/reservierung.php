@@ -53,7 +53,7 @@ closeConnection($conn);
   <link rel="stylesheet" href="../css/login-register.css" />
 </head>
 
-<body>
+<body class="ghostwhite">
   <section>
     <h2 class="mt-3 text-center border-bottom-black w-75 mx-auto">Details zur Reservierung</h2>
   </section>
