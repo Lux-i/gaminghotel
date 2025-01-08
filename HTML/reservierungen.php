@@ -72,7 +72,7 @@ if ($user['rolle'] == 'admin') {
   <h1 class="text-center mt-4 mb-4">Reservierungen</h1>
 
   <?php if ($_SESSION['logged'] == true): ?>
-    <section class="login-window w-50 container">
+    <section class="login-window container">
       <section class="flex-row flex-wrap justify-content-between align-items-center mx-2">
         <section class="">
           <h2>Filter:</h2>
@@ -94,7 +94,7 @@ if ($user['rolle'] == 'admin') {
     <?php if (!empty($bookings)): ?>
       <?php foreach ($bookings as $booking): ?>
         <main class="d-flex justify-content-center">
-          <section class="login-window w-75">
+          <section class="login-window">
             <p class="px-3">Reserviert für:
               <?= ucfirst($booking['anrede']) . " " . $booking['name'] . " " . $booking['nachname']; ?>
             </p>
