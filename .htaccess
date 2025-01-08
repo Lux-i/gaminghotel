@@ -1,6 +1,9 @@
 RewriteEngine On
 
+#Redirect when File does not exist or users tries to navigate to a Folder
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond ${REQUEST_FILENAME} !-d [OR]
+RewriteCond ${REQUEST_FILENAME} -d
 
-RewriteRule /HTML/error.php
+#Redirect to error page
+RewriteRule . /HTML/error.php
