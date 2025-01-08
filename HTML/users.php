@@ -49,7 +49,7 @@ if ($logged) {
     <?php include(__DIR__ . '/../components/main_style.php'); ?>
 </head>
 
-<body>
+<body class="ghostwhite">
     <main class="flex-column">
         <h1 class="text-center">Users</h1>
         <section class="flex-row w-100 jstfy-space-around">
