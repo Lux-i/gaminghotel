@@ -1,6 +1,6 @@
 <?php
-include('header.php');
-require_once('db_utils.php');
+include('../components/header.php');
+require_once('../components/db_utils.php');
 
 // Create connection
 $conn = connectDB();
